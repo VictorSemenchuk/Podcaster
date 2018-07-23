@@ -11,7 +11,6 @@
 
 @interface ItemCoreData : NSManagedObject
 
-@property (assign, nonatomic) NSUInteger guid;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *author;
 @property (nonatomic) NSString *details;

@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SourceType.h"
 
 @protocol XMLParserDelegate <NSObject>
 
-- (void)wasParsedXMLForSourceType:(SourceType)sourceType data:(NSArray *)data;
+- (void)wasParsedData:(NSArray *)data;
 
 @end
 
@@ -20,7 +19,6 @@
 @property (weak, nonatomic) id<XMLParserDelegate> delegate;
 
 - (instancetype)initWithTags:(NSArray *)tags rssUrl:(NSString *)stringUrl;
-- (instancetype)initWithTags:(NSArray *)tags rssUrl:(NSString *)stringUrl sourceType:(SourceType)sourceType;
 - (void)startParsing;
 
 @end

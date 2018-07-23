@@ -13,7 +13,6 @@
 @property (nonatomic) NSXMLParser *parser;
 @property (nonatomic) NSString *element;
 
-@property (assign, nonatomic) SourceType sourceType;
 @property (nonatomic) NSArray *tags;
 @property (nonatomic) NSString *stringUrl;
 @property (nonatomic) NSMutableArray *items;
@@ -32,16 +31,6 @@
     if (self) {
         _tags = tags;
         _stringUrl = stringUrl;
-    }
-    return self;
-}
-
-- (instancetype)initWithTags:(NSArray *)tags rssUrl:(NSString *)stringUrl sourceType:(SourceType)sourceType {
-    self = [super init];
-    if (self) {
-        _tags = tags;
-        _stringUrl = stringUrl;
-        _sourceType = sourceType;
     }
     return self;
 }
@@ -105,9 +94,7 @@
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
     NSLog(@"%lu", self.items.count);
-    if (self.delegate) {
-        [self.delegate wasParsedXMLForSourceType:self.sourceType data:[self.items copy]];
-    }
+    [self.delegate wasParsedData:[self.items copy]];
 }
 
 

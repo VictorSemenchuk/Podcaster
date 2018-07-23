@@ -7,7 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SourceType.h"
 
 @interface Item : NSObject
+
+@property (nonatomic) NSString *title;
+@property (nonatomic) NSString *author;
+@property (nonatomic) NSString *details;
+@property (nonatomic) NSString *duration;
+@property (nonatomic) NSString *pubDate;
+@property (assign, nonatomic) SourceType sourceType;
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType;
 
 @end

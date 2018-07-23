@@ -10,7 +10,6 @@
 
 @implementation ItemCoreData
 
-@dynamic guid;
 @dynamic title;
 @dynamic author;
 @dynamic details;

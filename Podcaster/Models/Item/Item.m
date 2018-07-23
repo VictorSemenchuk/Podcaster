@@ -7,7 +7,25 @@
 //
 
 #import "Item.h"
+#import "Constants.h"
 
 @implementation Item
+
+- (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType {
+    self = [super init];
+    if (self) {
+        _sourceType = sourceType;
+        _title = dictionary[kItemEntityFieldTitle];
+        _author = dictionary[kItemEntityFieldAuthor];
+        _details = [dictionary[kItemEntityFieldDetails] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        _duration = dictionary[kItemEntityFieldDuration];
+        _pubDate = dictionary[kItemEntityFieldPubDate];
+    }
+    return self;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"Title: %@, author: %@, details: %@, duration: %@, pubDate: %@, sourceType: %d", self.title, self.author, self.details, self.duration, self.pubDate, self.sourceType];
+}
 
 @end

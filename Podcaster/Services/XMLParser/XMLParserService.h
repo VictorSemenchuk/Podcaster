@@ -12,7 +12,7 @@
 
 @protocol XMLParserServiceDelegate <NSObject>
 
-- (void)wasParsedItems:(NSArray *)items;
+- (void)wasParsedItems:(NSArray *)items forSourceType:(SourceType)sourceType;
 
 @end
 

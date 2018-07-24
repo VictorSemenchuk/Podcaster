@@ -12,6 +12,7 @@
 
 @property (nonatomic) NSXMLParser *parser;
 @property (nonatomic) NSString *element;
+@property (nonatomic) NSString *itemName;
 
 @property (nonatomic) NSArray *tags;
 @property (nonatomic) NSString *stringUrl;
@@ -44,7 +45,6 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
     NSURLSessionDownloadTask *task = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (error == nil) {
-            NSLog(@"Source file location: %@", location);
             NSData *data = [NSData dataWithContentsOfURL:location];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.parser = [[NSXMLParser alloc] initWithData:data];
@@ -72,16 +72,27 @@
     self.element = elementName;
     if ([self.element isEqualToString:@"item"]) {
         self.item = [[NSMutableDictionary alloc] init];
-        for (NSString *tag in self.tags) {
-            self.item[tag] = [[NSMutableString alloc] init];
-        }
+        self.itemName = self.element;
+    } else if (([self.tags containsObject:self.element]) && ([attributeDict.allKeys count] > 0)) {
+        self.item[self.element] = [NSMutableDictionary dictionaryWithDictionary:attributeDict];
     }
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    for (NSString *tag in self.tags) {
-        if ([self.element isEqualToString:tag]) {
-            [self.item[tag] appendString:string];
+    if ([self.itemName isEqualToString:@"item"]) {
+        for (NSString *tag in self.tags) {
+            if ([self.element isEqualToString:tag]) {
+                if (self.item[tag] == nil) {
+                    self.item[tag] = [[NSMutableString alloc] init];
+                    [self.item[tag] appendString:[string stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]]];
+                } else if (([self.item[tag] isKindOfClass:NSMutableDictionary.class]) && ([tag isEqualToString:@"guid"])) {
+                    if (self.item[tag][@"value"] != nil) {
+                        return;
+                    }
+                    self.item[tag][@"value"] = [[NSMutableString alloc] init];
+                    [self.item[tag][@"value"] appendString:string];
+                }
+            }
         }
     }
 }
@@ -93,7 +104,6 @@
 }
 
 - (void)parserDidEndDocument:(NSXMLParser *)parser {
-    NSLog(@"%lu", self.items.count);
     [self.delegate wasParsedData:[self.items copy]];
 }
 

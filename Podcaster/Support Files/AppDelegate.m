@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "ViewController.h"
+#import "FeedViewController.h"
+#import "ContentViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,12 +18,16 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
     CGRect screenFrame = UIScreen.mainScreen.bounds;
     UIWindow *window = [[UIWindow alloc] initWithFrame:screenFrame];
     
-    ViewController *vc = [[ViewController alloc] init];
-    window.rootViewController = vc;
+    UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
+    
+    FeedViewController *feedVC = [[FeedViewController alloc] init];
+    ContentViewController *contentVC = [[ContentViewController alloc] init];
+    
+    splitViewController.viewControllers = [NSArray arrayWithObjects:feedVC, contentVC, nil];
+    window.rootViewController = splitViewController;
     
     self.window = window;
     [window makeKeyAndVisible];

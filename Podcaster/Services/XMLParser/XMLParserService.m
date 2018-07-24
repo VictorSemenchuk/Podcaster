@@ -48,7 +48,7 @@
         Item *modelItem = [[Item alloc] initWithDictionary:item andSourceType:self.sourceType];
         [items addObject:modelItem];
     }
-    [self.delegate wasParsedItems:items];
+    [self.delegate wasParsedItems:items forSourceType:self.sourceType];
 }
 
 @end

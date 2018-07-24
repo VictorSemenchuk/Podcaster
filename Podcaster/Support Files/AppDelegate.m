@@ -24,9 +24,10 @@
     UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
     
     FeedViewController *feedVC = [[FeedViewController alloc] init];
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:feedVC];
     ContentViewController *contentVC = [[ContentViewController alloc] init];
     
-    splitViewController.viewControllers = [NSArray arrayWithObjects:feedVC, contentVC, nil];
+    splitViewController.viewControllers = [NSArray arrayWithObjects:navVC, contentVC, nil];
     window.rootViewController = splitViewController;
     
     self.window = window;

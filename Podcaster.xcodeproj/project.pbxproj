@@ -24,6 +24,8 @@
 		DA8794402106303E0033F7CD /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87943F2106303E0033F7CD /* ImageContentCoreData.m */; };
 		DA8794472106315D0033F7CD /* MediaContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794462106315D0033F7CD /* MediaContentCoreData.m */; };
 		DA87944A2106316A0033F7CD /* MediaContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794492106316A0033F7CD /* MediaContent.m */; };
+		EFABF1B32107A8F100659AEB /* FeedViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */; };
+		EFABF1B82107A9CF00659AEB /* MP3CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +63,10 @@
 		DA8794462106315D0033F7CD /* MediaContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaContentCoreData.m; sourceTree = "<group>"; };
 		DA8794482106316A0033F7CD /* MediaContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaContent.h; sourceTree = "<group>"; };
 		DA8794492106316A0033F7CD /* MediaContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaContent.m; sourceTree = "<group>"; };
+		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
+		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
+		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
+		EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MP3CollectionViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 				DA26C5FA2107584600244984 /* FeedViewController+Parsing.m */,
 				DA26C5FC21075A8900244984 /* FeedViewController+Constraints.h */,
 				DA26C5FD21075A8900244984 /* FeedViewController+Constraints.m */,
+				EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */,
+				EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */,
 			);
 			path = FeedViewController;
 			sourceTree = "<group>";
@@ -117,9 +125,10 @@
 			children = (
 				DA87943621061D390033F7CD /* Constants */,
 				DA87942E2106116C0033F7CD /* Helpers */,
-				DA8794262105F3460033F7CD /* Models */,
 				DA8794222105F2E80033F7CD /* Services */,
 				DA8794302106164B0033F7CD /* Parsers */,
+				DA8794262105F3460033F7CD /* Models */,
+				EFABF1B42107A97600659AEB /* Views */,
 				DA87943521061D0D0033F7CD /* Controllers */,
 				DA87943421061CF80033F7CD /* Support Files */,
 				DA8794172105E3680033F7CD /* Info.plist */,
@@ -234,6 +243,23 @@
 			path = XMLParser;
 			sourceTree = "<group>";
 		};
+		EFABF1B42107A97600659AEB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EFABF1B52107A98400659AEB /* CollectionViewCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EFABF1B52107A98400659AEB /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */,
+				EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */,
+			);
+			path = CollectionViewCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -309,11 +335,13 @@
 				DA8794472106315D0033F7CD /* MediaContentCoreData.m in Sources */,
 				DA8794252105F3420033F7CD /* ItemCoreData.m in Sources */,
 				DA87944A2106316A0033F7CD /* MediaContent.m in Sources */,
+				EFABF1B82107A9CF00659AEB /* MP3CollectionViewCell.m in Sources */,
 				DA87943921061D630033F7CD /* Constants.m in Sources */,
 				DA8794212105F2490033F7CD /* FeedViewController.m in Sources */,
 				DA8794192105E3680033F7CD /* main.m in Sources */,
 				DA26C5FB2107584600244984 /* FeedViewController+Parsing.m in Sources */,
 				DA87940B2105E3660033F7CD /* AppDelegate.m in Sources */,
+				EFABF1B32107A8F100659AEB /* FeedViewController+CollectionView.m in Sources */,
 				DA26C60121075E8500244984 /* ContentViewController.m in Sources */,
 				DA87943D21062CBA0033F7CD /* ImageContent.m in Sources */,
 				DA8794402106303E0033F7CD /* ImageContentCoreData.m in Sources */,

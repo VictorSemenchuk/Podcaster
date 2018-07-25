@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "FeedViewController.h"
 #import "ContentViewController.h"
+#import "SplitViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,23 +17,13 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     CGRect screenFrame = UIScreen.mainScreen.bounds;
     UIWindow *window = [[UIWindow alloc] initWithFrame:screenFrame];
-    
-    UISplitViewController *splitViewController = [[UISplitViewController alloc] init];
-    
-    FeedViewController *feedVC = [[FeedViewController alloc] init];
-    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:feedVC];
-    ContentViewController *contentVC = [[ContentViewController alloc] init];
-    
-    splitViewController.viewControllers = [NSArray arrayWithObjects:navVC, contentVC, nil];
+    SplitViewController *splitViewController = [[SplitViewController alloc] init];
     window.rootViewController = splitViewController;
-    
     self.window = window;
     [window makeKeyAndVisible];
-    
     return YES;
 }
 

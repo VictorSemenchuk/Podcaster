@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Constants.h"
 
 @interface ContentViewController : UIViewController
+
+@property (nonatomic) UIScrollView *scrollView;
+@property (nonatomic) UIView *contentView;
+@property (nonatomic) UILabel *titleLabel;
 
 @end

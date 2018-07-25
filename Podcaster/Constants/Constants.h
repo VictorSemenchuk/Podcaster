@@ -30,9 +30,30 @@ extern NSString * const kTEDSourceTypeUrl;
 #pragma mark - Cell identifiers
 
 extern NSString * const kMP3CollectionViewCellIdentifier;
+extern NSString * const kTEDCollectionViewCellIdentifier;
 
-#pragma mark - Colors
+#pragma mark - Font sizes
 
-//extern UIColor * const kFeedCollectionViewBGColor;
+extern const float kFontSizeSmall;
+extern const float kFontSizeRegular;
+extern const float kFontSizeHeavy;
+extern const float kFontSizeHuge;
+
+#pragma mark - Assets
+
+extern NSString * const kMP3ItemImagePlaceholder;
+extern NSString * const kTEDItemImagePlaceholder;
+
+#pragma mark - Paddings
+
+extern const float kCollectionViewLeftRightPadding;
+extern const float kCollectionViewTopBottomPadding;
+
+#pragma mark - Sizes
+
+extern const float kMP3ImagePlaceholderWidth;
+extern const float kMP3ImagePlaceholderHeight;
+extern const float kTEDImagePlaceholderWidth;
+extern const float kTEDImagePlaceholderHeight;
 
 #endif /* Constants_h */

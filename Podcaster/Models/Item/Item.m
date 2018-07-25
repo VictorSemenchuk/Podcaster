@@ -8,6 +8,7 @@
 
 #import "Item.h"
 #import "Constants.h"
+#import "DateFormatter.h"
 
 @implementation Item
 
@@ -20,9 +21,9 @@
         _author = dictionary[kItemEntityFieldAuthor];
         _details = dictionary[kItemEntityFieldDetails];
         _duration = dictionary[kItemEntityFieldDuration];
-        _pubDate = dictionary[kItemEntityFieldPubDate];
         _imageWebLink = dictionary[kItemEntityFieldImage][@"href"];
         _contentWebLink = dictionary[kItemEntityFieldContent][@"url"];
+        _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
     }
     return self;
 }

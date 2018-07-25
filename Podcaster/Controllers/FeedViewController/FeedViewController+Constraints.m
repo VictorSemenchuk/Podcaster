@@ -11,6 +11,8 @@
 @implementation FeedViewController (Constraints)
 
 - (void)setupViews {
+    self.navigationItem.title = @"Feed";
+    
     [self.view addSubview:self.collectionView];
     [NSLayoutConstraint activateConstraints:@[[self.collectionView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
                                               [self.collectionView.topAnchor constraintEqualToAnchor:self.view.topAnchor],

@@ -11,7 +11,9 @@
 #import "FeedViewController+Constraints.h"
 #import "FeedViewController+CollectionView.h"
 #import "MP3CollectionViewCell.h"
+#import "TEDCollectionViewCell.h"
 #import "Constants.h"
+#import "UIColor+CustomColors.h"
 
 @interface FeedViewController ()
 
@@ -21,8 +23,9 @@
 
 #pragma mark - LifeCycle
 
-- (void)loadView {
-    [super loadView];
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
     self.tags = @[kItemEntityFieldGUID,
                   kItemEntityFieldTitle,
                   kItemEntityFieldAuthor,
@@ -35,15 +38,10 @@
     
     [self setupXMLServiceForSourceType:kMP3];
     [self setupXMLServiceForSourceType:kTED];
-    
-    [self setupViews];
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
     [self.xmlParserServiceMP3 startParsing];
     [self.xmlParserServiceTED startParsing];
+    
+    [self setupViews];
 }
 
 #pragma mark - Lazy init properties
@@ -53,11 +51,12 @@
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
-        _collectionView.backgroundColor = [UIColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
-        _collectionView.contentInset = UIEdgeInsetsMake(10.0, 0.0, 10.0, 0.0);
+        _collectionView.backgroundColor = [UIColor collectionViewBGColorVS];
+        _collectionView.contentInset = UIEdgeInsetsMake(kCollectionViewTopBottomPadding, 0.0, kCollectionViewTopBottomPadding, 0.0);
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:MP3CollectionViewCell.class forCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier];
+        [_collectionView registerClass:TEDCollectionViewCell.class forCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier];
     }
     return _collectionView;
 }

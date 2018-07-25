@@ -28,7 +28,28 @@ NSString * const kTEDSourceTypeUrl = @"http://feeds.feedburner.com/tedtalks_vide
 #pragma mark - Cell identifiers
 
 NSString * const kMP3CollectionViewCellIdentifier = @"kMP3CollectionViewCellIdentifier";
+NSString * const kTEDCollectionViewCellIdentifier = @"kTEDCollectionViewCellIdentifier";
 
-#pragma mark - Colors
+#pragma mark - Font sizes
 
-//UIColor * const kFeedCollectionViewBGColor = [UIColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
+const float kFontSizeSmall = 11.0;
+const float kFontSizeRegular = 12.0;
+const float kFontSizeHeavy = 14.0;
+const float kFontSizeHuge = 16.0;
+
+#pragma mark - Assets
+
+NSString * const kMP3ItemImagePlaceholder = @"MP3ItemImagePlaceholder";
+NSString * const kTEDItemImagePlaceholder = @"TEDItemImagePlaceholder";
+
+#pragma mark - Paddings
+
+const float kCollectionViewLeftRightPadding = 10.0;
+const float kCollectionViewTopBottomPadding = 10.0;
+
+#pragma mark - Padding
+
+const float kMP3ImagePlaceholderWidth = 60.0;
+const float kMP3ImagePlaceholderHeight = 60.0;
+const float kTEDImagePlaceholderWidth = 106.0;
+const float kTEDImagePlaceholderHeight = 60.0;

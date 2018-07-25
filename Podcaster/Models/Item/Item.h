@@ -16,7 +16,7 @@
 @property (nonatomic) NSString *author;
 @property (nonatomic) NSString *details;
 @property (nonatomic) NSString *duration;
-@property (nonatomic) NSString *pubDate;
+@property (nonatomic) NSDate *pubDate;
 @property (assign, nonatomic) SourceType sourceType;
 
 @property (nonatomic) NSString *imageWebLink;

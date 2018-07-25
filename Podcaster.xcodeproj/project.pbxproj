@@ -29,6 +29,9 @@
 		DA95A3C9210882F40007F078 /* TEDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C8210882F40007F078 /* TEDCollectionViewCell.m */; };
 		DA95A3CC210883410007F078 /* VSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3CB210883410007F078 /* VSCollectionViewCell.m */; };
 		DA95A3CF2108B5EE0007F078 /* DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3CE2108B5EE0007F078 /* DateFormatter.m */; };
+		DA95A3D22108E6B20007F078 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D02108E6B20007F078 /* Model.xcdatamodeld */; };
+		DA95A3D62108E8DC0007F078 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D52108E8DC0007F078 /* CoreDataManager.m */; };
+		DA95A3DA2108EA130007F078 /* ItemCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D92108EA130007F078 /* ItemCoreDataService.m */; };
 		EFABF1B32107A8F100659AEB /* FeedViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */; };
 		EFABF1B82107A9CF00659AEB /* MP3CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */; };
 /* End PBXBuildFile section */
@@ -78,6 +81,11 @@
 		DA95A3CB210883410007F078 /* VSCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSCollectionViewCell.m; sourceTree = "<group>"; };
 		DA95A3CD2108B5EE0007F078 /* DateFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateFormatter.h; sourceTree = "<group>"; };
 		DA95A3CE2108B5EE0007F078 /* DateFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateFormatter.m; sourceTree = "<group>"; };
+		DA95A3D12108E6B20007F078 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DA95A3D42108E8DC0007F078 /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
+		DA95A3D52108E8DC0007F078 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
+		DA95A3D82108EA130007F078 /* ItemCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCoreDataService.h; sourceTree = "<group>"; };
+		DA95A3D92108EA130007F078 /* ItemCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCoreDataService.m; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -143,11 +151,13 @@
 				DA87942E2106116C0033F7CD /* Helpers */,
 				DA8794222105F2E80033F7CD /* Services */,
 				DA8794302106164B0033F7CD /* Parsers */,
+				DA95A3D32108E8B80007F078 /* Managers */,
 				DA8794262105F3460033F7CD /* Models */,
 				EFABF1B42107A97600659AEB /* Views */,
 				DA87943521061D0D0033F7CD /* Controllers */,
 				DA87943421061CF80033F7CD /* Support Files */,
 				DA8794172105E3680033F7CD /* Info.plist */,
+				DA95A3D02108E6B20007F078 /* Model.xcdatamodeld */,
 			);
 			path = Podcaster;
 			sourceTree = "<group>";
@@ -155,6 +165,7 @@
 		DA8794222105F2E80033F7CD /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				DA95A3D72108E9FD0007F078 /* CoreData */,
 				DA87944B210631B70033F7CD /* XMLParser */,
 			);
 			path = Services;
@@ -280,6 +291,24 @@
 			path = SplitViewController;
 			sourceTree = "<group>";
 		};
+		DA95A3D32108E8B80007F078 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				DA95A3D42108E8DC0007F078 /* CoreDataManager.h */,
+				DA95A3D52108E8DC0007F078 /* CoreDataManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		DA95A3D72108E9FD0007F078 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				DA95A3D82108EA130007F078 /* ItemCoreDataService.h */,
+				DA95A3D92108EA130007F078 /* ItemCoreDataService.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		EFABF1B42107A97600659AEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -371,7 +400,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA26C5FE21075A8900244984 /* FeedViewController+Constraints.m in Sources */,
+				DA95A3D22108E6B20007F078 /* Model.xcdatamodeld in Sources */,
 				DA8794332106180E0033F7CD /* XMLParserService.m in Sources */,
+				DA95A3DA2108EA130007F078 /* ItemCoreDataService.m in Sources */,
 				DA87942D210605AF0033F7CD /* Item.m in Sources */,
 				DA8794472106315D0033F7CD /* MediaContentCoreData.m in Sources */,
 				DA95A3CC210883410007F078 /* VSCollectionViewCell.m in Sources */,
@@ -387,6 +418,7 @@
 				DA95A3C2210866B80007F078 /* UIColor+CustomColors.m in Sources */,
 				DA95A3C9210882F40007F078 /* TEDCollectionViewCell.m in Sources */,
 				DA95A3CF2108B5EE0007F078 /* DateFormatter.m in Sources */,
+				DA95A3D62108E8DC0007F078 /* CoreDataManager.m in Sources */,
 				EFABF1B32107A8F100659AEB /* FeedViewController+CollectionView.m in Sources */,
 				DA26C60121075E8500244984 /* ContentViewController.m in Sources */,
 				DA87943D21062CBA0033F7CD /* ImageContent.m in Sources */,
@@ -573,6 +605,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA95A3D02108E6B20007F078 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA95A3D12108E6B20007F078 /* Model.xcdatamodel */,
+			);
+			currentVersion = DA95A3D12108E6B20007F078 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA8793FE2105E3660033F7CD /* Project object */;
 }

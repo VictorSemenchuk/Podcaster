@@ -7,16 +7,17 @@
 //
 
 #import "ImageContent.h"
+#import "ImageContentCoreData.h"
 
 @implementation ImageContent
 
-//- (instancetype)initWithMO:(ImageContentCoreData *)imageMO {
-//    self = [super init];
-//    if (self) {
-//        _webUrl = imageMO.webUrl;
-//        _localUrl = imageMO.localUrl;
-//    }
-//    return self;
-//}
+- (instancetype)initWithMO:(ImageContentCoreData *)imageMO {
+    self = [super init];
+    if (self) {
+        _webUrl = imageMO.webUrl;
+        _localUrl = imageMO.localUrl;
+    }
+    return self;
+}
 
 @end

@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MediaContentCoreData.h"
 
+@class MediaContentCoreData;
 @interface MediaContent : NSObject
 
 @property (nonatomic) NSString *localUrl;

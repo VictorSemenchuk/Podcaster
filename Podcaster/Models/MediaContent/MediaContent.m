@@ -7,6 +7,7 @@
 //
 
 #import "MediaContent.h"
+#import "MediaContentCoreData.h"
 
 @implementation MediaContent
 

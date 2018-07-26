@@ -32,6 +32,7 @@
 		DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D52108E8DC0007F078 /* CoreDataManager.m */; };
 		DA8794132105E3680033F7CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8794122105E3680033F7CD /* Assets.xcassets */; };
 		DA8794162105E3680033F7CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8794142105E3680033F7CD /* LaunchScreen.storyboard */; };
+		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +83,8 @@
 		DA95A3D52108E8DC0007F078 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		DA95A3D82108EA130007F078 /* ItemCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCoreDataService.h; sourceTree = "<group>"; };
 		DA95A3D92108EA130007F078 /* ItemCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCoreDataService.m; sourceTree = "<group>"; };
+		DAECE5522109E642004B2849 /* ImageContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContentCoreData.h; sourceTree = "<group>"; };
+		DAECE5532109E642004B2849 /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -243,6 +246,8 @@
 			children = (
 				DA87943B21062CBA0033F7CD /* ImageContent.h */,
 				DA87943C21062CBA0033F7CD /* ImageContent.m */,
+				DAECE5522109E642004B2849 /* ImageContentCoreData.h */,
+				DAECE5532109E642004B2849 /* ImageContentCoreData.m */,
 			);
 			path = ImageContent;
 			sourceTree = "<group>";
@@ -403,6 +408,7 @@
 				DA1007472109CE7300A33EB8 /* FeedViewController+Parsing.m in Sources */,
 				DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */,
 				DA1007492109CE7300A33EB8 /* FeedViewController+CollectionView.m in Sources */,
+				DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */,
 				DA10074A2109CE7300A33EB8 /* ContentViewController.m in Sources */,
 				DA10074B2109CE7300A33EB8 /* AppDelegate.m in Sources */,
 				DA10074C2109CE7300A33EB8 /* main.m in Sources */,

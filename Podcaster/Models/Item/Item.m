@@ -9,6 +9,7 @@
 #import "Item.h"
 #import "Constants.h"
 #import "DateFormatter.h"
+#import "ItemCoreData.h"
 
 @implementation Item
 

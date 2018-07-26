@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ItemCoreData.h"
 #import "SourceType.h"
 #import "ImageContent.h"
 #import "MediaContent.h"
 
+
+@class ItemCoreData;
 @interface Item : NSObject
 
 @property (nonatomic) NSString *guId;

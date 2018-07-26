@@ -7,13 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-//#import "ImageContentCoreData.m"
 
+@class ImageContentCoreData;
 @interface ImageContent : NSObject
 
 @property (nonatomic) NSString *localUrl;
 @property (nonatomic) NSString *webUrl;
 
-//- (instancetype)initWithMO:(ImageContentCoreData *)imageMO;
+- (instancetype)initWithMO:(ImageContentCoreData *)imageMO;
 
 @end

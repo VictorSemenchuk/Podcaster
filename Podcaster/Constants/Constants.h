@@ -44,11 +44,12 @@ extern const float kFontSizeHugeHeavy;
 
 extern NSString * const kMP3ItemImagePlaceholder;
 extern NSString * const kTEDItemImagePlaceholder;
+extern NSString * const kTEDItemImagePlaceholderHuge;
 
 #pragma mark - Paddings
 
-extern const float kCollectionViewLeftRightPadding;
-extern const float kCollectionViewTopBottomPadding;
+extern const float kLeftRightPadding;
+extern const float kTopBottomPadding;
 
 #pragma mark - Sizes
 

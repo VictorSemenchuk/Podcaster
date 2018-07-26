@@ -35,6 +35,7 @@
         _titleLabel.textColor = [UIColor darkGrayColorVS];
         _titleLabel.scrollEnabled = NO;
         _titleLabel.editable = NO;
+        _titleLabel.selectable = NO;
         _titleLabel.textContainerInset = UIEdgeInsetsZero;
         _titleLabel.contentInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0);
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -45,7 +46,7 @@
 - (UILabel *)authorLabel {
     if (!_authorLabel) {
         _authorLabel = [[UILabel alloc] init];
-        _authorLabel.font = [UIFont systemFontOfSize:kFontSizeSmall weight:UIFontWeightSemibold];
+        _authorLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightSemibold];
         _authorLabel.textColor = [UIColor darkGrayColorVS];
         _authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
@@ -55,7 +56,7 @@
 - (UILabel *)pubDateAndDurationLabel {
     if (!_pubDateAndDurationLabel) {
         _pubDateAndDurationLabel = [[UILabel alloc] init];
-        _pubDateAndDurationLabel.font = [UIFont systemFontOfSize:kFontSizeSmall weight:UIFontWeightRegular];
+        _pubDateAndDurationLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
         _pubDateAndDurationLabel.textColor = [UIColor lightGrayColorVS];
         _pubDateAndDurationLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
@@ -103,9 +104,9 @@
     [self addSubview:headerView];
     [self addSubview:self.separatorView];
     
-    [NSLayoutConstraint activateConstraints: @[[headerView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kCollectionViewLeftRightPadding],
-                                               [headerView.topAnchor constraintEqualToAnchor:self.topAnchor constant:kCollectionViewTopBottomPadding],
-                                               [headerView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kCollectionViewLeftRightPadding],
+    [NSLayoutConstraint activateConstraints: @[[headerView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
+                                               [headerView.topAnchor constraintEqualToAnchor:self.topAnchor constant:kTopBottomPadding],
+                                               [headerView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
                                                [headerView.heightAnchor constraintEqualToConstant:kMP3ImagePlaceholderHeight],
                                                [self.imageView.topAnchor constraintEqualToAnchor:headerView.topAnchor],
                                                [self.imageView.trailingAnchor constraintEqualToAnchor:headerView.trailingAnchor],
@@ -125,15 +126,15 @@
     [self addSubview:infoStackView];
     [self addSubview:self.downloadButton];
     
-    [NSLayoutConstraint activateConstraints: @[[infoStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kCollectionViewLeftRightPadding],
+    [NSLayoutConstraint activateConstraints: @[[infoStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
                                                [infoStackView.topAnchor constraintEqualToAnchor:headerView.bottomAnchor constant:10.0],
-                                               [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kCollectionViewLeftRightPadding],
+                                               [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
                                                [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
                                                [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
                                                [self.downloadButton.bottomAnchor constraintEqualToAnchor:infoStackView.bottomAnchor],
-                                               [infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-kCollectionViewLeftRightPadding],
-                                               [self.separatorView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kCollectionViewLeftRightPadding],
-                                               [self.separatorView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kCollectionViewLeftRightPadding],
+                                               [infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-kLeftRightPadding],
+                                               [self.separatorView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
+                                               [self.separatorView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
                                                [self.separatorView.heightAnchor constraintEqualToConstant:1.0],
                                                [self.separatorView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant: -1.0]
                                                ]];
@@ -145,7 +146,7 @@
     
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"dd MMM yyyy"];
-    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@ ᛫ %@", item.duration, [dateFormat stringFromDate:item.pubDate]];
+    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [dateFormat stringFromDate:item.pubDate]];
 }
 
 @end

@@ -14,6 +14,7 @@
 @property (nonatomic) NSString *localUrl;
 @property (nonatomic) NSString *webUrl;
 
+- (instancetype)initWithWebUrl:(NSString *)webUrl andLocalUrl:(NSString *)localUrl;
 - (instancetype)initWithMO:(ImageContentCoreData *)imageMO;
 
 @end

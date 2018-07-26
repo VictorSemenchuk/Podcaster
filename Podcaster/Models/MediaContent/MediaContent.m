@@ -11,6 +11,15 @@
 
 @implementation MediaContent
 
+- (instancetype)initWithWebUrl:(NSString *)webUrl andLocalUrl:(NSString *)localUrl {
+    self = [super init];
+    if (self) {
+        _webUrl = webUrl;
+        _localUrl = localUrl;
+    }
+    return self;
+}
+
 - (instancetype)initWithMO:(MediaContentCoreData *)contentMO {
     self = [super init];
     if (self) {

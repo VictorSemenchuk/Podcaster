@@ -29,7 +29,11 @@
     FeedViewController *feedVC = [[FeedViewController alloc] init];
     
     UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:feedVC];
-    navVC.navigationBar.prefersLargeTitles = YES;
+    if (@available(iOS 11.0, *)) {
+        navVC.navigationBar.prefersLargeTitles = YES;
+    } else {
+        // Fallback on earlier versions
+    }
     navVC.navigationBar.translucent = YES;
     navVC.navigationBar.shadowImage = [[UIImage alloc] init];
     navVC.navigationBar.barTintColor = UIColor.whiteColor;

@@ -33,6 +33,12 @@
 		DA8794132105E3680033F7CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8794122105E3680033F7CD /* Assets.xcassets */; };
 		DA8794162105E3680033F7CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8794142105E3680033F7CD /* LaunchScreen.storyboard */; };
 		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
+		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
+		DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5572109EE14004B2849 /* CollectionViewFlowLayout.m */; };
+		DAECE55F2109F29D004B2849 /* VideoDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE55E2109F29D004B2849 /* VideoDetailView.m */; };
+		EF7CE771210A65A200F64A16 /* ContentViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE770210A65A200F64A16 /* ContentViewController+Constraints.m */; };
+		EF7CE774210A687E00F64A16 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE773210A687E00F64A16 /* HeaderView.m */; };
+		EF7CE777210A69D300F64A16 /* AudioHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE776210A69D300F64A16 /* AudioHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +91,16 @@
 		DA95A3D92108EA130007F078 /* ItemCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCoreDataService.m; sourceTree = "<group>"; };
 		DAECE5522109E642004B2849 /* ImageContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContentCoreData.h; sourceTree = "<group>"; };
 		DAECE5532109E642004B2849 /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
+		DAECE5562109EE14004B2849 /* CollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		DAECE5572109EE14004B2849 /* CollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		DAECE55D2109F29D004B2849 /* VideoDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDetailView.h; sourceTree = "<group>"; };
+		DAECE55E2109F29D004B2849 /* VideoDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDetailView.m; sourceTree = "<group>"; };
+		EF7CE76F210A65A200F64A16 /* ContentViewController+Constraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentViewController+Constraints.h"; sourceTree = "<group>"; };
+		EF7CE770210A65A200F64A16 /* ContentViewController+Constraints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ContentViewController+Constraints.m"; sourceTree = "<group>"; };
+		EF7CE772210A687E00F64A16 /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		EF7CE773210A687E00F64A16 /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		EF7CE775210A69D300F64A16 /* AudioHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioHeaderView.h; sourceTree = "<group>"; };
+		EF7CE776210A69D300F64A16 /* AudioHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioHeaderView.m; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -122,6 +138,8 @@
 			children = (
 				DA26C5FF21075E8500244984 /* ContentViewController.h */,
 				DA26C60021075E8500244984 /* ContentViewController.m */,
+				EF7CE76F210A65A200F64A16 /* ContentViewController+Constraints.h */,
+				EF7CE770210A65A200F64A16 /* ContentViewController+Constraints.m */,
 			);
 			path = ContentViewController;
 			sourceTree = "<group>";
@@ -157,6 +175,8 @@
 				DA87943421061CF80033F7CD /* Support Files */,
 				DA8794172105E3680033F7CD /* Info.plist */,
 				DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */,
+				DAECE5562109EE14004B2849 /* CollectionViewFlowLayout.h */,
+				DAECE5572109EE14004B2849 /* CollectionViewFlowLayout.m */,
 			);
 			path = Podcaster;
 			sourceTree = "<group>";
@@ -308,9 +328,23 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		DAECE5592109F23B004B2849 /* HeaderViews */ = {
+			isa = PBXGroup;
+			children = (
+				EF7CE772210A687E00F64A16 /* HeaderView.h */,
+				EF7CE773210A687E00F64A16 /* HeaderView.m */,
+				DAECE55D2109F29D004B2849 /* VideoDetailView.h */,
+				DAECE55E2109F29D004B2849 /* VideoDetailView.m */,
+				EF7CE775210A69D300F64A16 /* AudioHeaderView.h */,
+				EF7CE776210A69D300F64A16 /* AudioHeaderView.m */,
+			);
+			path = HeaderViews;
+			sourceTree = "<group>";
+		};
 		EFABF1B42107A97600659AEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DAECE5592109F23B004B2849 /* HeaderViews */,
 				EFABF1B52107A98400659AEB /* CollectionViewCells */,
 			);
 			path = Views;
@@ -398,7 +432,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */,
 				DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */,
+				EF7CE777210A69D300F64A16 /* AudioHeaderView.m in Sources */,
 				DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */,
 				DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */,
 				DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */,
@@ -419,9 +455,13 @@
 				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
 				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
 				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,
+				DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */,
 				DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */,
+				EF7CE774210A687E00F64A16 /* HeaderView.m in Sources */,
 				DA1007392109CE1500A33EB8 /* Constants.m in Sources */,
+				DAECE55F2109F29D004B2849 /* VideoDetailView.m in Sources */,
 				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,
+				EF7CE771210A65A200F64A16 /* ContentViewController+Constraints.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,7 +530,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -542,7 +582,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -554,7 +594,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5M3HNT6J9D;
 				INFOPLIST_FILE = Podcaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -570,7 +612,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5M3HNT6J9D;
 				INFOPLIST_FILE = Podcaster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -7,12 +7,8 @@
 //
 
 #import "ContentViewController.h"
-
-@interface ContentViewController ()
-
-- (void)setupViews;
-
-@end
+#import "UIColor+CustomColors.h"
+#import "ContentViewController+Constraints.h"
 
 @implementation ContentViewController
 
@@ -29,7 +25,6 @@
 - (UIScrollView *)scrollView {
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
-        _scrollView.backgroundColor = UIColor.greenColor;
         _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _scrollView;
@@ -44,47 +39,53 @@
     return _contentView;
 }
 
-- (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHugeHeavy weight:UIFontWeightBold];
-        _titleLabel.textColor = [UIColor darkTextColor];
-        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+- (UILabel *)authorLabel {
+    if (!_authorLabel) {
+        _authorLabel = [[UILabel alloc] init];
+        _authorLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightSemibold];
+        _authorLabel.textColor = [UIColor darkGrayColorVS];
+        _authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
-    return _titleLabel;
+    return _authorLabel;
 }
 
-#pragma mark - Methods
+- (UILabel *)pubDateAndDurationLabel {
+    if (!_pubDateAndDurationLabel) {
+        _pubDateAndDurationLabel = [[UILabel alloc] init];
+        _pubDateAndDurationLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
+        _pubDateAndDurationLabel.textColor = [UIColor lightGrayColorVS];
+        _pubDateAndDurationLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _pubDateAndDurationLabel;
+}
 
-- (void)setupViews {
-    
-    //scrollView
-    [self.view addSubview:self.scrollView];
-    [NSLayoutConstraint activateConstraints: @[[self.scrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
-                                               [self.scrollView.topAnchor constraintEqualToAnchor:self.view.topAnchor],
-                                               [self.scrollView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor],
-                                               [self.scrollView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
-                                               ]];
-    
-    //contentView
-    [self.scrollView addSubview:self.contentView];
-    NSLayoutConstraint *contentViewHeightConstraint = [self.contentView.heightAnchor constraintEqualToAnchor:self.scrollView.heightAnchor];
-    contentViewHeightConstraint.priority = 250;
-    [NSLayoutConstraint activateConstraints: @[[self.contentView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor],
-                                               [self.contentView.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor],
-                                               [self.contentView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor],
-                                               [self.contentView.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor],
-                                               [self.contentView.widthAnchor constraintEqualToAnchor:self.scrollView.widthAnchor],
-                                               contentViewHeightConstraint
-                                               ]];
-    
-    [self.contentView addSubview:self.titleLabel];
-    [NSLayoutConstraint activateConstraints: @[[self.titleLabel.leadingAnchor constraintEqualToAnchor:self.contentView.leadingAnchor constant:kCollectionViewLeftRightPadding],
-                                               [self.titleLabel.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:40.0],
-                                               [self.titleLabel.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-kCollectionViewLeftRightPadding],
-                                               [self.titleLabel.heightAnchor constraintEqualToConstant:kFontSizeHuge]]];
-    self.titleLabel.text = @"Hello world!";
-    
+- (UITextView *)detailsLabel {
+    if (!_detailsLabel) {
+        _detailsLabel = [[UITextView alloc] init];
+        _detailsLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
+        _detailsLabel.textColor = [UIColor darkGrayColorVS];
+        _detailsLabel.scrollEnabled = NO;
+        _detailsLabel.editable = NO;
+        _detailsLabel.selectable = NO;
+        _detailsLabel.textContainerInset = UIEdgeInsetsZero;
+        _detailsLabel.contentInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0);
+        _detailsLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
+        style.lineSpacing = 5.0;
+        _detailsLabel.attributedText = [[NSAttributedString alloc]
+                                   initWithString:@"Predefined Text"
+                                   attributes:@{NSParagraphStyleAttributeName : style}];
+    }
+    return _detailsLabel;
+}
+
+- (UIButton *)downloadButton {
+    if (!_downloadButton) {
+        _downloadButton = [[UIButton alloc] init];
+        [_downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
+        _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _downloadButton;
 }
 
 @end

@@ -11,4 +11,7 @@
 
 @interface ItemCoreDataService : NSObject
 
+- (void)addNewItem:(Item *)item;
+- (NSArray *)loadTasksForListWithId:(NSUInteger)listId;
+
 @end

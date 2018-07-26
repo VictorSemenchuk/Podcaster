@@ -16,7 +16,6 @@
     [super setupViews];
     self.imageView.image = [UIImage imageNamed:kTEDItemImagePlaceholder];
     [NSLayoutConstraint activateConstraints:@[[self.imageView.widthAnchor constraintEqualToConstant:kTEDImagePlaceholderWidth]]];
-    
 }
 
 @end

@@ -14,6 +14,7 @@
 #import "TEDCollectionViewCell.h"
 #import "Constants.h"
 #import "UIColor+CustomColors.h"
+#import "CollectionViewFlowLayout.h"
 
 @interface FeedViewController ()
 
@@ -48,7 +49,7 @@
 
 - (UICollectionView *)collectionView {
     if (!_collectionView) {
-        UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+        CollectionViewFlowLayout *layout = [[CollectionViewFlowLayout alloc] init];
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.backgroundColor = [UIColor collectionViewBGColorVS];

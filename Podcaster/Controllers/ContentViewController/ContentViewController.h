@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 #import "Constants.h"
+#import "Item.h"
+#import "HeaderView.h"
+#import "VideoDetailView.h"
+#import "AudioHeaderView.h"
 
 @interface ContentViewController : UIViewController
 
+@property (nonatomic) Item *item;
+
 @property (nonatomic) UIScrollView *scrollView;
 @property (nonatomic) UIView *contentView;
-@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UILabel *authorLabel;
+@property (nonatomic) UILabel *pubDateAndDurationLabel;
+@property (nonatomic) UITextView *detailsLabel;
+@property (nonatomic) UIButton *downloadButton;
+@property (nonatomic) HeaderView *headerView;
 
 @end

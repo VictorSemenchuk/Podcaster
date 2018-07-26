@@ -25,6 +25,9 @@
         _imageWebLink = dictionary[kItemEntityFieldImage][@"href"];
         _contentWebLink = dictionary[kItemEntityFieldContent][@"url"];
         _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
+        
+        _image = [[ImageContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:@""];
+        _content = [[MediaContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:@""];
     }
     return self;
 }

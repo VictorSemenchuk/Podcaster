@@ -7,7 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ItemCoreData.h"
 #import "SourceType.h"
+#import "ImageContent.h"
+#import "MediaContent.h"
 
 @interface Item : NSObject
 
@@ -22,6 +25,10 @@
 @property (nonatomic) NSString *imageWebLink;
 @property (nonatomic) NSString *contentWebLink;
 
+@property (nonatomic) ImageContent *image;
+@property (nonatomic) MediaContent *content;
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType;
+- (instancetype)initWithMO:(ItemCoreData *)itemMO;
 
 @end

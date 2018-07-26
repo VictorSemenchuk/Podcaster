@@ -47,7 +47,7 @@
 - (UILabel *)titleLabel {
     if (!_titleLabel) {
         _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHuge weight:UIFontWeightBold];
+        _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHugeHeavy weight:UIFontWeightBold];
         _titleLabel.textColor = [UIColor darkTextColor];
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }

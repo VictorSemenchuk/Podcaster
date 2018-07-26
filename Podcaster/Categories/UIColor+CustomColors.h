@@ -13,5 +13,6 @@
 + (UIColor *)lightGrayColorVS;
 + (UIColor *)darkGrayColorVS;
 + (UIColor *)collectionViewBGColorVS;
++ (UIColor *)separatorColor;
 
 @end

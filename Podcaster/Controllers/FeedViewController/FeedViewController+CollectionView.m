@@ -39,14 +39,14 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < [self.entitiesTEDItems count]) {
-        return CGSizeMake(self.view.bounds.size.width, 155.0);
+        return CGSizeMake(self.view.bounds.size.width, 155.0 + 8.0);
     } else {
-        return CGSizeMake(self.view.bounds.size.width, 155.0);
+        return CGSizeMake(self.view.bounds.size.width, 155.0 + 8.0);
     }
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
-    return 5.0;
+    return 0.0;
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {

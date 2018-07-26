@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MediaContentCoreData.h"
 
 @interface MediaContent : NSObject
 
 @property (nonatomic) NSString *localUrl;
 @property (nonatomic) NSString *webUrl;
+
+- (instancetype)initWithMO:(MediaContentCoreData *)contentMO;
 
 @end

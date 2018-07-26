@@ -17,5 +17,7 @@
 @dynamic duration;
 @dynamic pubDate;
 @dynamic sourceType;
+//@dynamic image;
+@dynamic content;
 
 @end

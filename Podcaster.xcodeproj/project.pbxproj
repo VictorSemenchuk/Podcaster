@@ -7,36 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DA26C5FB2107584600244984 /* FeedViewController+Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26C5FA2107584600244984 /* FeedViewController+Parsing.m */; };
-		DA26C5FE21075A8900244984 /* FeedViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26C5FD21075A8900244984 /* FeedViewController+Constraints.m */; };
-		DA26C60121075E8500244984 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26C60021075E8500244984 /* ContentViewController.m */; };
-		DA87940B2105E3660033F7CD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87940A2105E3660033F7CD /* AppDelegate.m */; };
+		DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C1210866B80007F078 /* UIColor+CustomColors.m */; };
+		DA1007392109CE1500A33EB8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87943821061D630033F7CD /* Constants.m */; };
+		DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3CE2108B5EE0007F078 /* DateFormatter.m */; };
+		DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794322106180E0033F7CD /* XMLParserService.m */; };
+		DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794492106316A0033F7CD /* MediaContent.m */; };
+		DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794282105F43A0033F7CD /* XMLParser.m */; };
+		DA1007402109CE4B00A33EB8 /* ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87943C21062CBA0033F7CD /* ImageContent.m */; };
+		DA1007412109CE5000A33EB8 /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87942C210605AF0033F7CD /* Item.m */; };
+		DA1007422109CE5700A33EB8 /* VSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3CB210883410007F078 /* VSCollectionViewCell.m */; };
+		DA1007432109CE5E00A33EB8 /* MP3CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */; };
+		DA1007442109CE7300A33EB8 /* TEDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C8210882F40007F078 /* TEDCollectionViewCell.m */; };
+		DA1007452109CE7300A33EB8 /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C52108767E0007F078 /* SplitViewController.m */; };
+		DA1007462109CE7300A33EB8 /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794202105F2490033F7CD /* FeedViewController.m */; };
+		DA1007472109CE7300A33EB8 /* FeedViewController+Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26C5FA2107584600244984 /* FeedViewController+Parsing.m */; };
+		DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26C5FD21075A8900244984 /* FeedViewController+Constraints.m */; };
+		DA1007492109CE7300A33EB8 /* FeedViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */; };
+		DA10074A2109CE7300A33EB8 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA26C60021075E8500244984 /* ContentViewController.m */; };
+		DA10074B2109CE7300A33EB8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87940A2105E3660033F7CD /* AppDelegate.m */; };
+		DA10074C2109CE7300A33EB8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794182105E3680033F7CD /* main.m */; };
+		DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D92108EA130007F078 /* ItemCoreDataService.m */; };
+		DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8E20152109C70F004FA6F9 /* MediaContentCoreData.m */; };
+		DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8E20132109C705004FA6F9 /* ItemCoreData.m */; };
+		DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D52108E8DC0007F078 /* CoreDataManager.m */; };
 		DA8794132105E3680033F7CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8794122105E3680033F7CD /* Assets.xcassets */; };
 		DA8794162105E3680033F7CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8794142105E3680033F7CD /* LaunchScreen.storyboard */; };
-		DA8794192105E3680033F7CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794182105E3680033F7CD /* main.m */; };
-		DA8794212105F2490033F7CD /* FeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794202105F2490033F7CD /* FeedViewController.m */; };
-		DA8794252105F3420033F7CD /* ItemCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794242105F3420033F7CD /* ItemCoreData.m */; };
-		DA8794292105F43A0033F7CD /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794282105F43A0033F7CD /* XMLParser.m */; };
-		DA87942D210605AF0033F7CD /* Item.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87942C210605AF0033F7CD /* Item.m */; };
-		DA8794332106180E0033F7CD /* XMLParserService.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794322106180E0033F7CD /* XMLParserService.m */; };
-		DA87943921061D630033F7CD /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87943821061D630033F7CD /* Constants.m */; };
-		DA87943D21062CBA0033F7CD /* ImageContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87943C21062CBA0033F7CD /* ImageContent.m */; };
-		DA8794402106303E0033F7CD /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87943F2106303E0033F7CD /* ImageContentCoreData.m */; };
-		DA8794472106315D0033F7CD /* MediaContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794462106315D0033F7CD /* MediaContentCoreData.m */; };
-		DA87944A2106316A0033F7CD /* MediaContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794492106316A0033F7CD /* MediaContent.m */; };
-		DA95A3C2210866B80007F078 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C1210866B80007F078 /* UIColor+CustomColors.m */; };
-		DA95A3C62108767E0007F078 /* SplitViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C52108767E0007F078 /* SplitViewController.m */; };
-		DA95A3C9210882F40007F078 /* TEDCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C8210882F40007F078 /* TEDCollectionViewCell.m */; };
-		DA95A3CC210883410007F078 /* VSCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3CB210883410007F078 /* VSCollectionViewCell.m */; };
-		DA95A3CF2108B5EE0007F078 /* DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3CE2108B5EE0007F078 /* DateFormatter.m */; };
-		DA95A3D22108E6B20007F078 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D02108E6B20007F078 /* Model.xcdatamodeld */; };
-		DA95A3D62108E8DC0007F078 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D52108E8DC0007F078 /* CoreDataManager.m */; };
-		DA95A3DA2108EA130007F078 /* ItemCoreDataService.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D92108EA130007F078 /* ItemCoreDataService.m */; };
-		EFABF1B32107A8F100659AEB /* FeedViewController+CollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */; };
-		EFABF1B82107A9CF00659AEB /* MP3CollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DA1007312109CB9100A33EB8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DA26C5F92107584600244984 /* FeedViewController+Parsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+Parsing.h"; sourceTree = "<group>"; };
 		DA26C5FA2107584600244984 /* FeedViewController+Parsing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+Parsing.m"; sourceTree = "<group>"; };
 		DA26C5FC21075A8900244984 /* FeedViewController+Constraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+Constraints.h"; sourceTree = "<group>"; };
@@ -52,8 +51,6 @@
 		DA8794182105E3680033F7CD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DA87941F2105F2490033F7CD /* FeedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FeedViewController.h; sourceTree = "<group>"; };
 		DA8794202105F2490033F7CD /* FeedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedViewController.m; sourceTree = "<group>"; };
-		DA8794232105F3420033F7CD /* ItemCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCoreData.h; sourceTree = "<group>"; };
-		DA8794242105F3420033F7CD /* ItemCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCoreData.m; sourceTree = "<group>"; };
 		DA8794272105F43A0033F7CD /* XMLParser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XMLParser.h; sourceTree = "<group>"; };
 		DA8794282105F43A0033F7CD /* XMLParser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XMLParser.m; sourceTree = "<group>"; };
 		DA87942B210605AF0033F7CD /* Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Item.h; sourceTree = "<group>"; };
@@ -65,12 +62,12 @@
 		DA87943821061D630033F7CD /* Constants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		DA87943B21062CBA0033F7CD /* ImageContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContent.h; sourceTree = "<group>"; };
 		DA87943C21062CBA0033F7CD /* ImageContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContent.m; sourceTree = "<group>"; };
-		DA87943E2106303E0033F7CD /* ImageContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContentCoreData.h; sourceTree = "<group>"; };
-		DA87943F2106303E0033F7CD /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
-		DA8794452106315D0033F7CD /* MediaContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaContentCoreData.h; sourceTree = "<group>"; };
-		DA8794462106315D0033F7CD /* MediaContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaContentCoreData.m; sourceTree = "<group>"; };
 		DA8794482106316A0033F7CD /* MediaContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaContent.h; sourceTree = "<group>"; };
 		DA8794492106316A0033F7CD /* MediaContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaContent.m; sourceTree = "<group>"; };
+		DA8E20122109C704004FA6F9 /* ItemCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ItemCoreData.h; sourceTree = "<group>"; };
+		DA8E20132109C705004FA6F9 /* ItemCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ItemCoreData.m; sourceTree = "<group>"; };
+		DA8E20152109C70F004FA6F9 /* MediaContentCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaContentCoreData.m; sourceTree = "<group>"; };
+		DA8E20162109C70F004FA6F9 /* MediaContentCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaContentCoreData.h; sourceTree = "<group>"; };
 		DA95A3C0210866B80007F078 /* UIColor+CustomColors.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+CustomColors.h"; sourceTree = "<group>"; };
 		DA95A3C1210866B80007F078 /* UIColor+CustomColors.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CustomColors.m"; sourceTree = "<group>"; };
 		DA95A3C42108767E0007F078 /* SplitViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SplitViewController.h; sourceTree = "<group>"; };
@@ -81,7 +78,6 @@
 		DA95A3CB210883410007F078 /* VSCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSCollectionViewCell.m; sourceTree = "<group>"; };
 		DA95A3CD2108B5EE0007F078 /* DateFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateFormatter.h; sourceTree = "<group>"; };
 		DA95A3CE2108B5EE0007F078 /* DateFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateFormatter.m; sourceTree = "<group>"; };
-		DA95A3D12108E6B20007F078 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		DA95A3D42108E8DC0007F078 /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		DA95A3D52108E8DC0007F078 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		DA95A3D82108EA130007F078 /* ItemCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCoreDataService.h; sourceTree = "<group>"; };
@@ -157,7 +153,7 @@
 				DA87943521061D0D0033F7CD /* Controllers */,
 				DA87943421061CF80033F7CD /* Support Files */,
 				DA8794172105E3680033F7CD /* Info.plist */,
-				DA95A3D02108E6B20007F078 /* Model.xcdatamodeld */,
+				DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */,
 			);
 			path = Podcaster;
 			sourceTree = "<group>";
@@ -186,8 +182,8 @@
 			children = (
 				DA87942B210605AF0033F7CD /* Item.h */,
 				DA87942C210605AF0033F7CD /* Item.m */,
-				DA8794232105F3420033F7CD /* ItemCoreData.h */,
-				DA8794242105F3420033F7CD /* ItemCoreData.m */,
+				DA8E20122109C704004FA6F9 /* ItemCoreData.h */,
+				DA8E20132109C705004FA6F9 /* ItemCoreData.m */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -247,8 +243,6 @@
 			children = (
 				DA87943B21062CBA0033F7CD /* ImageContent.h */,
 				DA87943C21062CBA0033F7CD /* ImageContent.m */,
-				DA87943E2106303E0033F7CD /* ImageContentCoreData.h */,
-				DA87943F2106303E0033F7CD /* ImageContentCoreData.m */,
 			);
 			path = ImageContent;
 			sourceTree = "<group>";
@@ -258,8 +252,8 @@
 			children = (
 				DA8794482106316A0033F7CD /* MediaContent.h */,
 				DA8794492106316A0033F7CD /* MediaContent.m */,
-				DA8794452106315D0033F7CD /* MediaContentCoreData.h */,
-				DA8794462106315D0033F7CD /* MediaContentCoreData.m */,
+				DA8E20162109C70F004FA6F9 /* MediaContentCoreData.h */,
+				DA8E20152109C70F004FA6F9 /* MediaContentCoreData.m */,
 			);
 			path = MediaContent;
 			sourceTree = "<group>";
@@ -337,9 +331,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DA87941C2105E3680033F7CD /* Build configuration list for PBXNativeTarget "Podcaster" */;
 			buildPhases = (
-				DA8794022105E3660033F7CD /* Sources */,
 				DA8794032105E3660033F7CD /* Frameworks */,
 				DA8794042105E3660033F7CD /* Resources */,
+				DA1007372109CE0C00A33EB8 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -395,35 +389,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DA8794022105E3660033F7CD /* Sources */ = {
+		DA1007372109CE0C00A33EB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA26C5FE21075A8900244984 /* FeedViewController+Constraints.m in Sources */,
-				DA95A3D22108E6B20007F078 /* Model.xcdatamodeld in Sources */,
-				DA8794332106180E0033F7CD /* XMLParserService.m in Sources */,
-				DA95A3DA2108EA130007F078 /* ItemCoreDataService.m in Sources */,
-				DA87942D210605AF0033F7CD /* Item.m in Sources */,
-				DA8794472106315D0033F7CD /* MediaContentCoreData.m in Sources */,
-				DA95A3CC210883410007F078 /* VSCollectionViewCell.m in Sources */,
-				DA8794252105F3420033F7CD /* ItemCoreData.m in Sources */,
-				DA87944A2106316A0033F7CD /* MediaContent.m in Sources */,
-				DA95A3C62108767E0007F078 /* SplitViewController.m in Sources */,
-				EFABF1B82107A9CF00659AEB /* MP3CollectionViewCell.m in Sources */,
-				DA87943921061D630033F7CD /* Constants.m in Sources */,
-				DA8794212105F2490033F7CD /* FeedViewController.m in Sources */,
-				DA8794192105E3680033F7CD /* main.m in Sources */,
-				DA26C5FB2107584600244984 /* FeedViewController+Parsing.m in Sources */,
-				DA87940B2105E3660033F7CD /* AppDelegate.m in Sources */,
-				DA95A3C2210866B80007F078 /* UIColor+CustomColors.m in Sources */,
-				DA95A3C9210882F40007F078 /* TEDCollectionViewCell.m in Sources */,
-				DA95A3CF2108B5EE0007F078 /* DateFormatter.m in Sources */,
-				DA95A3D62108E8DC0007F078 /* CoreDataManager.m in Sources */,
-				EFABF1B32107A8F100659AEB /* FeedViewController+CollectionView.m in Sources */,
-				DA26C60121075E8500244984 /* ContentViewController.m in Sources */,
-				DA87943D21062CBA0033F7CD /* ImageContent.m in Sources */,
-				DA8794402106303E0033F7CD /* ImageContentCoreData.m in Sources */,
-				DA8794292105F43A0033F7CD /* XMLParser.m in Sources */,
+				DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */,
+				DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */,
+				DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */,
+				DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */,
+				DA1007442109CE7300A33EB8 /* TEDCollectionViewCell.m in Sources */,
+				DA1007452109CE7300A33EB8 /* SplitViewController.m in Sources */,
+				DA1007462109CE7300A33EB8 /* FeedViewController.m in Sources */,
+				DA1007472109CE7300A33EB8 /* FeedViewController+Parsing.m in Sources */,
+				DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */,
+				DA1007492109CE7300A33EB8 /* FeedViewController+CollectionView.m in Sources */,
+				DA10074A2109CE7300A33EB8 /* ContentViewController.m in Sources */,
+				DA10074B2109CE7300A33EB8 /* AppDelegate.m in Sources */,
+				DA10074C2109CE7300A33EB8 /* main.m in Sources */,
+				DA1007432109CE5E00A33EB8 /* MP3CollectionViewCell.m in Sources */,
+				DA1007422109CE5700A33EB8 /* VSCollectionViewCell.m in Sources */,
+				DA1007412109CE5000A33EB8 /* Item.m in Sources */,
+				DA1007402109CE4B00A33EB8 /* ImageContent.m in Sources */,
+				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
+				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
+				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,
+				DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */,
+				DA1007392109CE1500A33EB8 /* Constants.m in Sources */,
+				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,12 +599,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		DA95A3D02108E6B20007F078 /* Model.xcdatamodeld */ = {
+		DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				DA95A3D12108E6B20007F078 /* Model.xcdatamodel */,
+				DA1007312109CB9100A33EB8 /* Model.xcdatamodel */,
 			);
-			currentVersion = DA95A3D12108E6B20007F078 /* Model.xcdatamodel */;
+			currentVersion = DA1007312109CB9100A33EB8 /* Model.xcdatamodel */;
 			path = Model.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

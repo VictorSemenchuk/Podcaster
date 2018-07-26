@@ -22,4 +22,8 @@
     return [UIColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
 }
 
++ (UIColor *)separatorColor {
+    return [UIColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:241.0/255.0 alpha:255.0/255.0];
+}
+
 @end

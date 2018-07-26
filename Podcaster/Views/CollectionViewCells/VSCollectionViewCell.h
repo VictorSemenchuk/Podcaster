@@ -18,6 +18,7 @@
 @property (nonatomic) UILabel *pubDateAndDurationLabel;
 @property (nonatomic) UIImageView *imageView;
 @property (nonatomic) UIButton *downloadButton;
+@property (nonatomic) UIView *separatorView;
 
 - (void)setupViews;
 - (void)setValueForItem:(Item *)item;

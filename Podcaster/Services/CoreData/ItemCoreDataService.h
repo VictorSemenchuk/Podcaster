@@ -7,11 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "CoreDataManager.h"
 #import "Item.h"
 
 @interface ItemCoreDataService : NSObject
-
-
 
 @end

@@ -10,4 +10,13 @@
 
 @implementation MediaContent
 
+- (instancetype)initWithMO:(MediaContentCoreData *)contentMO {
+    self = [super init];
+    if (self) {
+        _webUrl = contentMO.webUrl;
+        _localUrl = contentMO.localUrl;
+    }
+    return self;
+}
+
 @end

@@ -71,6 +71,20 @@ static NSString * const kModelName = @"Model";
     }
 }
 
+- (NSArray *)fetchEntitiesWithName:(NSString *)entityName byPredicate:(NSPredicate *)predicate {
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:entityName];
+    if (predicate) {
+        [request setPredicate:predicate];
+    }
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (!error) {
+        return results;
+    } else {
+        return nil;
+    }
+}
+
 @end
 
 

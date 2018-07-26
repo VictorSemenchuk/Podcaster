@@ -36,6 +36,7 @@ const float kFontSizeSmall = 11.0;
 const float kFontSizeRegular = 12.0;
 const float kFontSizeHeavy = 14.0;
 const float kFontSizeHuge = 16.0;
+const float kFontSizeHugeHeavy = 18.0;
 
 #pragma mark - Assets
 
@@ -45,7 +46,7 @@ NSString * const kTEDItemImagePlaceholder = @"TEDItemImagePlaceholder";
 #pragma mark - Paddings
 
 const float kCollectionViewLeftRightPadding = 16.0;
-const float kCollectionViewTopBottomPadding = 16.0;
+const float kCollectionViewTopBottomPadding = 20.0;
 
 #pragma mark - Padding
 

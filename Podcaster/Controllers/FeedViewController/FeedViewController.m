@@ -52,7 +52,7 @@
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.translatesAutoresizingMaskIntoConstraints = NO;
         _collectionView.backgroundColor = [UIColor collectionViewBGColorVS];
-        _collectionView.contentInset = UIEdgeInsetsMake(kCollectionViewTopBottomPadding, 0.0, kCollectionViewTopBottomPadding, 0.0);
+        _collectionView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
         _collectionView.delegate = self;
         _collectionView.dataSource = self;
         [_collectionView registerClass:MP3CollectionViewCell.class forCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier];

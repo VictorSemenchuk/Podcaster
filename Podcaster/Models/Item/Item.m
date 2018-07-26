@@ -28,6 +28,22 @@
     return self;
 }
 
+- (instancetype)initWithMO:(ItemCoreData *)itemMO {
+    self = [super init];
+    if (self) {
+        _guId = itemMO.guid;
+        _title = itemMO.title;
+        _author = itemMO.author;
+        _details = itemMO.details;
+        _duration = itemMO.duration;
+        _pubDate = itemMO.pubDate;
+        _sourceType = (SourceType)itemMO.sourceType;
+        //_image = [[ImageContent alloc] initWithMO:itemMO.image];
+        _content = [[MediaContent alloc] initWithMO:itemMO.content];
+    }
+    return self;
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"GUID: %@,\n title: %@,\n author: %@,\n details: %@,\n duration: %@,\n pubDate: %@,\n sourceType: %d,\n imageWebLink: %@,\n contentWebLink: %@\n-----------\n", self.guId, self.title, self.author, self.details, self.duration, self.pubDate, self.sourceType, self.imageWebLink, self.contentWebLink];
 }

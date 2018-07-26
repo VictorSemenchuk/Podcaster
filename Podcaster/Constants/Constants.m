@@ -44,12 +44,12 @@ NSString * const kTEDItemImagePlaceholder = @"TEDItemImagePlaceholder";
 
 #pragma mark - Paddings
 
-const float kCollectionViewLeftRightPadding = 10.0;
-const float kCollectionViewTopBottomPadding = 10.0;
+const float kCollectionViewLeftRightPadding = 16.0;
+const float kCollectionViewTopBottomPadding = 16.0;
 
 #pragma mark - Padding
 
-const float kMP3ImagePlaceholderWidth = 60.0;
-const float kMP3ImagePlaceholderHeight = 60.0;
-const float kTEDImagePlaceholderWidth = 106.0;
-const float kTEDImagePlaceholderHeight = 60.0;
+const float kMP3ImagePlaceholderWidth = 80.0;
+const float kMP3ImagePlaceholderHeight = 80.0;
+const float kTEDImagePlaceholderWidth = 140.0;
+const float kTEDImagePlaceholderHeight = 80.0;

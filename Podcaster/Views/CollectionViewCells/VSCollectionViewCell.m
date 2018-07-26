@@ -28,11 +28,15 @@
 
 #pragma mark - Lazy init properties
 
-- (UILabel *)titleLabel {
+- (UITextView *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHeavy weight:UIFontWeightSemibold];
+        _titleLabel = [[UITextView alloc] init];
+        _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHuge weight:UIFontWeightBold];
         _titleLabel.textColor = [UIColor darkGrayColorVS];
+        _titleLabel.scrollEnabled = NO;
+        _titleLabel.editable = NO;
+        _titleLabel.textContainerInset = UIEdgeInsetsZero;
+        _titleLabel.contentInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0);
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _titleLabel;
@@ -41,8 +45,8 @@
 - (UILabel *)authorLabel {
     if (!_authorLabel) {
         _authorLabel = [[UILabel alloc] init];
-        _authorLabel.font = [UIFont systemFontOfSize:kFontSizeSmall weight:UIFontWeightRegular];
-        _authorLabel.textColor = [UIColor lightGrayColorVS];
+        _authorLabel.font = [UIFont systemFontOfSize:kFontSizeSmall weight:UIFontWeightSemibold];
+        _authorLabel.textColor = [UIColor darkGrayColorVS];
         _authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _authorLabel;
@@ -67,6 +71,15 @@
         _imageView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _imageView;
+}
+
+- (UIButton *)downloadButton {
+    if (!_downloadButton) {
+        _downloadButton = [[UIButton alloc] init];
+        [_downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
+        _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _downloadButton;
 }
 
 #pragma mark - Methods

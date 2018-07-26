@@ -68,10 +68,14 @@
     
     //contentView
     [self.scrollView addSubview:self.contentView];
+    NSLayoutConstraint *contentViewHeightConstraint = [self.contentView.heightAnchor constraintEqualToAnchor:self.scrollView.heightAnchor];
+    contentViewHeightConstraint.priority = 250;
     [NSLayoutConstraint activateConstraints: @[[self.contentView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor],
                                                [self.contentView.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor],
                                                [self.contentView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor],
-                                               [self.contentView.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor]
+                                               [self.contentView.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor],
+                                               [self.contentView.widthAnchor constraintEqualToAnchor:self.scrollView.widthAnchor],
+                                               contentViewHeightConstraint
                                                ]];
     
     [self.contentView addSubview:self.titleLabel];
@@ -79,6 +83,7 @@
                                                [self.titleLabel.topAnchor constraintEqualToAnchor:self.contentView.topAnchor constant:40.0],
                                                [self.titleLabel.trailingAnchor constraintEqualToAnchor:self.contentView.trailingAnchor constant:-kCollectionViewLeftRightPadding],
                                                [self.titleLabel.heightAnchor constraintEqualToConstant:kFontSizeHuge]]];
+    self.titleLabel.text = @"Hello world!";
     
 }
 

@@ -11,11 +11,11 @@
 @implementation UIColor (CustomColors)
 
 + (UIColor *)lightGrayColorVS {
-    return [UIColor colorWithRed:149.0/255.0 green:155.0/255.0 blue:165.0/255.0 alpha:255.0/255.0];
+    return [UIColor colorWithRed:133.0/255.0 green:133.0/255.0 blue:133.0/255.0 alpha:255.0/255.0];
 }
 
 + (UIColor *)darkGrayColorVS {
-    return [UIColor colorWithRed:48.0/255.0 green:48.0/255.0 blue:60.0/255.0 alpha:255.0/255.0];
+    return [UIColor colorWithRed:41.0/255.0 green:41.0/255.0 blue:41.0/255.0 alpha:255.0/255.0];
 }
 
 + (UIColor *)collectionViewBGColorVS {

@@ -13,10 +13,11 @@
 
 @interface VSCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UITextView *titleLabel;
 @property (nonatomic) UILabel *authorLabel;
 @property (nonatomic) UILabel *pubDateAndDurationLabel;
 @property (nonatomic) UIImageView *imageView;
+@property (nonatomic) UIButton *downloadButton;
 
 - (void)setupViews;
 - (void)setValueForItem:(Item *)item;

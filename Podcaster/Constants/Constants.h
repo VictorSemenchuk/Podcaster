@@ -13,14 +13,14 @@
 
 #pragma mark - Entity fields
 
-extern NSString * const kItemEntityFieldGUID;
-extern NSString * const kItemEntityFieldTitle;
-extern NSString * const kItemEntityFieldAuthor;
-extern NSString * const kItemEntityFieldDetails;
-extern NSString * const kItemEntityFieldDuration;
-extern NSString * const kItemEntityFieldPubDate;
-extern NSString * const kItemEntityFieldImage;
-extern NSString * const kItemEntityFieldContent;
+extern NSString * const kItemEntityXMLFieldGUID;
+extern NSString * const kItemEntityXMLFieldTitle;
+extern NSString * const kItemEntityXMLFieldAuthor;
+extern NSString * const kItemEntityXMLFieldDetails;
+extern NSString * const kItemEntityXMLFieldDuration;
+extern NSString * const kItemEntityXMLFieldPubDate;
+extern NSString * const kItemEntityXMLFieldImage;
+extern NSString * const kItemEntityXMLFieldContent;
 
 #pragma mark - Data source links
 

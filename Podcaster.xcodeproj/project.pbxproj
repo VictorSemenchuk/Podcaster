@@ -39,6 +39,7 @@
 		EF7CE771210A65A200F64A16 /* ContentViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE770210A65A200F64A16 /* ContentViewController+Constraints.m */; };
 		EF7CE774210A687E00F64A16 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE773210A687E00F64A16 /* HeaderView.m */; };
 		EF7CE777210A69D300F64A16 /* AudioHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE776210A69D300F64A16 /* AudioHeaderView.m */; };
+		EF7CE77A210A74C300F64A16 /* EntitiesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE779210A74C300F64A16 /* EntitiesConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,8 @@
 		EF7CE773210A687E00F64A16 /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
 		EF7CE775210A69D300F64A16 /* AudioHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioHeaderView.h; sourceTree = "<group>"; };
 		EF7CE776210A69D300F64A16 /* AudioHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioHeaderView.m; sourceTree = "<group>"; };
+		EF7CE778210A74B100F64A16 /* EntitiesConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntitiesConstants.h; sourceTree = "<group>"; };
+		EF7CE779210A74C300F64A16 /* EntitiesConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntitiesConstants.m; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 			children = (
 				DA87943721061D550033F7CD /* Constants.h */,
 				DA87943821061D630033F7CD /* Constants.m */,
+				EF7CE778210A74B100F64A16 /* EntitiesConstants.h */,
+				EF7CE779210A74C300F64A16 /* EntitiesConstants.m */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */,
 				DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */,
 				EF7CE774210A687E00F64A16 /* HeaderView.m in Sources */,
+				EF7CE77A210A74C300F64A16 /* EntitiesConstants.m in Sources */,
 				DA1007392109CE1500A33EB8 /* Constants.m in Sources */,
 				DAECE55F2109F29D004B2849 /* VideoDetailView.m in Sources */,
 				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,

@@ -11,14 +11,14 @@
 
 #pragma mark - Entity fields
 
-NSString * const kItemEntityFieldGUID = @"guid";
-NSString * const kItemEntityFieldTitle = @"title";
-NSString * const kItemEntityFieldAuthor = @"itunes:author";
-NSString * const kItemEntityFieldDetails = @"description";
-NSString * const kItemEntityFieldDuration = @"itunes:duration";
-NSString * const kItemEntityFieldPubDate = @"pubDate";
-NSString * const kItemEntityFieldImage = @"itunes:image";
-NSString * const kItemEntityFieldContent = @"enclosure";
+NSString * const kItemEntityXMLFieldGUID = @"guid";
+NSString * const kItemEntityXMLFieldTitle = @"title";
+NSString * const kItemEntityXMLFieldAuthor = @"itunes:author";
+NSString * const kItemEntityXMLFieldDetails = @"description";
+NSString * const kItemEntityXMLFieldDuration = @"itunes:duration";
+NSString * const kItemEntityXMLFieldPubDate = @"pubDate";
+NSString * const kItemEntityXMLFieldImage = @"itunes:image";
+NSString * const kItemEntityXMLFieldContent = @"enclosure";
 
 #pragma mark - Data source links
 

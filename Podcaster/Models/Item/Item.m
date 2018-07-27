@@ -17,14 +17,14 @@
     self = [super init];
     if (self) {
         _sourceType = sourceType;
-        _guId = dictionary[kItemEntityFieldGUID][@"value"];
-        _title = dictionary[kItemEntityFieldTitle];
-        _author = dictionary[kItemEntityFieldAuthor];
-        _details = dictionary[kItemEntityFieldDetails];
-        _duration = dictionary[kItemEntityFieldDuration];
-        _imageWebLink = dictionary[kItemEntityFieldImage][@"href"];
-        _contentWebLink = dictionary[kItemEntityFieldContent][@"url"];
-        _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
+        _guId = dictionary[kItemEntityXMLFieldGUID][@"value"];
+        _title = dictionary[kItemEntityXMLFieldTitle];
+        _author = dictionary[kItemEntityXMLFieldAuthor];
+        _details = dictionary[kItemEntityXMLFieldDetails];
+        _duration = dictionary[kItemEntityXMLFieldDuration];
+        _imageWebLink = dictionary[kItemEntityXMLFieldImage][@"href"];
+        _contentWebLink = dictionary[kItemEntityXMLFieldContent][@"url"];
+        _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityXMLFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
         
         _image = [[ImageContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:@""];
         _content = [[MediaContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:@""];

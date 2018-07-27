@@ -9,37 +9,38 @@
 #import "ItemCoreDataService.h"
 #import "ItemCoreData.h"
 #import "CoreDataManager.h"
+#import "EntitiesConstants.h"
 
 @implementation ItemCoreDataService
 
 - (void)addNewItem:(Item *)item {
     CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
-    [coreDataManager addNewInstanceForEntityWithName:@"Item" withAssigningBlock:^(NSManagedObject *currentEntity, NSManagedObjectContext *context) {
-        [currentEntity setValue:item.guId forKey:@"guid"];
-        [currentEntity setValue:item.title forKey:@"title"];
-        [currentEntity setValue:item.author forKey:@"author"];
-        [currentEntity setValue:item.details forKey:@"details"];
-        [currentEntity setValue:item.duration forKey:@"duration"];
-        [currentEntity setValue:item.pubDate forKey:@"pubDate"];
-        [currentEntity setValue:[NSNumber numberWithInteger:item.sourceType] forKey:@"sourceType"];
+    [coreDataManager addNewInstanceForEntityWithName:kItemEntityTitle withAssigningBlock:^(NSManagedObject *currentEntity, NSManagedObjectContext *context) {
+        [currentEntity setValue:item.guId forKey:kItemGUIDAttributeName];
+        [currentEntity setValue:item.title forKey:kItemTitleAttributeName];
+        [currentEntity setValue:item.author forKey:kItemAuthorAttributeName];
+        [currentEntity setValue:item.details forKey:kItemDetailsAttributeName];
+        [currentEntity setValue:item.duration forKey:kItemDurationAttributeName];
+        [currentEntity setValue:item.pubDate forKey:kItemPubDateAttributeName];
+        [currentEntity setValue:[NSNumber numberWithInteger:item.sourceType] forKey:kItemSourceTypeAttributeName];
         
-        NSManagedObject *imageEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Image" inManagedObjectContext:context];
-        [imageEntity setValue:item.image.webUrl forKey:@"webUrl"];
-        [imageEntity setValue:item.image.localUrl forKey:@"localUrl"];
+        NSManagedObject *imageEntity = [NSEntityDescription insertNewObjectForEntityForName:kImageEntityTitle inManagedObjectContext:context];
+        [imageEntity setValue:item.image.webUrl forKey:kImageWebLinkAttributeName];
+        [imageEntity setValue:item.image.localUrl forKey:kImageLocalLinkAttributeName];
         
-        NSManagedObject *contentEntity = [NSEntityDescription insertNewObjectForEntityForName:@"Content" inManagedObjectContext:context];
-        [contentEntity setValue:item.content.webUrl forKey:@"webUrl"];
-        [contentEntity setValue:item.content.localUrl forKey:@"localUrl"];
+        NSManagedObject *contentEntity = [NSEntityDescription insertNewObjectForEntityForName:kContentEntityTitle inManagedObjectContext:context];
+        [contentEntity setValue:item.content.webUrl forKey:kContentWebLinkAttributeName];
+        [contentEntity setValue:item.content.localUrl forKey:kContentLocalLinkAttributeName];
         
-        [currentEntity setValue:imageEntity forKey:@"image"];
-        [currentEntity setValue:contentEntity forKey:@"content"];
+        [currentEntity setValue:imageEntity forKey:kItemImageAttributeName];
+        [currentEntity setValue:contentEntity forKey:kItemContentAttributeName];
     }];
 }
 
 - (NSArray *)loadTasksForListWithId:(NSUInteger)listId {
     NSMutableArray<Item *> *items = [[NSMutableArray alloc] init];
     CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
-    NSArray *results = [coreDataManager fetchEntitiesWithName:@"item" byPredicate:nil];
+    NSArray *results = [coreDataManager fetchEntitiesWithName:kItemEntityTitle byPredicate:nil];
     if (results) {
         for (ItemCoreData *itemMO in results) {
             Item *item = [[Item alloc] initWithMO:itemMO];

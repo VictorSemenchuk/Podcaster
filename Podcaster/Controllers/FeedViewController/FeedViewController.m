@@ -27,14 +27,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tags = @[kItemEntityFieldGUID,
-                  kItemEntityFieldTitle,
-                  kItemEntityFieldAuthor,
-                  kItemEntityFieldDetails,
-                  kItemEntityFieldDuration,
-                  kItemEntityFieldPubDate,
-                  kItemEntityFieldImage,
-                  kItemEntityFieldContent
+    self.tags = @[kItemEntityXMLFieldGUID,
+                  kItemEntityXMLFieldTitle,
+                  kItemEntityXMLFieldAuthor,
+                  kItemEntityXMLFieldDetails,
+                  kItemEntityXMLFieldDuration,
+                  kItemEntityXMLFieldPubDate,
+                  kItemEntityXMLFieldImage,
+                  kItemEntityXMLFieldContent
                   ];
     
     [self setupXMLServiceForSourceType:kMP3];

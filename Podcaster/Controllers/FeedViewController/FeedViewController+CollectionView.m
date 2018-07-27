@@ -10,6 +10,8 @@
 #import "MP3CollectionViewCell.h"
 #import "TEDCollectionViewCell.h"
 #import "ItemCoreDataService.h"
+#import "ContentViewController.h"
+#import "SplitViewController.h"
 
 @implementation FeedViewController (CollectionView)
 
@@ -33,6 +35,18 @@
 }
 
 #pragma mark - UICollectionViewDelegate/FlowLayout
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    Item *item;
+    if (indexPath.row >= self.entitiesTEDItems.count) {
+        item = self.entitiesMP3Items[indexPath.row - self.entitiesTEDItems.count];
+    } else {
+        item = self.entitiesTEDItems[indexPath.row];
+    }
+    ContentViewController *contentVC = [[ContentViewController alloc] init];
+    contentVC.item = item;
+    [self.splitViewController showDetailViewController:contentVC sender:nil];
+}
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.view.bounds.size.width, 155.0 + 8.0);

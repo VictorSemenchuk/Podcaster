@@ -15,11 +15,11 @@
     [self addSubview:self.imageView];
     [self addSubview:self.titleLabel];
     [NSLayoutConstraint activateConstraints: @[[self.imageView.heightAnchor constraintEqualToAnchor:self.widthAnchor multiplier:0.2],
-                                               [self.imageView.topAnchor constraintEqualToAnchor:self.topAnchor constant:kTopBottomPadding],
+                                               [self.imageView.topAnchor constraintEqualToAnchor:self.topAnchor],
                                                [self.imageView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
                                                [self.imageView.widthAnchor constraintEqualToAnchor:self.imageView.heightAnchor],
                                                [self.titleLabel.leadingAnchor constraintEqualToAnchor:self.imageView.trailingAnchor constant:kLeftRightPadding],
-                                               [self.titleLabel.topAnchor constraintEqualToAnchor:self.topAnchor constant:kTopBottomPadding],
+                                               [self.titleLabel.topAnchor constraintEqualToAnchor:self.topAnchor],
                                                [self.titleLabel.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
                                                [self.imageView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor]]];
 }

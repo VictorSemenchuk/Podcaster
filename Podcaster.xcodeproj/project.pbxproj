@@ -36,7 +36,6 @@
 		DA149819210B035700A4B20D /* EntitiesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149817210B035700A4B20D /* EntitiesConstants.m */; };
 		DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14981B210B039600A4B20D /* ContentViewController+Constraints.m */; };
 		DA14981F210B06ED00A4B20D /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14981E210B06ED00A4B20D /* DownloadManager.m */; };
-		DA149822210B07A100A4B20D /* FeedViewController+Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149821210B07A100A4B20D /* FeedViewController+Downloader.m */; };
 		DA149825210B2AFB00A4B20D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149824210B2AFB00A4B20D /* FileManager.m */; };
 		DA149828210B4DE300A4B20D /* UIImage+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149827210B4DE300A4B20D /* UIImage+Compression.m */; };
 		DA8794132105E3680033F7CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8794122105E3680033F7CD /* Assets.xcassets */; };
@@ -60,8 +59,6 @@
 		DA14981B210B039600A4B20D /* ContentViewController+Constraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContentViewController+Constraints.m"; sourceTree = "<group>"; };
 		DA14981D210B06ED00A4B20D /* DownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
 		DA14981E210B06ED00A4B20D /* DownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
-		DA149820210B07A100A4B20D /* FeedViewController+Downloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+Downloader.h"; sourceTree = "<group>"; };
-		DA149821210B07A100A4B20D /* FeedViewController+Downloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+Downloader.m"; sourceTree = "<group>"; };
 		DA149823210B2AFB00A4B20D /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
 		DA149824210B2AFB00A4B20D /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
 		DA149826210B4DE300A4B20D /* UIImage+Compression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compression.h"; sourceTree = "<group>"; };
@@ -136,11 +133,11 @@
 		DA14980D210B034600A4B20D /* HeaderViews */ = {
 			isa = PBXGroup;
 			children = (
+				DA149811210B034600A4B20D /* HeaderView.h */,
 				DA14980E210B034600A4B20D /* HeaderView.m */,
 				DA14980F210B034600A4B20D /* VideoDetailView.h */,
-				DA149810210B034600A4B20D /* AudioHeaderView.h */,
-				DA149811210B034600A4B20D /* HeaderView.h */,
 				DA149812210B034600A4B20D /* VideoDetailView.m */,
+				DA149810210B034600A4B20D /* AudioHeaderView.h */,
 				DA149813210B034600A4B20D /* AudioHeaderView.m */,
 			);
 			path = HeaderViews;
@@ -157,8 +154,6 @@
 				DA26C5FD21075A8900244984 /* FeedViewController+Constraints.m */,
 				EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */,
 				EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */,
-				DA149820210B07A100A4B20D /* FeedViewController+Downloader.h */,
-				DA149821210B07A100A4B20D /* FeedViewController+Downloader.m */,
 			);
 			path = FeedViewController;
 			sourceTree = "<group>";
@@ -484,7 +479,6 @@
 				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
 				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
 				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,
-				DA149822210B07A100A4B20D /* FeedViewController+Downloader.m in Sources */,
 				DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */,
 				DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */,
 				DA149828210B4DE300A4B20D /* UIImage+Compression.m in Sources */,

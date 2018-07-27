@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FeedViewController.h"
+#import "ContentViewController.h"
 
 @interface SplitViewController : UISplitViewController
+
+@property (nonatomic) FeedViewController *feedVC;
+@property (nonatomic) ContentViewController *contentVC;
+
++ (instancetype)sharedSplitViewController;
 
 @end

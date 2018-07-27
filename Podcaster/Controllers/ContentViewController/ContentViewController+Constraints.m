@@ -12,12 +12,12 @@
 @implementation ContentViewController (Constraints)
 
 - (void)setupViews {
-    //////---TEMP DATA---///////
-    self.item = [[Item alloc] init];
-    self.item.sourceType = kTED;
-    self.authorLabel.text = @"Victor Semenchuk";
-    self.pubDateAndDurationLabel.text = @"26.07 | 0:05";
-    self.detailsLabel.text = @"Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of  (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, comes from a line in section 1.10.32.";
+    
+    self.authorLabel.text = self.item.author;
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"dd MMM yyyy"];
+    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [dateFormat stringFromDate:self.item.pubDate]];
+    self.detailsLabel.text = self.item.details;
     
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.contentView];
@@ -32,16 +32,16 @@
             break;
     }
     [self.scrollView addSubview:self.headerView];
-    self.headerView.titleLabel.text = @"Title 1";
+    self.headerView.titleLabel.text = self.item.title;
     self.headerView.translatesAutoresizingMaskIntoConstraints = NO;
 
-    UIStackView *infoStackView = [[UIStackView alloc] init];
-    infoStackView.axis = UILayoutConstraintAxisVertical;
-    infoStackView.spacing = 3.0;
-    infoStackView.translatesAutoresizingMaskIntoConstraints = NO;
-    [infoStackView addArrangedSubview:self.authorLabel];
-    [infoStackView addArrangedSubview:self.pubDateAndDurationLabel];
-    [self.scrollView addSubview:infoStackView];
+    self.infoStackView = [[UIStackView alloc] init];
+    self.infoStackView.axis = UILayoutConstraintAxisVertical;
+    self.infoStackView.spacing = 3.0;
+    self.infoStackView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.infoStackView addArrangedSubview:self.authorLabel];
+    [self.infoStackView addArrangedSubview:self.pubDateAndDurationLabel];
+    [self.scrollView addSubview:self.infoStackView];
     [self.scrollView addSubview:self.downloadButton];
     [self.scrollView addSubview:self.detailsLabel];
     
@@ -56,14 +56,15 @@
                                               [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
                                               [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
                                               [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-20.0],
-                                              [self.downloadButton.bottomAnchor constraintEqualToAnchor:infoStackView.bottomAnchor],
-                                              [infoStackView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20.0],
-                                              [infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-20.0],
-                                              [infoStackView.topAnchor constraintEqualToAnchor:self.headerView.bottomAnchor constant:15.0],
+                                              [self.downloadButton.bottomAnchor constraintEqualToAnchor:self.infoStackView.bottomAnchor],
+                                              [self.infoStackView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20.0],
+                                              [self.infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-20.0],
+                                              [self.infoStackView.topAnchor constraintEqualToAnchor:self.headerView.bottomAnchor constant:15.0],
                                               [self.detailsLabel.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20.0],
-                                              [self.detailsLabel.topAnchor constraintEqualToAnchor:infoStackView.bottomAnchor constant:15.0],
+                                              [self.detailsLabel.topAnchor constraintEqualToAnchor:self.infoStackView.bottomAnchor constant:15.0],
                                               [self.detailsLabel.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-20.0],
                                               [self.detailsLabel.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor constant:-20.0]]];
+    
     [self.headerView setupViews];
 }
 

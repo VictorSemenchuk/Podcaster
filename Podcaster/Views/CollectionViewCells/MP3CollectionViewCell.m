@@ -40,6 +40,7 @@
 
 - (void)prepareForReuse {
     self.imageView.image = [UIImage imageNamed:kMP3ItemImagePlaceholder];
+    [super prepareForReuse];
 }
 
 @end

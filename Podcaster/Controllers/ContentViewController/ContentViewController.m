@@ -9,6 +9,8 @@
 #import "ContentViewController.h"
 #import "UIColor+CustomColors.h"
 #import "ContentViewController+Constraints.h"
+#import "FileManager.h"
+#import "DownloadManager.h"
 
 @implementation ContentViewController
 
@@ -17,7 +19,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
+    self.navigationController.navigationBar.prefersLargeTitles = NO;
     [self setupViews];
+    [self downloadImage];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    if (@available(iOS 11.0, *)) {
+        self.navigationController.navigationBar.prefersLargeTitles = NO;
+    } else {
+        // Fallback on earlier versions
+    }
 }
 
 #pragma mark - Lazy init properties
@@ -26,6 +39,7 @@
     if (!_scrollView) {
         _scrollView = [[UIScrollView alloc] init];
         _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+        _scrollView.alwaysBounceVertical = YES;
     }
     return _scrollView;
 }
@@ -86,6 +100,20 @@
         _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _downloadButton;
+}
+
+- (void)refreshContent {
+    for (UIView *view in self.view.subviews) {
+        [view removeFromSuperview];
+    }
+    [self setupViews];
+}
+
+- (void)downloadImage {
+    DownloadManager *downloadManager = [[DownloadManager alloc] init];
+    [downloadManager downloadFileForURL:self.item.image.webUrl withCompletionBlock:^(NSData *data) {
+        self.headerView.imageView.image = [UIImage imageWithData:data];
+    }];
 }
 
 @end

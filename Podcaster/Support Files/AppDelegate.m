@@ -20,7 +20,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     CGRect screenFrame = UIScreen.mainScreen.bounds;
     UIWindow *window = [[UIWindow alloc] initWithFrame:screenFrame];
-    SplitViewController *splitViewController = [[SplitViewController alloc] init];
+    SplitViewController *splitViewController = [SplitViewController sharedSplitViewController];
     window.rootViewController = splitViewController;
     self.window = window;
     [window makeKeyAndVisible];

@@ -38,6 +38,7 @@
 
 - (void)prepareForReuse {
     self.imageView.image = [UIImage imageNamed:kTEDItemImagePlaceholder];
+    [super prepareForReuse];
 }
 
 @end

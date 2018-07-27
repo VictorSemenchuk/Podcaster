@@ -22,11 +22,12 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row < [self.entitiesTEDItems count]) {
         TEDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier forIndexPath:indexPath];
-        [cell setValueForItem:self.entitiesTEDItems[indexPath.row]];
+        Item *item = self.entitiesTEDItems[indexPath.row];
+        [cell setValueForItem:item];
         return cell;
     } else {
         MP3CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier forIndexPath:indexPath];
-        [cell setValueForItem:self.entitiesMP3Items[indexPath.row]];
+        [cell setValueForItem:self.entitiesMP3Items[indexPath.row - self.entitiesTEDItems.count]];
         return cell;
     }
 }

@@ -30,20 +30,42 @@
 		DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8E20152109C70F004FA6F9 /* MediaContentCoreData.m */; };
 		DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8E20132109C705004FA6F9 /* ItemCoreData.m */; };
 		DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3D52108E8DC0007F078 /* CoreDataManager.m */; };
+		DA149814210B034600A4B20D /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14980E210B034600A4B20D /* HeaderView.m */; };
+		DA149815210B034600A4B20D /* VideoDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149812210B034600A4B20D /* VideoDetailView.m */; };
+		DA149816210B034600A4B20D /* AudioHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149813210B034600A4B20D /* AudioHeaderView.m */; };
+		DA149819210B035700A4B20D /* EntitiesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149817210B035700A4B20D /* EntitiesConstants.m */; };
+		DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14981B210B039600A4B20D /* ContentViewController+Constraints.m */; };
+		DA14981F210B06ED00A4B20D /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14981E210B06ED00A4B20D /* DownloadManager.m */; };
+		DA149822210B07A100A4B20D /* FeedViewController+Downloader.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149821210B07A100A4B20D /* FeedViewController+Downloader.m */; };
+		DA149825210B2AFB00A4B20D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149824210B2AFB00A4B20D /* FileManager.m */; };
+		DA149828210B4DE300A4B20D /* UIImage+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149827210B4DE300A4B20D /* UIImage+Compression.m */; };
 		DA8794132105E3680033F7CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8794122105E3680033F7CD /* Assets.xcassets */; };
 		DA8794162105E3680033F7CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8794142105E3680033F7CD /* LaunchScreen.storyboard */; };
 		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
 		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
 		DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5572109EE14004B2849 /* CollectionViewFlowLayout.m */; };
-		DAECE55F2109F29D004B2849 /* VideoDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE55E2109F29D004B2849 /* VideoDetailView.m */; };
-		EF7CE771210A65A200F64A16 /* ContentViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE770210A65A200F64A16 /* ContentViewController+Constraints.m */; };
-		EF7CE774210A687E00F64A16 /* HeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE773210A687E00F64A16 /* HeaderView.m */; };
-		EF7CE777210A69D300F64A16 /* AudioHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE776210A69D300F64A16 /* AudioHeaderView.m */; };
-		EF7CE77A210A74C300F64A16 /* EntitiesConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = EF7CE779210A74C300F64A16 /* EntitiesConstants.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		DA1007312109CB9100A33EB8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		DA14980E210B034600A4B20D /* HeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
+		DA14980F210B034600A4B20D /* VideoDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoDetailView.h; sourceTree = "<group>"; };
+		DA149810210B034600A4B20D /* AudioHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioHeaderView.h; sourceTree = "<group>"; };
+		DA149811210B034600A4B20D /* HeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
+		DA149812210B034600A4B20D /* VideoDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoDetailView.m; sourceTree = "<group>"; };
+		DA149813210B034600A4B20D /* AudioHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioHeaderView.m; sourceTree = "<group>"; };
+		DA149817210B035700A4B20D /* EntitiesConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EntitiesConstants.m; sourceTree = "<group>"; };
+		DA149818210B035700A4B20D /* EntitiesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntitiesConstants.h; sourceTree = "<group>"; };
+		DA14981A210B039600A4B20D /* ContentViewController+Constraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ContentViewController+Constraints.h"; sourceTree = "<group>"; };
+		DA14981B210B039600A4B20D /* ContentViewController+Constraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ContentViewController+Constraints.m"; sourceTree = "<group>"; };
+		DA14981D210B06ED00A4B20D /* DownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DownloadManager.h; sourceTree = "<group>"; };
+		DA14981E210B06ED00A4B20D /* DownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownloadManager.m; sourceTree = "<group>"; };
+		DA149820210B07A100A4B20D /* FeedViewController+Downloader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+Downloader.h"; sourceTree = "<group>"; };
+		DA149821210B07A100A4B20D /* FeedViewController+Downloader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+Downloader.m"; sourceTree = "<group>"; };
+		DA149823210B2AFB00A4B20D /* FileManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileManager.h; sourceTree = "<group>"; };
+		DA149824210B2AFB00A4B20D /* FileManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileManager.m; sourceTree = "<group>"; };
+		DA149826210B4DE300A4B20D /* UIImage+Compression.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Compression.h"; sourceTree = "<group>"; };
+		DA149827210B4DE300A4B20D /* UIImage+Compression.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Compression.m"; sourceTree = "<group>"; };
 		DA26C5F92107584600244984 /* FeedViewController+Parsing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+Parsing.h"; sourceTree = "<group>"; };
 		DA26C5FA2107584600244984 /* FeedViewController+Parsing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+Parsing.m"; sourceTree = "<group>"; };
 		DA26C5FC21075A8900244984 /* FeedViewController+Constraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+Constraints.h"; sourceTree = "<group>"; };
@@ -94,16 +116,6 @@
 		DAECE5532109E642004B2849 /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
 		DAECE5562109EE14004B2849 /* CollectionViewFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		DAECE5572109EE14004B2849 /* CollectionViewFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		DAECE55D2109F29D004B2849 /* VideoDetailView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoDetailView.h; sourceTree = "<group>"; };
-		DAECE55E2109F29D004B2849 /* VideoDetailView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoDetailView.m; sourceTree = "<group>"; };
-		EF7CE76F210A65A200F64A16 /* ContentViewController+Constraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentViewController+Constraints.h"; sourceTree = "<group>"; };
-		EF7CE770210A65A200F64A16 /* ContentViewController+Constraints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ContentViewController+Constraints.m"; sourceTree = "<group>"; };
-		EF7CE772210A687E00F64A16 /* HeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderView.h; sourceTree = "<group>"; };
-		EF7CE773210A687E00F64A16 /* HeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderView.m; sourceTree = "<group>"; };
-		EF7CE775210A69D300F64A16 /* AudioHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AudioHeaderView.h; sourceTree = "<group>"; };
-		EF7CE776210A69D300F64A16 /* AudioHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AudioHeaderView.m; sourceTree = "<group>"; };
-		EF7CE778210A74B100F64A16 /* EntitiesConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EntitiesConstants.h; sourceTree = "<group>"; };
-		EF7CE779210A74C300F64A16 /* EntitiesConstants.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EntitiesConstants.m; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -121,6 +133,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA14980D210B034600A4B20D /* HeaderViews */ = {
+			isa = PBXGroup;
+			children = (
+				DA14980E210B034600A4B20D /* HeaderView.m */,
+				DA14980F210B034600A4B20D /* VideoDetailView.h */,
+				DA149810210B034600A4B20D /* AudioHeaderView.h */,
+				DA149811210B034600A4B20D /* HeaderView.h */,
+				DA149812210B034600A4B20D /* VideoDetailView.m */,
+				DA149813210B034600A4B20D /* AudioHeaderView.m */,
+			);
+			path = HeaderViews;
+			sourceTree = "<group>";
+		};
 		DA26C5F2210755C200244984 /* FeedViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +157,8 @@
 				DA26C5FD21075A8900244984 /* FeedViewController+Constraints.m */,
 				EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */,
 				EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */,
+				DA149820210B07A100A4B20D /* FeedViewController+Downloader.h */,
+				DA149821210B07A100A4B20D /* FeedViewController+Downloader.m */,
 			);
 			path = FeedViewController;
 			sourceTree = "<group>";
@@ -141,8 +168,8 @@
 			children = (
 				DA26C5FF21075E8500244984 /* ContentViewController.h */,
 				DA26C60021075E8500244984 /* ContentViewController.m */,
-				EF7CE76F210A65A200F64A16 /* ContentViewController+Constraints.h */,
-				EF7CE770210A65A200F64A16 /* ContentViewController+Constraints.m */,
+				DA14981A210B039600A4B20D /* ContentViewController+Constraints.h */,
+				DA14981B210B039600A4B20D /* ContentViewController+Constraints.m */,
 			);
 			path = ContentViewController;
 			sourceTree = "<group>";
@@ -260,8 +287,8 @@
 			children = (
 				DA87943721061D550033F7CD /* Constants.h */,
 				DA87943821061D630033F7CD /* Constants.m */,
-				EF7CE778210A74B100F64A16 /* EntitiesConstants.h */,
-				EF7CE779210A74C300F64A16 /* EntitiesConstants.m */,
+				DA149818210B035700A4B20D /* EntitiesConstants.h */,
+				DA149817210B035700A4B20D /* EntitiesConstants.m */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -302,6 +329,8 @@
 			children = (
 				DA95A3C0210866B80007F078 /* UIColor+CustomColors.h */,
 				DA95A3C1210866B80007F078 /* UIColor+CustomColors.m */,
+				DA149826210B4DE300A4B20D /* UIImage+Compression.h */,
+				DA149827210B4DE300A4B20D /* UIImage+Compression.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -320,6 +349,10 @@
 			children = (
 				DA95A3D42108E8DC0007F078 /* CoreDataManager.h */,
 				DA95A3D52108E8DC0007F078 /* CoreDataManager.m */,
+				DA14981D210B06ED00A4B20D /* DownloadManager.h */,
+				DA14981E210B06ED00A4B20D /* DownloadManager.m */,
+				DA149823210B2AFB00A4B20D /* FileManager.h */,
+				DA149824210B2AFB00A4B20D /* FileManager.m */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -333,23 +366,10 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
-		DAECE5592109F23B004B2849 /* HeaderViews */ = {
-			isa = PBXGroup;
-			children = (
-				EF7CE772210A687E00F64A16 /* HeaderView.h */,
-				EF7CE773210A687E00F64A16 /* HeaderView.m */,
-				DAECE55D2109F29D004B2849 /* VideoDetailView.h */,
-				DAECE55E2109F29D004B2849 /* VideoDetailView.m */,
-				EF7CE775210A69D300F64A16 /* AudioHeaderView.h */,
-				EF7CE776210A69D300F64A16 /* AudioHeaderView.m */,
-			);
-			path = HeaderViews;
-			sourceTree = "<group>";
-		};
 		EFABF1B42107A97600659AEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				DAECE5592109F23B004B2849 /* HeaderViews */,
+				DA14980D210B034600A4B20D /* HeaderViews */,
 				EFABF1B52107A98400659AEB /* CollectionViewCells */,
 			);
 			path = Views;
@@ -438,21 +458,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */,
+				DA149815210B034600A4B20D /* VideoDetailView.m in Sources */,
 				DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */,
-				EF7CE777210A69D300F64A16 /* AudioHeaderView.m in Sources */,
 				DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */,
 				DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */,
 				DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */,
 				DA1007442109CE7300A33EB8 /* TEDCollectionViewCell.m in Sources */,
+				DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */,
 				DA1007452109CE7300A33EB8 /* SplitViewController.m in Sources */,
 				DA1007462109CE7300A33EB8 /* FeedViewController.m in Sources */,
 				DA1007472109CE7300A33EB8 /* FeedViewController+Parsing.m in Sources */,
 				DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */,
+				DA149814210B034600A4B20D /* HeaderView.m in Sources */,
 				DA1007492109CE7300A33EB8 /* FeedViewController+CollectionView.m in Sources */,
 				DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */,
 				DA10074A2109CE7300A33EB8 /* ContentViewController.m in Sources */,
 				DA10074B2109CE7300A33EB8 /* AppDelegate.m in Sources */,
+				DA149816210B034600A4B20D /* AudioHeaderView.m in Sources */,
 				DA10074C2109CE7300A33EB8 /* main.m in Sources */,
+				DA149819210B035700A4B20D /* EntitiesConstants.m in Sources */,
 				DA1007432109CE5E00A33EB8 /* MP3CollectionViewCell.m in Sources */,
 				DA1007422109CE5700A33EB8 /* VSCollectionViewCell.m in Sources */,
 				DA1007412109CE5000A33EB8 /* Item.m in Sources */,
@@ -460,14 +484,14 @@
 				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
 				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
 				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,
+				DA149822210B07A100A4B20D /* FeedViewController+Downloader.m in Sources */,
 				DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */,
 				DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */,
-				EF7CE774210A687E00F64A16 /* HeaderView.m in Sources */,
-				EF7CE77A210A74C300F64A16 /* EntitiesConstants.m in Sources */,
+				DA149828210B4DE300A4B20D /* UIImage+Compression.m in Sources */,
 				DA1007392109CE1500A33EB8 /* Constants.m in Sources */,
-				DAECE55F2109F29D004B2849 /* VideoDetailView.m in Sources */,
+				DA149825210B2AFB00A4B20D /* FileManager.m in Sources */,
 				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,
-				EF7CE771210A65A200F64A16 /* ContentViewController+Constraints.m in Sources */,
+				DA14981F210B06ED00A4B20D /* DownloadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,7 +560,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -588,7 +612,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -600,9 +624,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5M3HNT6J9D;
 				INFOPLIST_FILE = Podcaster/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,9 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5M3HNT6J9D;
 				INFOPLIST_FILE = Podcaster/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

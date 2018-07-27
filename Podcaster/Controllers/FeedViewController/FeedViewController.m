@@ -15,6 +15,7 @@
 #import "Constants.h"
 #import "UIColor+CustomColors.h"
 #import "CollectionViewFlowLayout.h"
+#import "FileManager.h"
 
 @interface FeedViewController ()
 
@@ -60,6 +61,12 @@
         [_collectionView registerClass:TEDCollectionViewCell.class forCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier];
     }
     return _collectionView;
+}
+
+#pragma mark - Methods
+
+- (void)viewWillLayoutSubviews {
+    [self.collectionView.collectionViewLayout invalidateLayout];
 }
 
 @end

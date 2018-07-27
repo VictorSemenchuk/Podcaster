@@ -10,6 +10,8 @@
 #import "Constants.h"
 #import "DateFormatter.h"
 #import "ItemCoreData.h"
+#import "FileManager.h"
+#import "Constants.h"
 
 @implementation Item
 
@@ -26,8 +28,8 @@
         _contentWebLink = dictionary[kItemEntityXMLFieldContent][@"url"];
         _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityXMLFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
         
-        _image = [[ImageContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:@""];
-        _content = [[MediaContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:@""];
+        _image = [[ImageContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:[[FileManager sharedFileManager] localFilePathForWebURL:_imageWebLink atDirectory:kPreviewImageDirestory]];
+        _content = [[MediaContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:[[FileManager sharedFileManager] localFilePathForWebURL:_contentWebLink atDirectory:kPreviewImageDirestory]];
     }
     return self;
 }
@@ -42,7 +44,7 @@
         _duration = itemMO.duration;
         _pubDate = itemMO.pubDate;
         _sourceType = (SourceType)itemMO.sourceType;
-        //_image = [[ImageContent alloc] initWithMO:itemMO.image];
+        _image = [[ImageContent alloc] initWithMO:itemMO.image];
         _content = [[MediaContent alloc] initWithMO:itemMO.content];
     }
     return self;

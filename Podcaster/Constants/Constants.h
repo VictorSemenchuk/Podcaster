@@ -58,4 +58,9 @@ extern const float kMP3ImagePlaceholderHeight;
 extern const float kTEDImagePlaceholderWidth;
 extern const float kTEDImagePlaceholderHeight;
 
+#pragma mark - Directories
+
+extern NSString * const kPreviewImageDirestory;
+extern NSString * const kFullSizeImageDirectory;
+
 #endif /* Constants_h */

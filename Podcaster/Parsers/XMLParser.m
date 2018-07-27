@@ -79,6 +79,9 @@
 }
 
 - (void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
+    if ([string isEqualToString:@"Compassionate Coding with April Wensel"]) {
+        NSLog(@"Wooray");
+    }
     if ([self.itemName isEqualToString:@"item"]) {
         for (NSString *tag in self.tags) {
             if ([self.element isEqualToString:tag]) {
@@ -99,6 +102,7 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     if ([elementName isEqualToString:@"item"]) {
+        self.itemName = @"";
         [self.items addObject:self.item];
     }
 }

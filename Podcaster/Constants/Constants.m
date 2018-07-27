@@ -55,3 +55,8 @@ const float kMP3ImagePlaceholderWidth = 80.0;
 const float kMP3ImagePlaceholderHeight = 80.0;
 const float kTEDImagePlaceholderWidth = 140.0;
 const float kTEDImagePlaceholderHeight = 80.0;
+
+#pragma mark - Directories
+
+NSString * const kPreviewImageDirestory = @"Previews";
+NSString * const kFullSizeImageDirectory = @"Images";

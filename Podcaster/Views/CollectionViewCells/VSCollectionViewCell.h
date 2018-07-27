@@ -10,6 +10,7 @@
 #import "Item.h"
 #import "Constants.h"
 #import "UIColor+CustomColors.h"
+#import "DownloadManager.h"
 
 @interface VSCollectionViewCell : UICollectionViewCell
 

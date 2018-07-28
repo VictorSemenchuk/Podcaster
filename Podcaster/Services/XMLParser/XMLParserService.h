@@ -10,17 +10,9 @@
 #import "XMLParser.h"
 #import "SourceType.h"
 
-@protocol XMLParserServiceDelegate <NSObject>
-
-- (void)wasParsedItems:(NSArray *)items forSourceType:(SourceType)sourceType;
-
-@end
-
 @interface XMLParserService : NSObject
 
-@property (weak, nonatomic) id<XMLParserServiceDelegate> delegate;
-
 - (instancetype)initWithSourceType:(SourceType)sourceType tags:(NSArray *)tags rssUrl:(NSString *)rssUrl;
-- (void)startParsing;
+- (void)startParsing:(void(^)(NSArray *items))completionBlock;
 
 @end

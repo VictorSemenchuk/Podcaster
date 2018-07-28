@@ -50,7 +50,7 @@
     return [items copy];
 }
 
-- (NSDictionary *)fetchItemsToDictionary {
+- (void)fetchItemsToDictionaryWithCompletionBlock:(void(^)(NSMutableDictionary *items))completionBlock {
     NSMutableDictionary *items = [[NSMutableDictionary alloc] init];
     CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
     NSArray *results = [coreDataManager fetchEntitiesWithName:kItemEntityTitle byPredicate:nil];
@@ -60,7 +60,7 @@
             items[item.guId] = item;
         }
     }
-    return [items copy];
+    completionBlock(items);
 }
 
 - (Item *)fetchItemByKey:(NSString *)key withValue:(NSString *)value {

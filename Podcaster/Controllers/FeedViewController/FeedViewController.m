@@ -26,7 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.items = [[NSArray alloc] init];
     self.dataManager = [[DataManager alloc] init];
     [self.dataManager fetchData:self];

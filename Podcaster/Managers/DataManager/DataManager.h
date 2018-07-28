@@ -12,10 +12,11 @@
 #import "Constants.h"
 #import "EntitiesConstants.h"
 #import "XMLParserService.h"
+#import "ItemCoreDataService.h"
 
 @protocol DataManagerDelegate <NSObject>
 
-- (void)itemsWasProcessed:(NSArray *)items;
+- (void)dataWasFetched:(NSArray *)items;
 
 @end
 
@@ -24,13 +25,15 @@
 @property (nonatomic) NSMutableArray *items;
 @property (nonatomic) XMLParserService *xmlParserServiceMP3;
 @property (nonatomic) XMLParserService *xmlParserServiceTED;
+@property (nonatomic) ItemCoreDataService *itemCoreDataService;
 @property (nonatomic) NSArray *tags;
 @property (nonatomic) NSArray *entitiesMP3Items;
 @property (nonatomic) NSArray *entitiesTEDItems;
-@property (nonatomic) NSDictionary *entitiesCoreDataItems;
+@property (nonatomic) NSMutableDictionary *entitiesCoreDataItems;
 @property (weak, nonatomic) id<DataManagerDelegate> delegate;
 
-- (void)fetchData:(id)sender ;
+- (void)fetchData:(id)sender;
+- (void)refetchData;
 + (void)getPreviewImageForItem:(Item *)item completionBlock:(void(^)(UIImage *image))completionBlock;
 - (void)processItems;
 

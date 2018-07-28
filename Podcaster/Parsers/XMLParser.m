@@ -38,7 +38,7 @@
 
 #pragma mark - Methods
 
-- (void)startParsing {
+- (void)startParsing:(void (^)(NSArray *))completionBlock {
     [self resetResults];
     NSURL *url = [NSURL URLWithString:self.stringUrl];
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -51,7 +51,12 @@
                 self.parser.delegate = self;
                 dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
                 dispatch_async(queue, ^{
-                    [self.parser parse];
+                    BOOL flag = [self.parser parse];
+                    if (flag) {
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completionBlock([self.items copy]);
+                        });
+                    }
                 });
             });
         } else {
@@ -106,10 +111,5 @@
         [self.items addObject:self.item];
     }
 }
-
-- (void)parserDidEndDocument:(NSXMLParser *)parser {
-    [self.delegate wasParsedData:[self.items copy]];
-}
-
 
 @end

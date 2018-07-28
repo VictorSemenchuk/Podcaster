@@ -116,15 +116,27 @@
 #pragma mark - Target methods
 
 - (void)saveItemToPersistent {
+    if (self.item.persistentSourceType == kCoreData) {
+        return;
+    }
     ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
-    [itemCoreDataService saveNewItem:self.item];
-    
+    NSString *rootDirectory;
+    switch (self.item.sourceType) {
+        case kMP3:
+            rootDirectory = kAudioDirectory;
+            break;
+        case kTED:
+            rootDirectory = kVideoDirectory;
+            break;
+    }
     FileManager *fileManager = [FileManager sharedFileManager];
     DownloadManager *downloadManager = [[DownloadManager alloc] init];
     [downloadManager downloadFileForURL:self.item.content.webUrl withCompletionBlock:^(NSData *data) {
         NSString *fileName = [fileManager getFilenameFromStringURL:self.item.content.webUrl];
-        NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kVideoDirectory, fileName];
+        NSString *filePath = [NSString stringWithFormat:@"/%@/%@", rootDirectory, fileName];
         [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
+        self.item.content.localUrl = filePath;
+        [itemCoreDataService saveNewItem:self.item];
     }];
 }
 

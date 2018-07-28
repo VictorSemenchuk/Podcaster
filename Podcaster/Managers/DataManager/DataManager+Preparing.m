@@ -33,13 +33,11 @@
             self.xmlParserServiceMP3 = [[XMLParserService alloc] initWithSourceType:sourceType
                                                                                tags:self.tags
                                                                              rssUrl:url];
-            self.xmlParserServiceMP3.delegate = self;
             break;
         case kTED:
             self.xmlParserServiceTED = [[XMLParserService alloc] initWithSourceType:sourceType
                                                                                tags:self.tags
                                                                              rssUrl:url];
-            self.xmlParserServiceTED.delegate = self;
             break;
         default:
             break;

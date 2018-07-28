@@ -63,5 +63,6 @@ extern const float kTEDImagePlaceholderHeight;
 extern NSString * const kPreviewImageDirestory;
 extern NSString * const kFullSizeImageDirectory;
 extern NSString * const kVideoDirectory;
+extern NSString * const kAudioDirectory;
 
 #endif /* Constants_h */

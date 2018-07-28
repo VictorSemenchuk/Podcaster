@@ -41,6 +41,7 @@
         _documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
         [self createDirectoryWithPath:[NSString stringWithFormat:@"/%@", kPreviewImageDirestory] withSandboxFolderType:kCaches];
         [self createDirectoryWithPath:[NSString stringWithFormat:@"/%@", kVideoDirectory] withSandboxFolderType:kDocuments];
+        [self createDirectoryWithPath:[NSString stringWithFormat:@"/%@", kAudioDirectory] withSandboxFolderType:kDocuments];
         [self createDirectoryWithPath:[NSString stringWithFormat:@"/%@", kFullSizeImageDirectory] withSandboxFolderType:kDocuments];
     }
     return self;
@@ -57,7 +58,7 @@
 - (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
     NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
     NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
-    //NSLog(@"%@", destinationPath);
+    NSLog(@"File destination path: %@", destinationPath);
     [self.fileManager createFileAtPath:destinationPath contents:data attributes:nil];
 }
 

@@ -42,6 +42,7 @@
 		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
 		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
 		DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5572109EE14004B2849 /* CollectionViewFlowLayout.m */; };
+		EFD91BEB210CF0A6006C2AC5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */; };
 		EFF9FD55210C5A3400D745E1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD54210C5A3400D745E1 /* DataManager.m */; };
 		EFF9FD5C210C813100D745E1 /* FeedViewController+DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD5B210C813100D745E1 /* FeedViewController+DataManager.m */; };
 		EFF9FD60210C8AF000D745E1 /* DataManager+Preparing.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD5F210C8AF000D745E1 /* DataManager+Preparing.m */; };
@@ -118,6 +119,8 @@
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
 		EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MP3CollectionViewCell.m; sourceTree = "<group>"; };
+		EFD91BE9210CF0A6006C2AC5 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		EFF9FD52210C541700D745E1 /* SandboxFolderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SandboxFolderType.h; sourceTree = "<group>"; };
 		EFF9FD53210C5A3400D745E1 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		EFF9FD54210C5A3400D745E1 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
@@ -283,6 +286,7 @@
 		DA87943521061D0D0033F7CD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				EFD91BE8210CF073006C2AC5 /* SettingsViewController */,
 				DA95A3C3210876680007F078 /* SplitViewController */,
 				DA26C5F2210755C200244984 /* FeedViewController */,
 				DA26C60221075E8700244984 /* ContentViewController */,
@@ -397,6 +401,15 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
+		EFD91BE8210CF073006C2AC5 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EFD91BE9210CF0A6006C2AC5 /* SettingsViewController.h */,
+				EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */,
+			);
+			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
 		EFF9FD5D210C8AD900D745E1 /* DataManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -490,6 +503,7 @@
 				DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */,
 				DA1007452109CE7300A33EB8 /* SplitViewController.m in Sources */,
 				DA1007462109CE7300A33EB8 /* FeedViewController.m in Sources */,
+				EFD91BEB210CF0A6006C2AC5 /* SettingsViewController.m in Sources */,
 				EFF9FD60210C8AF000D745E1 /* DataManager+Preparing.m in Sources */,
 				DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */,
 				DA149814210B034600A4B20D /* HeaderView.m in Sources */,

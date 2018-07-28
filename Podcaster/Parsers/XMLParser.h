@@ -8,17 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol XMLParserDelegate <NSObject>
-
-- (void)wasParsedData:(NSArray *)data;
-
-@end
-
 @interface XMLParser : NSObject
 
-@property (weak, nonatomic) id<XMLParserDelegate> delegate;
-
 - (instancetype)initWithTags:(NSArray *)tags rssUrl:(NSString *)stringUrl;
-- (void)startParsing;
+- (void)startParsing:(void(^)(NSArray *data))completionBlock;
 
 @end

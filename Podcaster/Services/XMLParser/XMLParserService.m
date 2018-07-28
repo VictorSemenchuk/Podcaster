@@ -11,7 +11,7 @@
 #import "DataManager.h"
 #import "EntitiesConstants.h"
 
-@interface XMLParserService () <XMLParserDelegate>
+@interface XMLParserService ()
 
 @property (assign, nonatomic) SourceType sourceType;
 @property (nonatomic) NSArray *tags;
@@ -37,9 +37,15 @@
 
 #pragma mark - Methods
 
-- (void)startParsing {
-    self.parser.delegate = self;
-    [self.parser startParsing];
+- (void)startParsing:(void (^)(NSArray *))completionBlock {
+    [self.parser startParsing:^(NSArray *data) {
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        for (NSDictionary *item in data) {
+            Item * modelItem = [[Item alloc] initWithDictionary:item andSourceType:self.sourceType];
+            [items addObject:modelItem];
+        }
+        completionBlock([items copy]);
+    }];
 }
 
 #pragma mark - XMLParserDelegate
@@ -50,7 +56,6 @@
         Item * modelItem = [[Item alloc] initWithDictionary:item andSourceType:self.sourceType];
         [items addObject:modelItem];
     }
-    [self.delegate wasParsedItems:items forSourceType:self.sourceType];
 }
 
 @end

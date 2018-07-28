@@ -10,7 +10,7 @@
 
 @implementation FeedViewController (DataManager)
 
-- (void)itemsWasProcessed:(NSArray *)items {
+- (void)dataWasFetched:(NSArray *)items {
     self.items = items;
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.activityIndicator stopAnimating];

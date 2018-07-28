@@ -13,7 +13,7 @@
 
 - (void)saveNewItem:(Item *)item;
 - (NSArray *)fetchItems;
-- (NSDictionary *)fetchItemsToDictionary;
+- (void)fetchItemsToDictionaryWithCompletionBlock:(void(^)(NSMutableDictionary *items))completionBlock;
 - (Item *)fetchItemByKey:(NSString *)key withValue:(NSString *)value;
 
 @end

@@ -61,3 +61,4 @@ const float kTEDImagePlaceholderHeight = 80.0;
 NSString * const kPreviewImageDirestory = @"Previews";
 NSString * const kFullSizeImageDirectory = @"Images";
 NSString * const kVideoDirectory = @"Videos";
+NSString * const kAudioDirectory = @"Audio";

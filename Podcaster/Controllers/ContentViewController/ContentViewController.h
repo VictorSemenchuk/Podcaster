@@ -26,7 +26,7 @@
 @property (nonatomic) HeaderView *headerView;
 @property (nonatomic) UIStackView *infoStackView;
 
-- (void)refreshContent;
 - (void)downloadImage;
+- (void)saveItemToPersistent;
 
 @end

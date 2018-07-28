@@ -9,8 +9,9 @@
 #import "ContentViewController.h"
 #import "UIColor+CustomColors.h"
 #import "ContentViewController+Constraints.h"
-#import "FileManager.h"
 #import "DownloadManager.h"
+#import "FileManager.h"
+#import "ItemCoreDataService.h"
 
 @implementation ContentViewController
 
@@ -98,21 +99,32 @@
         _downloadButton = [[UIButton alloc] init];
         [_downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
         _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [_downloadButton addTarget:self action:@selector(saveItemToPersistent) forControlEvents:UIControlEventTouchUpInside];
     }
     return _downloadButton;
 }
 
-- (void)refreshContent {
-    for (UIView *view in self.view.subviews) {
-        [view removeFromSuperview];
-    }
-    [self setupViews];
-}
+#pragma mark - Methods
 
 - (void)downloadImage {
     DownloadManager *downloadManager = [[DownloadManager alloc] init];
     [downloadManager downloadFileForURL:self.item.image.webUrl withCompletionBlock:^(NSData *data) {
         self.headerView.imageView.image = [UIImage imageWithData:data];
+    }];
+}
+
+#pragma mark - Target methods
+
+- (void)saveItemToPersistent {
+    ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
+    [itemCoreDataService saveNewItem:self.item];
+    
+    FileManager *fileManager = [FileManager sharedFileManager];
+    DownloadManager *downloadManager = [[DownloadManager alloc] init];
+    [downloadManager downloadFileForURL:self.item.content.webUrl withCompletionBlock:^(NSData *data) {
+        NSString *fileName = [fileManager getFilenameFromStringURL:self.item.content.webUrl];
+        NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kVideoDirectory, fileName];
+        [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
     }];
 }
 

@@ -8,16 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "SandboxFolderType.h"
 
 @interface FileManager : NSObject
 
 + (instancetype)sharedFileManager;
-- (void)createCachesDirectoryWithPath:(NSString *)stringPath;
-- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath;
-- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withCompressionFactor:(float)compressionFactor;
-- (UIImage *)getImageFromPath:(NSString *)stringPath;
-- (BOOL)fileIsExistForPath:(NSString *)stringPath;
-- (NSString *)localFilePathForWebURL:(NSString *)webStringUrl atDirectory:(NSString *)directory;
+- (void)createDirectoryWithPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
+- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
+- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withCompressionFactor:(float)compressionFactor withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
+- (UIImage *)getImageFromPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
+- (BOOL)fileIsExistForPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
+- (NSString *)localFilePathForWebURL:(NSString *)webStringUrl atDirectory:(NSString *)directory withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
 - (NSString *)getFilenameFromStringURL:(NSString *)stringUrl;
 
 @end

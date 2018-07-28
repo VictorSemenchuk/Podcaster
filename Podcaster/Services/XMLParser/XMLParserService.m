@@ -8,6 +8,8 @@
 
 #import "XMLParserService.h"
 #import "Item.h"
+#import "DataManager.h"
+#import "EntitiesConstants.h"
 
 @interface XMLParserService () <XMLParserDelegate>
 
@@ -45,7 +47,7 @@
 - (void)wasParsedData:(NSArray *)data {
     NSMutableArray *items = [[NSMutableArray alloc] init];
     for (NSDictionary *item in data) {
-        Item *modelItem = [[Item alloc] initWithDictionary:item andSourceType:self.sourceType];
+        Item * modelItem = [[Item alloc] initWithDictionary:item andSourceType:self.sourceType];
         [items addObject:modelItem];
     }
     [self.delegate wasParsedItems:items forSourceType:self.sourceType];

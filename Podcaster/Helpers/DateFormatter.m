@@ -10,6 +10,8 @@
 
 @implementation DateFormatter
 
+#pragma mark - Init
+
 + (instancetype)sharedDateFormatter {
     static DateFormatter *sharedDateFormatter = nil;
     static dispatch_once_t onceToken;
@@ -28,10 +30,18 @@
     return self;
 }
 
+#pragma mark - Methods
+
 + (NSDate *)getDateFromString:(NSString *)string byFormat:(NSString *)format {
-    NSDateFormatter *dateFormat = [DateFormatter sharedDateFormatter].dateFormatter;
-    [dateFormat setDateFormat:format];
-    return [dateFormat dateFromString:string];
+    NSDateFormatter *dateFormatter = [DateFormatter sharedDateFormatter].dateFormatter;
+    [dateFormatter setDateFormat:format];
+    return [dateFormatter dateFromString:string];
+}
+
++ (NSString *)getStringFromDate:(NSDate *)date byFormat:(NSString *)format {
+    NSDateFormatter *dateFormatter = [DateFormatter sharedDateFormatter].dateFormatter;
+    [dateFormatter setDateFormat:format];
+    return [dateFormatter stringFromDate:date];
 }
 
 @end

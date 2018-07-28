@@ -7,6 +7,8 @@
 //
 
 #import "VSCollectionViewCell.h"
+#import "DataManager.h"
+#import "DateFormatter.h"
 
 @implementation VSCollectionViewCell
 
@@ -76,8 +78,11 @@
 
 - (UIButton *)downloadButton {
     if (!_downloadButton) {
+        UIImage *image = [UIImage imageNamed:@"DownloadIcon"];
+        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         _downloadButton = [[UIButton alloc] init];
-        [_downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
+        [_downloadButton setImage:image forState:UIControlStateNormal];
+        _downloadButton.tintColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:255.0/255.0];
         _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _downloadButton;
@@ -143,10 +148,19 @@
 - (void)setValueForItem:(Item *)item {
     self.titleLabel.text = item.title;
     self.authorLabel.text = item.author;
+    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [DateFormatter getStringFromDate:item.pubDate byFormat:@"dd MMM yyyy"]];
+    if (item.persistentSourceType == kCoreData) {
+        self.downloadButton.tintColor = UIColor.blueColor;
+    }
     
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd MMM yyyy"];
-    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [dateFormat stringFromDate:item.pubDate]];
+    [DataManager getPreviewImageForItem:item completionBlock:^(UIImage *image) {
+        self.imageView.image = image;
+    }];
+}
+
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.downloadButton.tintColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:255.0/255.0];
 }
 
 @end

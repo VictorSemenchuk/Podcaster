@@ -11,15 +11,14 @@
 #import "Constants.h"
 #import "SourceType.h"
 #import "Item.h"
+#import "DataManager.h"
 
 @interface FeedViewController : UIViewController
 
-@property (nonatomic) NSArray *entitiesMP3Items;
-@property (nonatomic) NSArray *entitiesTEDItems;
-@property (nonatomic) XMLParserService *xmlParserServiceMP3;
-@property (nonatomic) XMLParserService *xmlParserServiceTED;
-@property (nonatomic) NSArray *tags;
+@property (nonatomic) NSArray *items;
+@property (nonatomic) DataManager *dataManager;
 
 @property (nonatomic) UICollectionView *collectionView;
+@property (nonatomic) UIActivityIndicatorView *activityIndicator;
 
 @end

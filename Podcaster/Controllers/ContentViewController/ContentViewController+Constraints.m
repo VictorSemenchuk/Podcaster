@@ -8,15 +8,15 @@
 
 #import "ContentViewController+Constraints.h"
 #import "ContentViewController.h"
+#import "DateFormatter.h"
+#import <AVKit/AVKit.h>
 
 @implementation ContentViewController (Constraints)
 
 - (void)setupViews {
     
     self.authorLabel.text = self.item.author;
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"dd MMM yyyy"];
-    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [dateFormat stringFromDate:self.item.pubDate]];
+    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [DateFormatter getStringFromDate:self.item.pubDate byFormat:@"dd MMM yyyy"]];
     self.detailsLabel.text = self.item.details;
     
     [self.view addSubview:self.scrollView];
@@ -66,6 +66,15 @@
                                               [self.detailsLabel.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor constant:-20.0]]];
     
     [self.headerView setupViews];
+    
+//    if (self.item.sourceType == kTED) {
+//        NSURL *url = [NSURL URLWithString:self.item.content.webUrl];
+//        AVPlayer *player = [AVPlayer playerWithURL:url];
+//        AVPlayerViewController *controller = [[AVPlayerViewController alloc] init];
+//        [self presentViewController:controller animated:YES completion:nil];
+//        controller.player = player;
+//        [player play];
+//    }
 }
 
 @end

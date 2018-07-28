@@ -10,7 +10,7 @@
 #import "SourceType.h"
 #import "ImageContent.h"
 #import "MediaContent.h"
-
+#import "PersistentSourceType.h"
 
 @class ItemCoreData;
 @interface Item : NSObject
@@ -23,11 +23,10 @@
 @property (nonatomic) NSDate *pubDate;
 @property (assign, nonatomic) SourceType sourceType;
 
-@property (nonatomic) NSString *imageWebLink;
-@property (nonatomic) NSString *contentWebLink;
-
 @property (nonatomic) ImageContent *image;
 @property (nonatomic) MediaContent *content;
+
+@property (assign, nonatomic) PersistentSourceType persistentSourceType;
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType;
 - (instancetype)initWithMO:(ItemCoreData *)itemMO;

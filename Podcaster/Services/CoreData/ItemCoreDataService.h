@@ -11,7 +11,9 @@
 
 @interface ItemCoreDataService : NSObject
 
-- (void)addNewItem:(Item *)item;
-- (NSArray *)loadTasksForListWithId:(NSUInteger)listId;
+- (void)saveNewItem:(Item *)item;
+- (NSArray *)fetchItems;
+- (NSDictionary *)fetchItemsToDictionary;
+- (Item *)fetchItemByKey:(NSString *)key withValue:(NSString *)value;
 
 @end

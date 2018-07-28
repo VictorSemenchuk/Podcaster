@@ -48,7 +48,7 @@ static NSString * const kModelName = @"Model";
         
         NSURL *documentsURL = [[fileManager URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
         NSURL *storeURL = [documentsURL URLByAppendingPathComponent:kDatabaseFilename];
-        NSLog(@"CoreData persistent store URL: %@", storeURL);
+        //NSLog(@"CoreData persistent store URL: %@", storeURL);
         
         NSError *error;
         _persistentCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];

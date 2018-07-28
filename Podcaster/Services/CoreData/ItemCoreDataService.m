@@ -13,7 +13,7 @@
 
 @implementation ItemCoreDataService
 
-- (void)addNewItem:(Item *)item {
+- (void)saveNewItem:(Item *)item {
     CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
     [coreDataManager addNewInstanceForEntityWithName:kItemEntityTitle withAssigningBlock:^(NSManagedObject *currentEntity, NSManagedObjectContext *context) {
         [currentEntity setValue:item.guId forKey:kItemGUIDAttributeName];
@@ -37,7 +37,7 @@
     }];
 }
 
-- (NSArray *)loadTasksForListWithId:(NSUInteger)listId {
+- (NSArray *)fetchItems {
     NSMutableArray<Item *> *items = [[NSMutableArray alloc] init];
     CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
     NSArray *results = [coreDataManager fetchEntitiesWithName:kItemEntityTitle byPredicate:nil];
@@ -48,6 +48,30 @@
         }
     }
     return [items copy];
+}
+
+- (NSDictionary *)fetchItemsToDictionary {
+    NSMutableDictionary *items = [[NSMutableDictionary alloc] init];
+    CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
+    NSArray *results = [coreDataManager fetchEntitiesWithName:kItemEntityTitle byPredicate:nil];
+    if (results) {
+        for (ItemCoreData *itemMO in results) {
+            Item *item = [[Item alloc] initWithMO:itemMO];
+            items[item.guId] = item;
+        }
+    }
+    return [items copy];
+}
+
+- (Item *)fetchItemByKey:(NSString *)key withValue:(NSString *)value {
+    Item *item;
+    CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", key, value];
+    NSArray *results = [coreDataManager fetchEntitiesWithName:kItemEntityTitle byPredicate:predicate];
+    if (results) {
+        item = results.firstObject;
+    }
+    return item;
 }
 
 @end

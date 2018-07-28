@@ -18,31 +18,30 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.entitiesTEDItems count] + [self.entitiesMP3Items count];
+    return self.items.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row < [self.entitiesTEDItems count]) {
-        TEDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier forIndexPath:indexPath];
-        Item *item = self.entitiesTEDItems[indexPath.row];
-        [cell setValueForItem:item];
-        return cell;
-    } else {
-        MP3CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier forIndexPath:indexPath];
-        [cell setValueForItem:self.entitiesMP3Items[indexPath.row - self.entitiesTEDItems.count]];
-        return cell;
+    Item *item = self.items[indexPath.row];
+    switch (item.sourceType) {
+        case kMP3: {
+            MP3CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier forIndexPath:indexPath];
+            [cell setValueForItem:item];
+            return cell;
+            break;
+        }
+        case kTED: {
+            TEDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier forIndexPath:indexPath];
+            [cell setValueForItem:item];
+            return cell;
+        }
     }
 }
 
 #pragma mark - UICollectionViewDelegate/FlowLayout
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    Item *item;
-    if (indexPath.row >= self.entitiesTEDItems.count) {
-        item = self.entitiesMP3Items[indexPath.row - self.entitiesTEDItems.count];
-    } else {
-        item = self.entitiesTEDItems[indexPath.row];
-    }
+    Item *item = self.items[indexPath.row];
     ContentViewController *contentVC = [[ContentViewController alloc] init];
     contentVC.item = item;
     [self.splitViewController showDetailViewController:contentVC sender:nil];

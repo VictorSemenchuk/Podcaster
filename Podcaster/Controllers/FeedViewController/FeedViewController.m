@@ -7,7 +7,6 @@
 //
 
 #import "FeedViewController.h"
-#import "FeedViewController+Parsing.h"
 #import "FeedViewController+Constraints.h"
 #import "FeedViewController+CollectionView.h"
 #import "MP3CollectionViewCell.h"
@@ -28,21 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tags = @[kItemEntityXMLFieldGUID,
-                  kItemEntityXMLFieldTitle,
-                  kItemEntityXMLFieldAuthor,
-                  kItemEntityXMLFieldDetails,
-                  kItemEntityXMLFieldDuration,
-                  kItemEntityXMLFieldPubDate,
-                  kItemEntityXMLFieldImage,
-                  kItemEntityXMLFieldContent
-                  ];
-    
-    [self setupXMLServiceForSourceType:kMP3];
-    [self setupXMLServiceForSourceType:kTED];
-    [self.xmlParserServiceMP3 startParsing];
-    [self.xmlParserServiceTED startParsing];
-    
+    self.items = [[NSArray alloc] init];
+    self.dataManager = [[DataManager alloc] init];
+    [self.dataManager fetchData:self];
     [self setupViews];
 }
 
@@ -70,6 +57,16 @@
         [_collectionView registerClass:TEDCollectionViewCell.class forCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier];
     }
     return _collectionView;
+}
+
+- (UIActivityIndicatorView *)activityIndicator {
+    if (!_activityIndicator) {
+        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        _activityIndicator.hidesWhenStopped = YES;
+        _activityIndicator.color = UIColor.themeColor;
+        _activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _activityIndicator;
 }
 
 #pragma mark - Methods

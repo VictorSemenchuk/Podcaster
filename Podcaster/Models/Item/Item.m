@@ -24,12 +24,15 @@
         _author = dictionary[kItemEntityXMLFieldAuthor];
         _details = dictionary[kItemEntityXMLFieldDetails];
         _duration = dictionary[kItemEntityXMLFieldDuration];
-        _imageWebLink = dictionary[kItemEntityXMLFieldImage][@"href"];
-        _contentWebLink = dictionary[kItemEntityXMLFieldContent][@"url"];
         _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityXMLFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
         
-        _image = [[ImageContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:[[FileManager sharedFileManager] localFilePathForWebURL:_imageWebLink atDirectory:kPreviewImageDirestory]];
-        _content = [[MediaContent alloc] initWithWebUrl:_imageWebLink andLocalUrl:[[FileManager sharedFileManager] localFilePathForWebURL:_contentWebLink atDirectory:kPreviewImageDirestory]];
+        NSString *imageWebLink = dictionary[kItemEntityXMLFieldImage][@"href"];
+        _image = [[ImageContent alloc] initWithWebUrl:imageWebLink andLocalUrl:[[FileManager sharedFileManager] localFilePathForWebURL:imageWebLink atDirectory:kPreviewImageDirestory withSandboxFolderType:kCaches]];
+        
+        NSString *contentWebLink = dictionary[kItemEntityXMLFieldContent][@"url"];
+        _content = [[MediaContent alloc] initWithWebUrl:contentWebLink andLocalUrl:@""];
+        
+        _persistentSourceType = kRemote;
     }
     return self;
 }
@@ -46,12 +49,14 @@
         _sourceType = (SourceType)itemMO.sourceType;
         _image = [[ImageContent alloc] initWithMO:itemMO.image];
         _content = [[MediaContent alloc] initWithMO:itemMO.content];
+        
+        _persistentSourceType = kCoreData;
     }
     return self;
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"GUID: %@,\n title: %@,\n author: %@,\n details: %@,\n duration: %@,\n pubDate: %@,\n sourceType: %d,\n imageWebLink: %@,\n contentWebLink: %@\n-----------\n", self.guId, self.title, self.author, self.details, self.duration, self.pubDate, self.sourceType, self.imageWebLink, self.contentWebLink];
+    return [NSString stringWithFormat:@"GUID: %@,\n title: %@,\n author: %@,\n details: %@,\n duration: %@,\n pubDate: %@,\n sourceType: %d,\n", self.guId, self.title, self.author, self.details, self.duration, self.pubDate, self.sourceType];
 }
 
 @end

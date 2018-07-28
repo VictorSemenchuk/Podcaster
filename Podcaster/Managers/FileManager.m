@@ -14,10 +14,15 @@
 
 @property (nonatomic) NSFileManager *fileManager;
 @property (nonatomic) NSString *cachesDirectory;
+@property (nonatomic) NSString *documentsDirectory;
+
+- (NSString *)rootDirectoryForSandboxFolderType:(SandboxFolderType)sandboxFolderType;
 
 @end
 
 @implementation FileManager
+
+#pragma mark - Init
 
 + (instancetype)sharedFileManager {
     static FileManager *sharedFileManager = nil;
@@ -33,40 +38,53 @@
     if (self) {
         _fileManager = [NSFileManager defaultManager];
         _cachesDirectory = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES)[0];
-        [self createCachesDirectoryWithPath:[NSString stringWithFormat:@"/%@", kFullSizeImageDirectory]];
-        [self createCachesDirectoryWithPath:[NSString stringWithFormat:@"/%@", kPreviewImageDirestory]];
+        _documentsDirectory = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)[0];
+        [self createDirectoryWithPath:[NSString stringWithFormat:@"/%@", kPreviewImageDirestory] withSandboxFolderType:kCaches];
+        [self createDirectoryWithPath:[NSString stringWithFormat:@"/%@", kVideoDirectory] withSandboxFolderType:kDocuments];
+        [self createDirectoryWithPath:[NSString stringWithFormat:@"/%@", kFullSizeImageDirectory] withSandboxFolderType:kDocuments];
     }
     return self;
 }
 
-- (void)createCachesDirectoryWithPath:(NSString *)stringPath {
-    NSString *destinationPath = [self.cachesDirectory stringByAppendingString:stringPath];
+#pragma mark - Creating
+
+- (void)createDirectoryWithPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
+    NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
+    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
     [self.fileManager createDirectoryAtPath:destinationPath withIntermediateDirectories:YES attributes:nil error:nil];
 }
 
-- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath {
-    NSString *destinationPath = [self.cachesDirectory stringByAppendingString:stringPath];
+- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
+    NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
+    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
+    //NSLog(@"%@", destinationPath);
     [self.fileManager createFileAtPath:destinationPath contents:data attributes:nil];
 }
 
-- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withCompressionFactor:(float)compressionFactor {
+- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withCompressionFactor:(float)compressionFactor withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
     NSData *newImageData = [UIImage imageWithImage:[UIImage imageWithData:data] compressedWithFactor:compressionFactor];
-    [self createFileWithData:newImageData atPath:stringPath];
+    [self createFileWithData:newImageData atPath:stringPath withSandboxFolderType:sandboxFolderType];
 }
 
-- (UIImage *)getImageFromPath:(NSString *)stringPath {
-    NSString *destinationPath = [self.cachesDirectory stringByAppendingString:stringPath];
+#pragma mark - Getting
+
+- (UIImage *)getImageFromPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
+    NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
+    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
     return [UIImage imageWithContentsOfFile:destinationPath];
 }
 
-- (BOOL)fileIsExistForPath:(NSString *)stringPath {
-    NSString *destinationPath = [self.cachesDirectory stringByAppendingString:stringPath];
+#pragma mark - Other
+
+- (BOOL)fileIsExistForPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
+    NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
+    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
     return [self.fileManager fileExistsAtPath:destinationPath];
 }
 
-- (NSString *)localFilePathForWebURL:(NSString *)webStringUrl atDirectory:(NSString *)directory {
+- (NSString *)localFilePathForWebURL:(NSString *)webStringUrl atDirectory:(NSString *)directory withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
     NSString *localPath = [NSString stringWithFormat:@"/%@/%@", directory, [self getFilenameFromStringURL:webStringUrl]];
-    if ([self fileIsExistForPath:localPath]) {
+    if ([self fileIsExistForPath:localPath withSandboxFolderType:sandboxFolderType]) {
         return localPath;
     } else {
         return @"";
@@ -77,6 +95,19 @@
     NSURL *url = [NSURL URLWithString:stringUrl];
     NSString *fileTitle = url.lastPathComponent;
     return fileTitle;
+}
+
+- (NSString *)rootDirectoryForSandboxFolderType:(SandboxFolderType)sandboxFolderType {
+    NSString *directory = @"";
+    switch (sandboxFolderType) {
+        case kCaches:
+            directory = self.cachesDirectory;
+            break;
+        case kDocuments:
+            directory = self.documentsDirectory;
+            break;
+    }
+    return directory;
 }
 
 @end

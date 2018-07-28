@@ -21,26 +21,9 @@
     [NSLayoutConstraint activateConstraints:@[[self.imageView.widthAnchor constraintEqualToConstant:kMP3ImagePlaceholderWidth]]];
 }
 
-- (void)setValueForItem:(Item *)item {
-    [super setValueForItem:item];
-    FileManager *fileManager = [FileManager sharedFileManager];
-    if (![item.image.localUrl isEqualToString:@""]) {
-        self.imageView.image = self.imageView.image = [fileManager getImageFromPath:item.image.localUrl];
-    } else {
-        DownloadManager *downloadManager = [[DownloadManager alloc] init];
-        [downloadManager downloadFileForURL:item.image.webUrl withCompletionBlock:^(NSData *data) {
-            NSString *filename = [fileManager getFilenameFromStringURL:item.image.webUrl];
-            NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kPreviewImageDirestory, filename];
-            [fileManager createFileWithData:data atPath:filePath withCompressionFactor:0.1];
-            item.image.localUrl = filePath;
-            self.imageView.image = [fileManager getImageFromPath:[NSString stringWithFormat:@"/%@/%@", kPreviewImageDirestory, filename]];
-        }];
-    }
-}
-
 - (void)prepareForReuse {
-    self.imageView.image = [UIImage imageNamed:kMP3ItemImagePlaceholder];
     [super prepareForReuse];
+    self.imageView.image = [UIImage imageNamed:kMP3ItemImagePlaceholder];
 }
 
 @end

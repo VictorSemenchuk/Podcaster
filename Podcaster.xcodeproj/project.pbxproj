@@ -43,6 +43,7 @@
 		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
 		DAECE5582109EE14004B2849 /* CollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5572109EE14004B2849 /* CollectionViewFlowLayout.m */; };
 		EFD91BEB210CF0A6006C2AC5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */; };
+		EFD91BEE210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BED210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m */; };
 		EFF9FD55210C5A3400D745E1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD54210C5A3400D745E1 /* DataManager.m */; };
 		EFF9FD5C210C813100D745E1 /* FeedViewController+DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD5B210C813100D745E1 /* FeedViewController+DataManager.m */; };
 		EFF9FD60210C8AF000D745E1 /* DataManager+Preparing.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD5F210C8AF000D745E1 /* DataManager+Preparing.m */; };
@@ -121,6 +122,8 @@
 		EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MP3CollectionViewCell.m; sourceTree = "<group>"; };
 		EFD91BE9210CF0A6006C2AC5 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		EFD91BEC210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+SettingsViewControllerDelegate.h"; sourceTree = "<group>"; };
+		EFD91BED210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+SettingsViewControllerDelegate.m"; sourceTree = "<group>"; };
 		EFF9FD52210C541700D745E1 /* SandboxFolderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SandboxFolderType.h; sourceTree = "<group>"; };
 		EFF9FD53210C5A3400D745E1 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		EFF9FD54210C5A3400D745E1 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
@@ -168,6 +171,8 @@
 				EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */,
 				EFF9FD5A210C813100D745E1 /* FeedViewController+DataManager.h */,
 				EFF9FD5B210C813100D745E1 /* FeedViewController+DataManager.m */,
+				EFD91BEC210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.h */,
+				EFD91BED210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m */,
 			);
 			path = FeedViewController;
 			sourceTree = "<group>";
@@ -493,6 +498,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFF9FD63210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.m in Sources */,
+				EFD91BEE210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */,
 				DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */,
 				DA149815210B034600A4B20D /* VideoDetailView.m in Sources */,
 				DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */,

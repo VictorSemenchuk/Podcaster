@@ -9,6 +9,7 @@
 #import "FeedViewController.h"
 #import "FeedViewController+Constraints.h"
 #import "FeedViewController+CollectionView.h"
+#import "FeedViewController+SettingsViewControllerDelegate.h"
 #import "MP3CollectionViewCell.h"
 #import "TEDCollectionViewCell.h"
 #import "Constants.h"
@@ -18,6 +19,8 @@
 
 @interface FeedViewController ()
 
+- (void)presentSettingsViewController;
+
 @end
 
 @implementation FeedViewController
@@ -26,11 +29,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.items = [[NSArray alloc] init];
     self.dataManager = [[DataManager alloc] init];
     [self.dataManager fetchData:self];
     [self setupViews];
+    
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SettingIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(presentSettingsViewController)];
+    rightBarButtonItem.tintColor = UIColor.themeColor;
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -73,6 +79,15 @@
 
 - (void)viewWillLayoutSubviews {
     [self.collectionView.collectionViewLayout invalidateLayout];
+}
+
+#pragma mark - Target actions
+
+- (void)presentSettingsViewController {
+    SettingsViewController *settingsVC = [[SettingsViewController alloc] init];
+    settingsVC.delegate = self;
+    UINavigationController *navVC = [[UINavigationController alloc] initWithRootViewController:settingsVC];
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 @end

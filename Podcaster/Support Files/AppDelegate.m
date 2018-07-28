@@ -7,11 +7,12 @@
 //
 
 #import "AppDelegate.h"
-#import "FeedViewController.h"
-#import "ContentViewController.h"
 #import "SplitViewController.h"
+#import "Constants.h"
 
 @interface AppDelegate ()
+
+- (void)setDefaultValuesForUserDefaultsIfNeeded;
 
 @end
 
@@ -24,7 +25,21 @@
     window.rootViewController = splitViewController;
     self.window = window;
     [window makeKeyAndVisible];
+    [self setDefaultValuesForUserDefaultsIfNeeded];
     return YES;
+}
+
+- (void)setDefaultValuesForUserDefaultsIfNeeded {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if (![userDefaults objectForKey:kUserDefaultsMP3SourceKey]) {
+        [userDefaults setBool:YES forKey:kUserDefaultsMP3SourceKey];
+    }
+    if (![userDefaults objectForKey:kUserDefaultsTEDSourceKey]) {
+        [userDefaults setBool:YES forKey:kUserDefaultsTEDSourceKey];
+    }
+    if (![userDefaults objectForKey:kUserDefaultsOfflineModeKey]) {
+        [userDefaults setBool:NO forKey:kUserDefaultsOfflineModeKey];
+    }
 }
 
 @end

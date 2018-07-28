@@ -13,6 +13,7 @@
 
 @interface DataManager ()
 
+- (void)fetchData;
 - (NSArray *)itemsSorting:(NSArray *)items;
 
 @end
@@ -46,7 +47,14 @@
 
 - (void)fetchData:(id)sender {
     self.delegate = sender;
-    
+    [self fetchData];
+}
+
+- (void)refetchData {
+    [self fetchData];
+}
+
+- (void)fetchData {
     dispatch_group_t dispatchGroup = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_async(dispatchGroup, queue, ^{
@@ -54,32 +62,27 @@
             self.entitiesCoreDataItems = items;
         }];
     });
-    dispatch_group_enter(dispatchGroup);
-    dispatch_group_async(dispatchGroup, queue, ^{
-        [self.xmlParserServiceMP3 startParsing:^(NSArray *items) {
-            self.entitiesMP3Items = items;
-            dispatch_group_leave(dispatchGroup);
-        }];
-    });
-    dispatch_group_enter(dispatchGroup);
-    dispatch_group_async(dispatchGroup, queue, ^{
-        [self.xmlParserServiceTED startParsing:^(NSArray *items) {
-            self.entitiesTEDItems = items;
-            dispatch_group_leave(dispatchGroup);
-        }];
-    });
-    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsMP3SourceKey] && self.entitiesMP3Items.count == 0 && ![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsOfflineModeKey]) {
+        dispatch_group_enter(dispatchGroup);
+        dispatch_group_async(dispatchGroup, queue, ^{
+            [self.xmlParserServiceMP3 startParsing:^(NSArray *items) {
+                self.entitiesMP3Items = items;
+                dispatch_group_leave(dispatchGroup);
+            }];
+        });
+    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsTEDSourceKey] && self.entitiesTEDItems.count == 0 && ![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsOfflineModeKey]) {
+        dispatch_group_enter(dispatchGroup);
+        dispatch_group_async(dispatchGroup, queue, ^{
+            [self.xmlParserServiceTED startParsing:^(NSArray *items) {
+                self.entitiesTEDItems = items;
+                dispatch_group_leave(dispatchGroup);
+            }];
+        });
+    }
     dispatch_group_notify(dispatchGroup, queue, ^{
         [self processItems];
     });
-    
-}
-
-- (void)refetchData {
-    [self.itemCoreDataService fetchItemsToDictionaryWithCompletionBlock:^(NSMutableDictionary *items) {
-        self.entitiesCoreDataItems = items;
-    }];
-    [self processItems];
 }
 
 + (void)getPreviewImageForItem:(Item *)item completionBlock:(void (^)(UIImage *))completionBlock {
@@ -116,10 +119,10 @@
 
 - (void)processItems {
     self.items = [[NSMutableArray alloc] init];
-    if (self.entitiesMP3Items.count != 0) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsMP3SourceKey] && ![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsOfflineModeKey]) {
         [self comparationRemoteItems:self.entitiesMP3Items withLocalItems:self.entitiesCoreDataItems];
     }
-    if (self.entitiesTEDItems.count != 0) {
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsTEDSourceKey] && ![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsOfflineModeKey]) {
         [self comparationRemoteItems:self.entitiesTEDItems withLocalItems:self.entitiesCoreDataItems];
     }
     [self.items addObjectsFromArray:self.entitiesCoreDataItems.allValues];

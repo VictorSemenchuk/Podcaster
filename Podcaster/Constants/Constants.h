@@ -65,4 +65,10 @@ extern NSString * const kFullSizeImageDirectory;
 extern NSString * const kVideoDirectory;
 extern NSString * const kAudioDirectory;
 
+#pragma mark - Keys for UserDefaults
+
+extern NSString * const kUserDefaultsMP3SourceKey;
+extern NSString * const kUserDefaultsTEDSourceKey;
+extern NSString * const kUserDefaultsOfflineModeKey;
+
 #endif /* Constants_h */

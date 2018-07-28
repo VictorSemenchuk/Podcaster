@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol SettingsViewControllerDelegate <NSObject>
+
+- (void)settingsWereChanged;
+
+@end
+
 @interface SettingsViewController : UIViewController
+
+@property (weak, nonatomic) id<SettingsViewControllerDelegate> delegate;
 
 @end

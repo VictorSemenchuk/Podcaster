@@ -9,6 +9,7 @@
 #import "VSCollectionViewCell.h"
 #import "DataManager.h"
 #import "DateFormatter.h"
+#import "UIColor+CustomColors.h"
 
 @implementation VSCollectionViewCell
 
@@ -150,7 +151,7 @@
     self.authorLabel.text = item.author;
     self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [DateFormatter getStringFromDate:item.pubDate byFormat:@"dd MMM yyyy"]];
     if (item.persistentSourceType == kCoreData) {
-        self.downloadButton.tintColor = UIColor.blueColor;
+        self.downloadButton.tintColor = UIColor.themeColor;
     }
     
     [DataManager getPreviewImageForItem:item completionBlock:^(UIImage *image) {

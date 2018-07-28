@@ -12,6 +12,7 @@
 #import "SourceType.h"
 #import "Item.h"
 #import "DataManager.h"
+#import "SettingsViewController.h"
 
 @interface FeedViewController : UIViewController
 

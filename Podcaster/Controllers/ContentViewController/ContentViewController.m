@@ -21,6 +21,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     self.navigationController.navigationBar.prefersLargeTitles = NO;
+    self.navigationController.navigationBar.tintColor = UIColor.themeColor;
     [self setupViews];
     [self downloadImage];
 }

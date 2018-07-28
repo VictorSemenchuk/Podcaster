@@ -33,11 +33,13 @@
             self.xmlParserServiceMP3 = [[XMLParserService alloc] initWithSourceType:sourceType
                                                                                tags:self.tags
                                                                              rssUrl:url];
+            self.entitiesMP3Items = [[NSArray alloc] init];
             break;
         case kTED:
             self.xmlParserServiceTED = [[XMLParserService alloc] initWithSourceType:sourceType
                                                                                tags:self.tags
                                                                              rssUrl:url];
+            self.entitiesTEDItems = [[NSArray alloc] init];
             break;
         default:
             break;

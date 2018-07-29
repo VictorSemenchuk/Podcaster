@@ -19,13 +19,13 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [self setDefaultValuesForUserDefaultsIfNeeded];
     CGRect screenFrame = UIScreen.mainScreen.bounds;
     UIWindow *window = [[UIWindow alloc] initWithFrame:screenFrame];
     SplitViewController *splitViewController = [SplitViewController sharedSplitViewController];
     window.rootViewController = splitViewController;
     self.window = window;
     [window makeKeyAndVisible];
-    [self setDefaultValuesForUserDefaultsIfNeeded];
     return YES;
 }
 

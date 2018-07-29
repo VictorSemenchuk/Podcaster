@@ -26,11 +26,13 @@ extern NSString * const kItemDetailsAttributeName;
 extern NSString * const kItemDurationAttributeName;
 extern NSString * const kItemPubDateAttributeName;
 extern NSString * const kItemSourceTypeAttributeName;
+extern NSString * const kItemSourceHashSumAttributeName;
 extern NSString * const kItemImageAttributeName;
 extern NSString * const kItemContentAttributeName;
 
 extern NSString * const kImageWebLinkAttributeName;
-extern NSString * const kImageLocalLinkAttributeName;
+extern NSString * const kImagePreviewLocalLinkAttributeName;
+extern NSString * const kImageFullLocalLinkAttributeName;
 
 extern NSString * const kContentWebLinkAttributeName;
 extern NSString * const kContentLocalLinkAttributeName;

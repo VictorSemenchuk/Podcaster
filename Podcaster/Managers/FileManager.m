@@ -67,6 +67,14 @@
     [self createFileWithData:newImageData atPath:stringPath withSandboxFolderType:sandboxFolderType];
 }
 
+#pragma mark - Removing
+
+- (void)removeFileFromPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
+     NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
+    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
+    [self.fileManager removeItemAtPath:destinationPath error:nil];
+}
+
 #pragma mark - Getting
 
 - (UIImage *)getImageFromPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {

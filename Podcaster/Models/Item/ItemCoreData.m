@@ -16,6 +16,7 @@
 @dynamic details;
 @dynamic duration;
 @dynamic pubDate;
+@dynamic hashSum;
 @dynamic sourceType;
 @dynamic image;
 @dynamic content;

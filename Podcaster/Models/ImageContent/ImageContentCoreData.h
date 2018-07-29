@@ -10,7 +10,8 @@
 
 @interface ImageContentCoreData : NSManagedObject
 
-@property (nonatomic) NSString *localUrl;
+@property (nonatomic) NSString *localPreviewUrl;
+@property (nonatomic) NSString *localFullUrl;
 @property (nonatomic) NSString *webUrl;
 
 @end

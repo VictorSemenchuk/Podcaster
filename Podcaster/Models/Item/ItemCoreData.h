@@ -20,6 +20,7 @@
 @property (nonatomic) NSString *details;
 @property (nonatomic) NSString *duration;
 @property (nonatomic) NSDate *pubDate;
+@property (nonatomic) NSUInteger hashSum;
 @property (nonatomic) NSUInteger sourceType;
 
 @property (nonatomic) ImageContentCoreData *image;

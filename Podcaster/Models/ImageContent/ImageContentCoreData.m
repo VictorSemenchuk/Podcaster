@@ -10,7 +10,8 @@
 
 @implementation ImageContentCoreData
 
-@dynamic localUrl;
+@dynamic localPreviewUrl;
+@dynamic localFullUrl;
 @dynamic webUrl;
 
 @end

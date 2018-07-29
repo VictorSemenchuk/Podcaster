@@ -15,6 +15,19 @@
 
 @implementation Item
 
+- (instancetype)initWithGUID:(NSString *)guid title:(NSString *)title author:(NSString *)author details:(NSString *)details duration:(NSString *)duration pubData:(NSDate *)pubDate {
+    self = [super init];
+    if (self) {
+        _guId = guid;
+        _title = title;
+        _author = author;
+        _details = details;
+        _duration = duration;
+        pubDate = pubDate;
+    }
+    return self;
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType {
     self = [super init];
     if (self) {
@@ -27,12 +40,13 @@
         _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityXMLFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
         
         NSString *imageWebLink = dictionary[kItemEntityXMLFieldImage][@"href"];
-        _image = [[ImageContent alloc] initWithWebUrl:imageWebLink andLocalUrl:[[FileManager sharedFileManager] localFilePathForWebURL:imageWebLink atDirectory:kPreviewImageDirestory withSandboxFolderType:kCaches]];
+        _image = [[ImageContent alloc] initWithWebUrl:imageWebLink localPreviewUrl:[[FileManager sharedFileManager] localFilePathForWebURL:imageWebLink atDirectory:kPreviewImageDirestory withSandboxFolderType:kCaches] andLocalFullUrl:@""];
         
         NSString *contentWebLink = dictionary[kItemEntityXMLFieldContent][@"url"];
         _content = [[MediaContent alloc] initWithWebUrl:contentWebLink andLocalUrl:@""];
         
         _persistentSourceType = kRemote;
+        _hashSum = [self hashFunc];
     }
     return self;
 }
@@ -47,12 +61,17 @@
         _duration = itemMO.duration;
         _pubDate = itemMO.pubDate;
         _sourceType = (SourceType)itemMO.sourceType;
+        _hashSum = itemMO.hashSum;
         _image = [[ImageContent alloc] initWithMO:itemMO.image];
         _content = [[MediaContent alloc] initWithMO:itemMO.content];
         
         _persistentSourceType = kCoreData;
     }
     return self;
+}
+
+- (NSUInteger)hashFunc {
+    return [self.guId hash] ^ [self.title hash] ^ [self.author hash] ^ [self.details hash] ^ [self.duration hash] ^ [self.pubDate hash];
 }
 
 - (NSString *)description {

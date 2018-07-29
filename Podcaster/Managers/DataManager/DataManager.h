@@ -34,7 +34,10 @@
 
 - (void)fetchData:(id)sender;
 - (void)refetchData;
-+ (void)getPreviewImageForItem:(Item *)item completionBlock:(void(^)(UIImage *image))completionBlock;
 - (void)processItems;
+
++ (void)getPreviewImageForItem:(Item *)item completionBlock:(void(^)(UIImage *image))completionBlock;
++ (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock;
++ (void)removeItemFromPersistent:(Item *)item;
 
 @end

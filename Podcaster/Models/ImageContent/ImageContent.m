@@ -11,11 +11,12 @@
 
 @implementation ImageContent
 
-- (instancetype)initWithWebUrl:(NSString *)webUrl andLocalUrl:(NSString *)localUrl {
+- (instancetype)initWithWebUrl:(NSString *)webUrl localPreviewUrl:(NSString *)localPreviewUrl andLocalFullUrl:(NSString *)localFullUrl {
     self = [super init];
     if (self) {
         _webUrl = webUrl;
-        _localUrl = localUrl;
+        _localPreviewUrl = localPreviewUrl;
+        _localFullUrl = localFullUrl;
     }
     return self;
 }
@@ -24,7 +25,8 @@
     self = [super init];
     if (self) {
         _webUrl = imageMO.webUrl;
-        _localUrl = imageMO.localUrl;
+        _localPreviewUrl = imageMO.localPreviewUrl;
+        _localFullUrl = imageMO.localFullUrl;
     }
     return self;
 }

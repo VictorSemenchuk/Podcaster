@@ -12,6 +12,7 @@
 #import "ItemCoreDataService.h"
 #import "ContentViewController.h"
 #import "SplitViewController.h"
+#import "FeedViewController+ContentViewControllerDelegate.h"
 
 @implementation FeedViewController (CollectionView)
 
@@ -44,6 +45,7 @@
     Item *item = self.items[indexPath.row];
     ContentViewController *contentVC = [[ContentViewController alloc] init];
     contentVC.item = item;
+    contentVC.delegate = self;
     [self.splitViewController showDetailViewController:contentVC sender:nil];
 }
 

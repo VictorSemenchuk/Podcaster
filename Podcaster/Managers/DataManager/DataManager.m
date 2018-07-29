@@ -15,6 +15,7 @@
 
 - (void)fetchData;
 - (NSArray *)itemsSorting:(NSArray *)items;
+- (Item *)updateLocalItemIfNeededByItem:(Item *)remoteItem;
 
 @end
 
@@ -58,7 +59,17 @@
     dispatch_group_t dispatchGroup = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_group_async(dispatchGroup, queue, ^{
-        [self.itemCoreDataService fetchItemsToDictionaryWithCompletionBlock:^(NSMutableDictionary *items) {
+        NSPredicate *predicate;
+        if ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsMP3SourceKey] && [[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsTEDSourceKey]) {
+            predicate = [NSPredicate predicateWithFormat: @"%K == %d OR %K == %d", kItemSourceTypeAttributeName, kMP3, kItemSourceTypeAttributeName, kTED];
+        } else if ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsMP3SourceKey]) {
+            predicate = [NSPredicate predicateWithFormat: @"%K == %d", kItemSourceTypeAttributeName, kMP3];
+        } else if ([[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsTEDSourceKey]) {
+            predicate = [NSPredicate predicateWithFormat: @"%K == %d", kItemSourceTypeAttributeName, kTED];
+        } else if (![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsMP3SourceKey] && ![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsTEDSourceKey]) {
+            predicate = [NSPredicate predicateWithFormat: @"%K != %d AND %K != %d", kItemSourceTypeAttributeName, kMP3, kItemSourceTypeAttributeName, kTED];
+        }
+        [self.itemCoreDataService fetchItemsToDictionaryByPredicate:predicate withCompletionBlock:^(NSMutableDictionary *items) {
             self.entitiesCoreDataItems = items;
         }];
     });
@@ -87,8 +98,8 @@
 
 + (void)getPreviewImageForItem:(Item *)item completionBlock:(void (^)(UIImage *))completionBlock {
     FileManager *fileManager = [FileManager sharedFileManager];
-    if (![item.image.localUrl isEqualToString:@""]) {
-        UIImage *image = [fileManager getImageFromPath:item.image.localUrl withSandboxFolderType:kCaches];
+    if (![item.image.localPreviewUrl isEqualToString:@""]) {
+        UIImage *image = [fileManager getImageFromPath:item.image.localPreviewUrl withSandboxFolderType:kCaches];
         completionBlock(image);
     } else {
         DownloadManager *downloadManager = [[DownloadManager alloc] init];
@@ -108,8 +119,8 @@
             NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
             NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kPreviewImageDirestory, fileName];
             [fileManager createFileWithData:data atPath:filePath withCompressionFactor:compressionFactor withSandboxFolderType:kCaches];
-            item.image.localUrl = filePath;
-            UIImage *image = [fileManager getImageFromPath:item.image.localUrl withSandboxFolderType:kCaches];
+            item.image.localPreviewUrl = filePath;
+            UIImage *image = [fileManager getImageFromPath:item.image.localPreviewUrl withSandboxFolderType:kCaches];
             completionBlock(image);
         }];
     }
@@ -133,8 +144,9 @@
 - (void)comparationRemoteItems:(NSArray *)remoteItems withLocalItems:(NSMutableDictionary *)localItems {
     for (Item *item in remoteItems) {
         if (localItems[item.guId]) {
-            [self.items addObject:localItems[item.guId]];
-            [self.entitiesCoreDataItems removeObjectForKey:item.guId];
+            Item *currentItem = [self updateLocalItemIfNeededByItem:item];
+            [self.items addObject:currentItem];
+            [self.entitiesCoreDataItems removeObjectForKey:currentItem.guId];
         } else {
             [self.items addObject:item];
         }
@@ -146,6 +158,79 @@
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:kItemPubDateAttributeName ascending:NO];
     sortedItems = [items sortedArrayUsingDescriptors:@[sortDescriptor]];
     return sortedItems;
+}
+
+- (Item *)updateLocalItemIfNeededByItem:(Item *)remoteItem {
+    Item *returnItem;
+    Item *localItem = self.entitiesCoreDataItems[remoteItem.guId];
+    if (localItem.hashSum != remoteItem.hashSum) {
+        ItemCoreDataService *coreDataService = [[ItemCoreDataService alloc] init];
+        returnItem = [coreDataService updateAndGetItemByNewItem:remoteItem];
+    } else {
+        returnItem = localItem;
+    }
+    return returnItem;
+}
+
+#pragma mark - Saving/Removing
+
++ (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock {
+    if (item.persistentSourceType == kCoreData) {
+        return;
+    }
+    ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
+    NSString *rootDirectory;
+    switch (item.sourceType) {
+        case kMP3:
+            rootDirectory = kAudioDirectory;
+            break;
+        case kTED:
+            rootDirectory = kVideoDirectory;
+            break;
+    }
+    FileManager *fileManager = [FileManager sharedFileManager];
+    
+    dispatch_group_t dispatchGroup = dispatch_group_create();
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_group_enter(dispatchGroup);
+    dispatch_group_async(dispatchGroup, queue, ^{
+        DownloadManager *downloadManager = [[DownloadManager alloc] init];
+        [downloadManager downloadFileForURL:item.content.webUrl withCompletionBlock:^(NSData *data) {
+            NSString *fileName = [fileManager getFilenameFromStringURL:item.content.webUrl];
+            NSString *filePath = [NSString stringWithFormat:@"/%@/%@", rootDirectory, fileName];
+            [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
+            item.content.localUrl = filePath;
+            dispatch_group_leave(dispatchGroup);
+        }];
+    });
+    
+    dispatch_group_enter(dispatchGroup);
+    dispatch_group_async(dispatchGroup, queue, ^{
+        DownloadManager *downloadManager = [[DownloadManager alloc] init];
+        [downloadManager downloadFileForURL:item.image.webUrl withCompletionBlock:^(NSData *data) {
+            NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
+            NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kFullSizeImageDirectory, fileName];
+            [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
+            item.image.localFullUrl = filePath;
+            dispatch_group_leave(dispatchGroup);
+        }];
+    });
+    
+    dispatch_group_notify(dispatchGroup, queue, ^{
+        [itemCoreDataService saveNewItem:item];
+        completionBlock();
+    });
+}
+
++ (void)removeItemFromPersistent:(Item *)item {
+    ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
+    FileManager *fileManager = [FileManager sharedFileManager];
+    [fileManager removeFileFromPath:item.content.localUrl withSandboxFolderType:kDocuments];
+    item.content.localUrl = @"";
+    [fileManager removeFileFromPath:item.image.localFullUrl withSandboxFolderType:kDocuments];
+    item.image.localFullUrl = @"";
+    [itemCoreDataService removeItem:item];
 }
 
 @end

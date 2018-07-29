@@ -12,12 +12,11 @@
 @class ImageContentCoreData;
 @interface ImageContent : NSObject
 
-@property (nonatomic) NSString *localUrl;
+@property (nonatomic) NSString *localPreviewUrl;
+@property (nonatomic) NSString *localFullUrl;
 @property (nonatomic) NSString *webUrl;
 
-@property (nonatomic) UIImage *image;
-
-- (instancetype)initWithWebUrl:(NSString *)webUrl andLocalUrl:(NSString *)localUrl;
+- (instancetype)initWithWebUrl:(NSString *)webUrl localPreviewUrl:(NSString *)localPreviewUrl andLocalFullUrl:(NSString *)locatlFullUrl;
 - (instancetype)initWithMO:(ImageContentCoreData *)imageMO;
 
 @end

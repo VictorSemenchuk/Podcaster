@@ -23,11 +23,13 @@ NSString * const kItemDetailsAttributeName = @"details";
 NSString * const kItemDurationAttributeName = @"duration";
 NSString * const kItemPubDateAttributeName = @"pubDate";
 NSString * const kItemSourceTypeAttributeName = @"sourceType";
+NSString * const kItemSourceHashSumAttributeName = @"hashSum";
 NSString * const kItemImageAttributeName = @"image";
 NSString * const kItemContentAttributeName = @"content";
 
 NSString * const kImageWebLinkAttributeName = @"webUrl";
-NSString * const kImageLocalLinkAttributeName = @"localUrl";
+NSString * const kImagePreviewLocalLinkAttributeName = @"localPreviewUrl";
+NSString * const kImageFullLocalLinkAttributeName = @"localFullUrl";
 
 NSString * const kContentWebLinkAttributeName = @"webUrl";
 NSString * const kContentLocalLinkAttributeName = @"localUrl";

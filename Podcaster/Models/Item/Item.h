@@ -22,13 +22,16 @@
 @property (nonatomic) NSString *duration;
 @property (nonatomic) NSDate *pubDate;
 @property (assign, nonatomic) SourceType sourceType;
+@property (assign, nonatomic) NSUInteger hashSum;
 
 @property (nonatomic) ImageContent *image;
 @property (nonatomic) MediaContent *content;
 
 @property (assign, nonatomic) PersistentSourceType persistentSourceType;
 
+- (instancetype)initWithGUID:(NSString *)guid title:(NSString *)title author:(NSString *)author details:(NSString *)details duration:(NSString *)duration pubData:(NSDate *)pubDate;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType;
 - (instancetype)initWithMO:(ItemCoreData *)itemMO;
+- (NSUInteger)hashFunc;
 
 @end

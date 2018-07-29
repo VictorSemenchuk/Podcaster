@@ -12,6 +12,7 @@
 #import "DownloadManager.h"
 #import "FileManager.h"
 #import "ItemCoreDataService.h"
+#import "DataManager.h"
 
 @implementation ContentViewController
 
@@ -22,8 +23,10 @@
     self.view.backgroundColor = UIColor.whiteColor;
     self.navigationController.navigationBar.prefersLargeTitles = NO;
     self.navigationController.navigationBar.tintColor = UIColor.themeColor;
-    [self setupViews];
-    [self downloadImage];
+    if (self.item) {
+        [self setupViews];
+        [self fetchImage];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -107,38 +110,29 @@
 
 #pragma mark - Methods
 
-- (void)downloadImage {
-    DownloadManager *downloadManager = [[DownloadManager alloc] init];
-    [downloadManager downloadFileForURL:self.item.image.webUrl withCompletionBlock:^(NSData *data) {
-        self.headerView.imageView.image = [UIImage imageWithData:data];
-    }];
+- (void)fetchImage {
+    if ([self.item.image.localFullUrl isEqualToString:@""]) {
+        DownloadManager *downloadManager = [[DownloadManager alloc] init];
+        [downloadManager downloadFileForURL:self.item.image.webUrl withCompletionBlock:^(NSData *data) {
+            self.headerView.imageView.image = [UIImage imageWithData:data];
+        }];
+    } else {
+        FileManager *fileManager = [FileManager sharedFileManager];
+        self.headerView.imageView.image = [fileManager getImageFromPath:self.item.image.localFullUrl withSandboxFolderType:kDocuments];
+    }
 }
 
 #pragma mark - Target methods
 
 - (void)saveItemToPersistent {
     if (self.item.persistentSourceType == kCoreData) {
-        return;
+        [DataManager removeItemFromPersistent:self.item];
+        [self.delegate persistentWasChanged];
+    } else {
+        [DataManager saveItemToPersistent:self.item completionBlock:^{
+            [self.delegate persistentWasChanged];
+        }];
     }
-    ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
-    NSString *rootDirectory;
-    switch (self.item.sourceType) {
-        case kMP3:
-            rootDirectory = kAudioDirectory;
-            break;
-        case kTED:
-            rootDirectory = kVideoDirectory;
-            break;
-    }
-    FileManager *fileManager = [FileManager sharedFileManager];
-    DownloadManager *downloadManager = [[DownloadManager alloc] init];
-    [downloadManager downloadFileForURL:self.item.content.webUrl withCompletionBlock:^(NSData *data) {
-        NSString *fileName = [fileManager getFilenameFromStringURL:self.item.content.webUrl];
-        NSString *filePath = [NSString stringWithFormat:@"/%@/%@", rootDirectory, fileName];
-        [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
-        self.item.content.localUrl = filePath;
-        [itemCoreDataService saveNewItem:self.item];
-    }];
 }
 
 @end

@@ -13,5 +13,7 @@
 
 - (void)addNewInstanceForEntityWithName:(NSString *)entityName withAssigningBlock:(void (^)(NSManagedObject *currentEntity, NSManagedObjectContext *context))assigningBlock;
 - (NSArray *)fetchEntitiesWithName:(NSString *)entityName byPredicate:(NSPredicate *)predicate;
+- (void)updateEntityWithName:(NSString *)entityName byPredicate:(NSPredicate *)predicate withUpdatingBlock:(void(^)(NSManagedObject *object))updatingBlock;
+- (void)removeEntityWithName:(NSString *)entityName byPredicate:(NSPredicate *)predicate;
 
 @end

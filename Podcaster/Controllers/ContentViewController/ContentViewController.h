@@ -13,7 +13,15 @@
 #import "VideoDetailView.h"
 #import "AudioHeaderView.h"
 
+@protocol ContentViewControllerDelegate <NSObject>
+
+- (void)persistentWasChanged;
+
+@end
+
 @interface ContentViewController : UIViewController
+
+@property (weak, nonatomic) id<ContentViewControllerDelegate> delegate;
 
 @property (nonatomic) Item *item;
 
@@ -26,7 +34,7 @@
 @property (nonatomic) HeaderView *headerView;
 @property (nonatomic) UIStackView *infoStackView;
 
-- (void)downloadImage;
+- (void)fetchImage;
 - (void)saveItemToPersistent;
 
 @end

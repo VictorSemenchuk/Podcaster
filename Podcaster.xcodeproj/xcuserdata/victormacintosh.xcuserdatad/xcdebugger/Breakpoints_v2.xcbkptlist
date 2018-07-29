@@ -9,14 +9,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Podcaster/Managers/DataManager/DataManager.m"
-            timestampString = "554554061.658759"
+            filePath = "Podcaster/Controllers/ContentViewController/ContentViewController.m"
+            timestampString = "554569026.9017611"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "73"
-            endingLineNumber = "73"
-            landmarkName = "-fetchData"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
+            landmarkName = "-saveItemToPersistent"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Podcaster/Controllers/ContentViewController/ContentViewController.m"
+            timestampString = "554569026.902213"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "-saveItemToPersistent"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[ContentViewController saveItemToPersistent]"
+                  moduleName = "Podcaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victormacintosh/Documents/Documents%20-%20Victor&apos;s%20MacBook/EPAM/Tasks/Podcaster/Podcaster/Controllers/ContentViewController/ContentViewController.m"
+                  timestampString = "554569027.041657"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "240">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__45-[ContentViewController saveItemToPersistent]_block_invoke"
+                  moduleName = "Podcaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victormacintosh/Documents/Documents%20-%20Victor&apos;s%20MacBook/EPAM/Tasks/Podcaster/Podcaster/Controllers/ContentViewController/ContentViewController.m"
+                  timestampString = "554569027.048956"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.120"
+                  moduleName = "Podcaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/victormacintosh/Documents/Documents%20-%20Victor&apos;s%20MacBook/EPAM/Tasks/Podcaster/Podcaster/Controllers/ContentViewController/ContentViewController.m"
+                  timestampString = "554569027.05384"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -88,7 +88,12 @@
 - (BOOL)fileIsExistForPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
     NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
     NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
-    return [self.fileManager fileExistsAtPath:destinationPath];
+    NSData *fileContents = [NSData dataWithContentsOfFile:destinationPath];
+    if (fileContents) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 - (NSString *)localFilePathForWebURL:(NSString *)webStringUrl atDirectory:(NSString *)directory withSandboxFolderType:(SandboxFolderType)sandboxFolderType {

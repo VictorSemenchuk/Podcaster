@@ -102,7 +102,6 @@
         UIImage *image = [fileManager getImageFromPath:item.image.localPreviewUrl withSandboxFolderType:kCaches];
         completionBlock(image);
     } else {
-        DownloadManager *downloadManager = [[DownloadManager alloc] init];
         float compressionFactor;
         NSString *url;
         switch (item.sourceType) {
@@ -115,7 +114,7 @@
                 compressionFactor = 1.0;
                 break;
         }
-        [downloadManager downloadFileForURL:url withCompletionBlock:^(NSData *data) {
+        [DownloadManager downloadFileForURL:url withCompletionBlock:^(NSData *data) {
             NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
             NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kPreviewImageDirestory, fileName];
             [fileManager createFileWithData:data atPath:filePath withCompressionFactor:compressionFactor withSandboxFolderType:kCaches];
@@ -193,22 +192,12 @@
     dispatch_group_t dispatchGroup = dispatch_group_create();
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
-    dispatch_group_enter(dispatchGroup);
-    dispatch_group_async(dispatchGroup, queue, ^{
-        DownloadManager *downloadManager = [[DownloadManager alloc] init];
-        [downloadManager downloadFileForURL:item.content.webUrl withCompletionBlock:^(NSData *data) {
-            NSString *fileName = [fileManager getFilenameFromStringURL:item.content.webUrl];
-            NSString *filePath = [NSString stringWithFormat:@"/%@/%@", rootDirectory, fileName];
-            [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
-            item.content.localUrl = filePath;
-            dispatch_group_leave(dispatchGroup);
-        }];
-    });
+    DownloadManager *downloadManager = [[DownloadManager alloc] init];
+    [downloadManager downloadFileInBackgroundForURL:item.content.webUrl forItem:item];
     
     dispatch_group_enter(dispatchGroup);
     dispatch_group_async(dispatchGroup, queue, ^{
-        DownloadManager *downloadManager = [[DownloadManager alloc] init];
-        [downloadManager downloadFileForURL:item.image.webUrl withCompletionBlock:^(NSData *data) {
+        [DownloadManager downloadFileForURL:item.image.webUrl withCompletionBlock:^(NSData *data) {
             NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
             NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kFullSizeImageDirectory, fileName];
             [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
@@ -223,14 +212,38 @@
     });
 }
 
++ (void)saveDownloadedData:(NSData *)data forItem:(Item *)item {
+    FileManager *fileManager = [[FileManager alloc] init];
+    NSString *partFilePath;
+    switch (item.sourceType) {
+        case kMP3:
+            partFilePath = kAudioDirectory;
+            break;
+        case kTED:
+            partFilePath = kVideoDirectory;
+            break;
+    }
+    NSString *fileName = [fileManager getFilenameFromStringURL:item.content.webUrl];
+    NSString *filePath = [NSString stringWithFormat:@"/%@/%@", partFilePath, fileName];
+    item.content.localUrl = filePath;
+    [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
+    
+    ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
+    [itemCoreDataService updateItemWithGUID:item.guId setValue:filePath forKey:@"content.localUrl"];
+}
+
 + (void)removeItemFromPersistent:(Item *)item {
     ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
     FileManager *fileManager = [FileManager sharedFileManager];
-    [fileManager removeFileFromPath:item.content.localUrl withSandboxFolderType:kDocuments];
-    item.content.localUrl = @"";
-    [fileManager removeFileFromPath:item.image.localFullUrl withSandboxFolderType:kDocuments];
-    item.image.localFullUrl = @"";
+    if ([fileManager fileIsExistForPath:item.content.localUrl withSandboxFolderType:kDocuments]) {
+        [fileManager removeFileFromPath:item.content.localUrl withSandboxFolderType:kDocuments];
+    }
+    if ([fileManager fileIsExistForPath:item.image.localFullUrl withSandboxFolderType:kDocuments]) {
+        [fileManager removeFileFromPath:item.image.localFullUrl withSandboxFolderType:kDocuments];
+    }
     [itemCoreDataService removeItem:item];
+    item.content.localUrl = @"";
+    item.image.localFullUrl = @"";
 }
 
 @end

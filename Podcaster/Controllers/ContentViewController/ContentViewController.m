@@ -112,8 +112,7 @@
 
 - (void)fetchImage {
     if ([self.item.image.localFullUrl isEqualToString:@""]) {
-        DownloadManager *downloadManager = [[DownloadManager alloc] init];
-        [downloadManager downloadFileForURL:self.item.image.webUrl withCompletionBlock:^(NSData *data) {
+        [DownloadManager downloadFileForURL:self.item.image.webUrl withCompletionBlock:^(NSData *data) {
             self.headerView.imageView.image = [UIImage imageWithData:data];
         }];
     } else {

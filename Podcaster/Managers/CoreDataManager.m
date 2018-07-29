@@ -54,7 +54,7 @@ static NSString * const kModelName = @"Model";
         _persistentCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
         if (![_persistentCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
             NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+            //abort();
         }
     }
     return _persistentCoordinator;
@@ -106,7 +106,11 @@ static NSString * const kModelName = @"Model";
     if (predicate) {
         [request setPredicate:predicate];
     }
-    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:nil];
+    NSError *error = nil;
+    NSArray *results = [self.managedObjectContext executeFetchRequest:request error:&error];
+    if (error) {
+        NSLog(@"%@", [error localizedDescription]);
+    }
     if (results) {
         for(NSManagedObject *object in results) {
             [self.managedObjectContext deleteObject:object];

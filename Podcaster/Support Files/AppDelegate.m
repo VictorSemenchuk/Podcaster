@@ -12,6 +12,8 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, copy) void(^backgroundTransferCompletionHandler)();
+
 - (void)setDefaultValuesForUserDefaultsIfNeeded;
 
 @end
@@ -40,6 +42,10 @@
     if (![userDefaults objectForKey:kUserDefaultsOfflineModeKey]) {
         [userDefaults setBool:NO forKey:kUserDefaultsOfflineModeKey];
     }
+}
+
+- (void)application:(UIApplication *)application handleEventsForBackgroundURLSession:(NSString *)identifier completionHandler:(void (^)(void))completionHandler {
+    self.backgroundTransferCompletionHandler = completionHandler;
 }
 
 @end

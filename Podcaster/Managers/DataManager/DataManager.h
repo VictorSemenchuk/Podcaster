@@ -38,6 +38,7 @@
 
 + (void)getPreviewImageForItem:(Item *)item completionBlock:(void(^)(UIImage *image))completionBlock;
 + (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock;
++ (void)saveDownloadedData:(NSData *)data forItem:(Item *)item;
 + (void)removeItemFromPersistent:(Item *)item;
 
 @end

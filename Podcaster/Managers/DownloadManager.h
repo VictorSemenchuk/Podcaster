@@ -11,6 +11,7 @@
 
 @interface DownloadManager : NSObject
 
-- (void)downloadFileForURL:(NSString *)stringUrl withCompletionBlock:(void(^)(NSData *data))completionBlock;
++ (void)downloadFileForURL:(NSString *)stringUrl withCompletionBlock:(void(^)(NSData *data))completionBlock;
+- (void)downloadFileInBackgroundForURL:(NSString *)stringUrl forItem:(Item *)item;
 
 @end

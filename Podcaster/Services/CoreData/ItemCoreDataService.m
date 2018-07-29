@@ -103,6 +103,14 @@
     return newItem;
 }
 
+- (void)updateItemWithGUID:(NSString *)guid setValue:(NSString *)value forKey:(NSString *)key {
+    CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kItemGUIDAttributeName, guid];
+    [coreDataManager updateEntityWithName:kItemEntityTitle byPredicate:predicate withUpdatingBlock:^(NSManagedObject *object) {
+        [object setValue:value forKeyPath:key];
+    }];
+}
+
 #pragma mark - Removing
 
 - (void)removeItem:(Item *)item {

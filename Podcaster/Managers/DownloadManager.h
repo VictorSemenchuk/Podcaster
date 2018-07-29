@@ -9,7 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "Item.h"
 
+@protocol DownloadManagerDelegate <NSObject>
+
+- (void)backgroundTaskDownloadedData:(NSData *)data;
+
+@end
+
 @interface DownloadManager : NSObject
+
+@property (strong, nonatomic) id<DownloadManagerDelegate> delegate;
 
 + (void)downloadFileForURL:(NSString *)stringUrl withCompletionBlock:(void(^)(NSData *data))completionBlock;
 - (void)downloadFileInBackgroundForURL:(NSString *)stringUrl forItem:(Item *)item;

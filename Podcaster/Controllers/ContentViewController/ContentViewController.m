@@ -96,7 +96,7 @@
         _downloadButton = [[UIButton alloc] init];
         [_downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
         _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_downloadButton addTarget:self action:@selector(saveItemToPersistent) forControlEvents:UIControlEventTouchUpInside];
+        [_downloadButton addTarget:self action:@selector(changePersistentState) forControlEvents:UIControlEventTouchUpInside];
     }
     return _downloadButton;
 }
@@ -132,12 +132,14 @@
     [player play];
 }
 
-- (void)saveItemToPersistent {
+- (void)changePersistentState {
     if (self.item.persistentSourceType == kCoreData) {
-        [DataManager removeItemFromPersistent:self.item];
-        [self.delegate persistentWasChanged];
+        [DataManager removeItemFromPersistent:self.item completionBlock:^{
+            [self.delegate persistentWasChanged];
+        }];
     } else {
-        [DataManager saveItemToPersistent:self.item completionBlock:^{
+        DataManager *dataManager = [[DataManager alloc] init];
+        [dataManager saveItemToPersistent:self.item completionBlock:^{
             [self.delegate persistentWasChanged];
         }];
     }

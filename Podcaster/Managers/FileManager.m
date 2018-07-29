@@ -128,4 +128,17 @@
     return directory;
 }
 
+- (NSString *)rootDirectoryForSourceType:(SourceType)sourceType {
+    NSString *directory = @"";
+    switch (sourceType) {
+        case kMP3:
+            directory = kAudioDirectory;
+            break;
+        case kTED:
+            directory = kVideoDirectory;
+            break;
+    }
+    return directory;
+}
+
 @end

@@ -10,6 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "Item.h"
 #import "Constants.h"
+#import "DownloadManager.h"
+#import "FileManager.h"
 #import "EntitiesConstants.h"
 #import "XMLParserService.h"
 #import "ItemCoreDataService.h"
@@ -22,6 +24,7 @@
 
 @interface DataManager : NSObject
 
+@property (nonatomic) Item *item;
 @property (nonatomic) NSMutableArray *items;
 @property (nonatomic) XMLParserService *xmlParserServiceMP3;
 @property (nonatomic) XMLParserService *xmlParserServiceTED;
@@ -37,8 +40,7 @@
 - (void)processItems;
 
 + (void)getPreviewImageForItem:(Item *)item completionBlock:(void(^)(UIImage *image))completionBlock;
-+ (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock;
-+ (void)saveDownloadedData:(NSData *)data forItem:(Item *)item;
-+ (void)removeItemFromPersistent:(Item *)item;
+- (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock;
++ (void)removeItemFromPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock;
 
 @end

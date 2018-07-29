@@ -41,6 +41,7 @@
 		DA8794162105E3680033F7CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8794142105E3680033F7CD /* LaunchScreen.storyboard */; };
 		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
 		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
+		EF936486210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF936485210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m */; };
 		EFD91BEB210CF0A6006C2AC5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */; };
 		EFD91BEE210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BED210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m */; };
 		EFD91BF1210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BF0210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.m */; };
@@ -114,6 +115,8 @@
 		DA95A3D92108EA130007F078 /* ItemCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCoreDataService.m; sourceTree = "<group>"; };
 		DAECE5522109E642004B2849 /* ImageContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContentCoreData.h; sourceTree = "<group>"; };
 		DAECE5532109E642004B2849 /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
+		EF936484210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+DownloadManagerDelegate.h"; sourceTree = "<group>"; };
+		EF936485210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+DownloadManagerDelegate.m"; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -424,6 +427,8 @@
 				EFF9FD5F210C8AF000D745E1 /* DataManager+Preparing.m */,
 				EFF9FD61210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.h */,
 				EFF9FD62210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.m */,
+				EF936484210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.h */,
+				EF936485210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m */,
 			);
 			path = DataManager;
 			sourceTree = "<group>";
@@ -532,6 +537,7 @@
 				DA1007422109CE5700A33EB8 /* VSCollectionViewCell.m in Sources */,
 				DA1007412109CE5000A33EB8 /* Item.m in Sources */,
 				DA1007402109CE4B00A33EB8 /* ImageContent.m in Sources */,
+				EF936486210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m in Sources */,
 				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
 				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
 				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,

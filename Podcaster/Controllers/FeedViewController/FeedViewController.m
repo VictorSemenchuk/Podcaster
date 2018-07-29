@@ -40,6 +40,9 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+//    if (self.items.count != 0) {
+//        [self.dataManager refetchData];
+//    }
     if (@available(iOS 11.0, *)) {
         self.navigationController.navigationBar.prefersLargeTitles = YES;
     } else {

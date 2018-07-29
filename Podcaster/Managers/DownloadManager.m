@@ -43,15 +43,15 @@
     [downloadTask resume];
 }
 
+#pragma mark - NSURLSessionDelegate
+
 -(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
     NSLog(@"BG LOCATION: %@", location.absoluteString);
     NSFileManager *nsFileManager = [NSFileManager defaultManager];
     NSData *data = [NSData dataWithContentsOfFile:location.relativePath];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [DataManager saveDownloadedData:data forItem:self.item];
-    });
-    [self.session invalidateAndCancel];
     [nsFileManager removeItemAtPath:location.absoluteString error:nil];
+    [self.delegate backgroundTaskDownloadedData:data];
+    self.delegate = nil;
 }
 
 @end

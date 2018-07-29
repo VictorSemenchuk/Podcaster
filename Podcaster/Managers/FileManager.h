@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "SandboxFolderType.h"
+#import "SourceType.h"
 
 @interface FileManager : NSObject
 
@@ -22,5 +23,6 @@
 - (NSString *)localFilePathForWebURL:(NSString *)webStringUrl atDirectory:(NSString *)directory withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
 - (NSString *)getFilenameFromStringURL:(NSString *)stringUrl;
 - (NSString *)getPathForUrl:(NSString *)stringUrl withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
+- (NSString *)rootDirectoryForSourceType:(SourceType)sourceType;
 
 @end

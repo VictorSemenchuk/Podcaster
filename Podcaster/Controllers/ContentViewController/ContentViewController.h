@@ -36,6 +36,6 @@
 
 - (void)fetchImage;
 - (void)startPlaying;
-- (void)saveItemToPersistent;
+- (void)changePersistentState;
 
 @end

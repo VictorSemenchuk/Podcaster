@@ -7,9 +7,8 @@
 //
 
 #import "DataManager.h"
-#import "FileManager.h"
-#import "DownloadManager.h"
 #import "DataManager+Preparing.h"
+#import "DataManager+DownloadManagerDelegate.h"
 
 @interface DataManager ()
 
@@ -69,6 +68,7 @@
         } else if (![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsMP3SourceKey] && ![[NSUserDefaults standardUserDefaults] boolForKey:kUserDefaultsTEDSourceKey]) {
             predicate = [NSPredicate predicateWithFormat: @"%K != %d AND %K != %d", kItemSourceTypeAttributeName, kMP3, kItemSourceTypeAttributeName, kTED];
         }
+        [self.entitiesCoreDataItems removeAllObjects];
         [self.itemCoreDataService fetchItemsToDictionaryByPredicate:predicate withCompletionBlock:^(NSMutableDictionary *items) {
             self.entitiesCoreDataItems = items;
         }];
@@ -173,66 +173,29 @@
 
 #pragma mark - Saving/Removing
 
-+ (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock {
-    if (item.persistentSourceType == kCoreData) {
-        return;
-    }
-    ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
-    NSString *rootDirectory;
-    switch (item.sourceType) {
-        case kMP3:
-            rootDirectory = kAudioDirectory;
-            break;
-        case kTED:
-            rootDirectory = kVideoDirectory;
-            break;
-    }
-    FileManager *fileManager = [FileManager sharedFileManager];
+- (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock {
+    if (item.persistentSourceType == kCoreData) return;
     
-    dispatch_group_t dispatchGroup = dispatch_group_create();
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    self.item = item;
     
     DownloadManager *downloadManager = [[DownloadManager alloc] init];
+    downloadManager.delegate = self;
     [downloadManager downloadFileInBackgroundForURL:item.content.webUrl forItem:item];
     
-    dispatch_group_enter(dispatchGroup);
-    dispatch_group_async(dispatchGroup, queue, ^{
-        [DownloadManager downloadFileForURL:item.image.webUrl withCompletionBlock:^(NSData *data) {
-            NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
-            NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kFullSizeImageDirectory, fileName];
-            [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
-            item.image.localFullUrl = filePath;
-            dispatch_group_leave(dispatchGroup);
-        }];
-    });
-    
-    dispatch_group_notify(dispatchGroup, queue, ^{
+    [DownloadManager downloadFileForURL:item.image.webUrl withCompletionBlock:^(NSData *data) {
+        FileManager *fileManager = [FileManager sharedFileManager];
+        ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
+        NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
+        NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kFullSizeImageDirectory, fileName];
+        [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
+        item.image.localFullUrl = filePath;
+        
         [itemCoreDataService saveNewItem:item];
         completionBlock();
-    });
+    }];
 }
 
-+ (void)saveDownloadedData:(NSData *)data forItem:(Item *)item {
-    FileManager *fileManager = [[FileManager alloc] init];
-    NSString *partFilePath;
-    switch (item.sourceType) {
-        case kMP3:
-            partFilePath = kAudioDirectory;
-            break;
-        case kTED:
-            partFilePath = kVideoDirectory;
-            break;
-    }
-    NSString *fileName = [fileManager getFilenameFromStringURL:item.content.webUrl];
-    NSString *filePath = [NSString stringWithFormat:@"/%@/%@", partFilePath, fileName];
-    item.content.localUrl = filePath;
-    [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
-    
-    ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
-    [itemCoreDataService updateItemWithGUID:item.guId setValue:filePath forKey:@"content.localUrl"];
-}
-
-+ (void)removeItemFromPersistent:(Item *)item {
++ (void)removeItemFromPersistent:(Item *)item completionBlock:(void (^)(void))completionBlock {
     ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
     FileManager *fileManager = [FileManager sharedFileManager];
     if ([fileManager fileIsExistForPath:item.content.localUrl withSandboxFolderType:kDocuments]) {
@@ -244,6 +207,7 @@
     [itemCoreDataService removeItem:item];
     item.content.localUrl = @"";
     item.image.localFullUrl = @"";
+    completionBlock();
 }
 
 @end

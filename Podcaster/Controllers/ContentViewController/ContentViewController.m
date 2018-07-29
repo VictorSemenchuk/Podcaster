@@ -13,6 +13,7 @@
 #import "FileManager.h"
 #import "ItemCoreDataService.h"
 #import "DataManager.h"
+#import <AVKit/AVKit.h>
 
 @implementation ContentViewController
 
@@ -26,6 +27,7 @@
     if (self.item) {
         [self setupViews];
         [self fetchImage];
+        [self.headerView.playButton addTarget:self action:@selector(startPlaying) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 
@@ -78,22 +80,13 @@
     return _pubDateAndDurationLabel;
 }
 
-- (UITextView *)detailsLabel {
+- (UILabel *)detailsLabel {
     if (!_detailsLabel) {
-        _detailsLabel = [[UITextView alloc] init];
-        _detailsLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
-        _detailsLabel.textColor = [UIColor darkGrayColorVS];
-        _detailsLabel.scrollEnabled = NO;
-        _detailsLabel.editable = NO;
-        _detailsLabel.selectable = NO;
-        _detailsLabel.textContainerInset = UIEdgeInsetsZero;
-        _detailsLabel.contentInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0);
+        _detailsLabel = [[UILabel alloc] init];
+        _detailsLabel.font = [UIFont systemFontOfSize:kFontSizeHeavy weight:UIFontWeightRegular];
+        _detailsLabel.textColor = [UIColor darkTextColor];
         _detailsLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc] init];
-        style.lineSpacing = 5.0;
-        _detailsLabel.attributedText = [[NSAttributedString alloc]
-                                   initWithString:@"Predefined Text"
-                                   attributes:@{NSParagraphStyleAttributeName : style}];
+        _detailsLabel.numberOfLines = 0;
     }
     return _detailsLabel;
 }
@@ -122,6 +115,22 @@
 }
 
 #pragma mark - Target methods
+
+- (void)startPlaying {
+    NSURL *url;
+    if (![self.item.content.localUrl isEqualToString:@""]) {
+        NSString *path = [[FileManager sharedFileManager] getPathForUrl:self.item.content.localUrl withSandboxFolderType:kDocuments];
+        NSLog(@"%@", path);
+        url = [NSURL URLWithString:path];
+    } else {
+         url = [NSURL URLWithString:self.item.content.webUrl];
+    }
+    AVPlayer *player = [AVPlayer playerWithURL:url];
+    AVPlayerViewController *controller = [[AVPlayerViewController alloc] init];
+    [self presentViewController:controller animated:YES completion:nil];
+    controller.player = player;
+    [player play];
+}
 
 - (void)saveItemToPersistent {
     if (self.item.persistentSourceType == kCoreData) {

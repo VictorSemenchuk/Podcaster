@@ -29,12 +29,13 @@
 @property (nonatomic) UIView *contentView;
 @property (nonatomic) UILabel *authorLabel;
 @property (nonatomic) UILabel *pubDateAndDurationLabel;
-@property (nonatomic) UITextView *detailsLabel;
+@property (nonatomic) UILabel *detailsLabel;
 @property (nonatomic) UIButton *downloadButton;
 @property (nonatomic) HeaderView *headerView;
 @property (nonatomic) UIStackView *infoStackView;
 
 - (void)fetchImage;
+- (void)startPlaying;
 - (void)saveItemToPersistent;
 
 @end

@@ -12,16 +12,14 @@
 
 #pragma mark - Lazy init properties
 
-- (UITextView *)titleLabel {
+- (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UITextView alloc] init];
+        _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHugeHeavy weight:UIFontWeightBold];
         _titleLabel.textColor = [UIColor darkGrayColorVS];
-        _titleLabel.scrollEnabled = NO;
-        _titleLabel.editable = NO;
-        _titleLabel.textContainerInset = UIEdgeInsetsZero;
-        _titleLabel.contentInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0);
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _titleLabel.numberOfLines = 0;
+        
     }
     return _titleLabel;
 }
@@ -35,6 +33,15 @@
         _imageView.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _imageView;
+}
+
+- (UIButton *)playButton {
+    if (!_playButton) {
+        _playButton = [[UIButton alloc] init];
+        _playButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [_playButton setImage:[UIImage imageNamed:@"play-button"] forState:UIControlStateNormal];
+    }
+    return _playButton;
 }
 
 #pragma mark - Methods

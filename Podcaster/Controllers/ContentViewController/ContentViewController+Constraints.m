@@ -9,12 +9,10 @@
 #import "ContentViewController+Constraints.h"
 #import "ContentViewController.h"
 #import "DateFormatter.h"
-#import <AVKit/AVKit.h>
 
 @implementation ContentViewController (Constraints)
 
 - (void)setupViews {
-    
     self.authorLabel.text = self.item.author;
     self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [DateFormatter getStringFromDate:self.item.pubDate byFormat:@"dd MMM yyyy"]];
     self.detailsLabel.text = self.item.details;
@@ -55,26 +53,16 @@
                                               [self.headerView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
                                               [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
                                               [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
-                                              [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-20.0],
+                                              [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-kLeftRightPadding],
                                               [self.downloadButton.bottomAnchor constraintEqualToAnchor:self.infoStackView.bottomAnchor],
-                                              [self.infoStackView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20.0],
-                                              [self.infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-20.0],
+                                              [self.infoStackView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:kLeftRightPadding],
+                                              [self.infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-kLeftRightPadding],
                                               [self.infoStackView.topAnchor constraintEqualToAnchor:self.headerView.bottomAnchor constant:15.0],
-                                              [self.detailsLabel.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:20.0],
+                                              [self.detailsLabel.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:kLeftRightPadding],
                                               [self.detailsLabel.topAnchor constraintEqualToAnchor:self.infoStackView.bottomAnchor constant:15.0],
-                                              [self.detailsLabel.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-20.0],
+                                              [self.detailsLabel.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-kLeftRightPadding],
                                               [self.detailsLabel.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor constant:-20.0]]];
-    
     [self.headerView setupViews];
-    
-//    if (self.item.sourceType == kTED) {
-//        NSURL *url = [NSURL URLWithString:self.item.content.webUrl];
-//        AVPlayer *player = [AVPlayer playerWithURL:url];
-//        AVPlayerViewController *controller = [[AVPlayerViewController alloc] init];
-//        [self presentViewController:controller animated:YES completion:nil];
-//        controller.player = player;
-//        [player play];
-//    }
 }
 
 @end

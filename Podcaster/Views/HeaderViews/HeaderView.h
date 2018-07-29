@@ -13,7 +13,8 @@
 @interface HeaderView : UIView
 
 @property (nonatomic) UIImageView *imageView;
-@property (nonatomic) UITextView *titleLabel;
+@property (nonatomic) UILabel *titleLabel;
+@property (nonatomic) UIButton *playButton;
 
 - (void)setupViews;
 

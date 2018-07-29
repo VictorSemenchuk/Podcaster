@@ -14,7 +14,7 @@
 
 @interface VSCollectionViewCell : UICollectionViewCell
 
-@property (nonatomic) UITextView *titleLabel;
+@property (nonatomic) UILabel *titleLabel;
 @property (nonatomic) UILabel *authorLabel;
 @property (nonatomic) UILabel *pubDateAndDurationLabel;
 @property (nonatomic) UIImageView *imageView;

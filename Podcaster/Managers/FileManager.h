@@ -21,5 +21,6 @@
 - (BOOL)fileIsExistForPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
 - (NSString *)localFilePathForWebURL:(NSString *)webStringUrl atDirectory:(NSString *)directory withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
 - (NSString *)getFilenameFromStringURL:(NSString *)stringUrl;
+- (NSString *)getPathForUrl:(NSString *)stringUrl withSandboxFolderType:(SandboxFolderType)sandboxFolderType;
 
 @end

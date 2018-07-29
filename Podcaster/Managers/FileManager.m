@@ -111,6 +111,10 @@
     return fileTitle;
 }
 
+- (NSString *)getPathForUrl:(NSString *)stringUrl withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
+    return [[self rootDirectoryForSandboxFolderType:sandboxFolderType] stringByAppendingString:stringUrl];
+}
+
 - (NSString *)rootDirectoryForSandboxFolderType:(SandboxFolderType)sandboxFolderType {
     NSString *directory = @"";
     switch (sandboxFolderType) {

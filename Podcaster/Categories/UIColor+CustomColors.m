@@ -19,7 +19,6 @@
 }
 
 + (UIColor *)collectionViewBGColorVS {
-    //return [UIColor colorWithRed:241.0/255.0 green:241.0/255.0 blue:245.0/255.0 alpha:255.0/255.0];
     return UIColor.whiteColor;
 }
 
@@ -28,7 +27,7 @@
 }
 
 + (UIColor *)themeColor {
-    return [UIColor colorWithRed:129.0/255.0 green:222.0/255.0 blue:227.0/255.0 alpha:255.0/255.0];
+    return [UIColor colorWithRed:79.0/255.0 green:230.0/255.0 blue:232.0/255.0 alpha:255.0/255.0];
 }
 
 @end

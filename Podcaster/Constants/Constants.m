@@ -36,6 +36,7 @@ const float kFontSizeSmall = 11.0;
 const float kFontSizeRegular = 12.0;
 const float kFontSizeHeavy = 14.0;
 const float kFontSizeHuge = 16.0;
+const float kFontSizeHugeSemiheavy = 20.0;
 const float kFontSizeHugeHeavy = 24.0;
 
 #pragma mark - Assets

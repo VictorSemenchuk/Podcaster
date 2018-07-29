@@ -38,6 +38,7 @@ extern const float kFontSizeSmall;
 extern const float kFontSizeRegular;
 extern const float kFontSizeHeavy;
 extern const float kFontSizeHuge;
+extern const float kFontSizeHugeSemiheavy;
 extern const float kFontSizeHugeHeavy;
 
 #pragma mark - Assets

@@ -31,17 +31,13 @@
 
 #pragma mark - Lazy init properties
 
-- (UITextView *)titleLabel {
+- (UILabel *)titleLabel {
     if (!_titleLabel) {
-        _titleLabel = [[UITextView alloc] init];
+        _titleLabel = [[UILabel alloc] init];
         _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHuge weight:UIFontWeightBold];
         _titleLabel.textColor = [UIColor darkGrayColorVS];
-        _titleLabel.scrollEnabled = NO;
-        _titleLabel.editable = NO;
-        _titleLabel.selectable = NO;
-        _titleLabel.textContainerInset = UIEdgeInsetsZero;
-        _titleLabel.contentInset = UIEdgeInsetsMake(0.0, -5.0, 0.0, 0.0);
         _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        _titleLabel.numberOfLines = 0;
     }
     return _titleLabel;
 }
@@ -83,7 +79,8 @@
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         _downloadButton = [[UIButton alloc] init];
         [_downloadButton setImage:image forState:UIControlStateNormal];
-        _downloadButton.tintColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:255.0/255.0];
+        _downloadButton.tintColor = [UIColor themeColor];
+        _downloadButton.hidden = YES;
         _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _downloadButton;
@@ -126,19 +123,25 @@
     UIStackView *infoStackView = [[UIStackView alloc] init];
     infoStackView.axis = UILayoutConstraintAxisVertical;
     infoStackView.spacing = 3.0;
-    infoStackView.translatesAutoresizingMaskIntoConstraints = NO;
     [infoStackView addArrangedSubview:self.authorLabel];
     [infoStackView addArrangedSubview:self.pubDateAndDurationLabel];
-    [self addSubview:infoStackView];
-    [self addSubview:self.downloadButton];
     
-    [NSLayoutConstraint activateConstraints: @[[infoStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
-                                               [infoStackView.topAnchor constraintEqualToAnchor:headerView.bottomAnchor constant:10.0],
-                                               [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
+    UIStackView *infoControlStackView = [[UIStackView alloc] init];
+    infoControlStackView.axis = UILayoutConstraintAxisHorizontal;
+    infoControlStackView.translatesAutoresizingMaskIntoConstraints = NO;
+    infoControlStackView.distribution = UIStackViewDistributionFill;
+    [infoControlStackView addArrangedSubview:infoStackView];
+    [infoControlStackView addArrangedSubview:self.downloadButton];
+    
+    [self addSubview:infoControlStackView];
+    [NSLayoutConstraint activateConstraints: @[[infoControlStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
+                                               [infoControlStackView.topAnchor constraintEqualToAnchor:headerView.bottomAnchor constant:10.0],
+                                               [infoControlStackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
+                                               [infoControlStackView.heightAnchor constraintGreaterThanOrEqualToConstant:30.0],
                                                [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
                                                [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
-                                               [self.downloadButton.bottomAnchor constraintEqualToAnchor:infoStackView.bottomAnchor],
-                                               [infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-kLeftRightPadding],
+                                               [self.authorLabel.heightAnchor constraintGreaterThanOrEqualToConstant:kFontSizeRegular],
+                                               [self.pubDateAndDurationLabel.heightAnchor constraintGreaterThanOrEqualToConstant:kFontSizeRegular],
                                                [self.separatorView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
                                                [self.separatorView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
                                                [self.separatorView.heightAnchor constraintEqualToConstant:1.0],
@@ -150,18 +153,11 @@
     self.titleLabel.text = item.title;
     self.authorLabel.text = item.author;
     self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [DateFormatter getStringFromDate:item.pubDate byFormat:@"dd MMM yyyy"]];
-    if (item.persistentSourceType == kCoreData) {
-        self.downloadButton.tintColor = UIColor.themeColor;
-    }
+    self.downloadButton.hidden = item.persistentSourceType == kCoreData ? NO : YES;
     
     [DataManager getPreviewImageForItem:item completionBlock:^(UIImage *image) {
         self.imageView.image = image;
     }];
-}
-
-- (void)prepareForReuse {
-    [super prepareForReuse];
-    self.downloadButton.tintColor = [UIColor colorWithRed:225.0/255.0 green:225.0/255.0 blue:225.0/255.0 alpha:255.0/255.0];
 }
 
 @end

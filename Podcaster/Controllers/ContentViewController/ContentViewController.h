@@ -37,7 +37,6 @@
 
 - (void)fetchImage;
 - (void)startPlaying;
-- (void)changePersistentState;
 - (void)downloadItem;
 - (void)removeItem;
 

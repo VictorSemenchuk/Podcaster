@@ -22,6 +22,12 @@
 
 @end
 
+@protocol DataManagerSavingDelegate <NSObject>
+
+- (void)wasFinishedBackgroundDownloadingForItem:(Item *)item;
+
+@end
+
 @interface DataManager : NSObject
 
 @property (nonatomic) Item *item;
@@ -34,6 +40,7 @@
 @property (nonatomic) NSArray *entitiesTEDItems;
 @property (nonatomic) NSMutableDictionary *entitiesCoreDataItems;
 @property (weak, nonatomic) id<DataManagerDelegate> delegate;
+@property (nonatomic) id<DataManagerSavingDelegate> savingDelegate;
 
 - (void)fetchData:(id)sender;
 - (void)refetchData;

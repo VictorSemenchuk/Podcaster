@@ -15,6 +15,10 @@
 #import "DataManager.h"
 #import <AVKit/AVKit.h>
 
+@interface ContentViewController () <DataManagerSavingDelegate>
+
+@end
+
 @implementation ContentViewController
 
 #pragma mark - LifeCycle
@@ -132,7 +136,6 @@
     if (![self.item.content.localUrl isEqualToString:@""]) {
         NSString *path = [[FileManager sharedFileManager] getPathForUrl:self.item.content.localUrl withSandboxFolderType:kDocuments];
         NSLog(@"%@", path);
-        //url = [NSURL URLWithString:path];
         url = [NSURL fileURLWithPath:path];
     } else {
          url = [NSURL URLWithString:self.item.content.webUrl];
@@ -144,21 +147,9 @@
     [player play];
 }
 
-- (void)changePersistentState {
-    if (self.item.persistentSourceType == kCoreData) {
-        [DataManager removeItemFromPersistent:self.item completionBlock:^{
-            [self.delegate persistentWasChanged];
-        }];
-    } else {
-        DataManager *dataManager = [[DataManager alloc] init];
-        [dataManager saveItemToPersistent:self.item completionBlock:^{
-            [self.delegate persistentWasChanged];
-        }];
-    }
-}
-
 - (void)downloadItem {
     DataManager *dataManager = [[DataManager alloc] init];
+    dataManager.savingDelegate = self;
     [dataManager saveItemToPersistent:self.item completionBlock:^{
         [self.delegate persistentWasChanged];
         self.downloadButton.hidden = YES;
@@ -172,6 +163,13 @@
         self.downloadButton.hidden = NO;
         self.removeButton.hidden = YES;
     }];
+}
+
+#pragma mark - DataManagerSavingDelegate
+
+- (void)wasFinishedBackgroundDownloadingForItem:(Item *)item {
+    self.item.content.localUrl = item.content.localUrl;
+    [self.delegate persistentWasChanged];
 }
 
 @end

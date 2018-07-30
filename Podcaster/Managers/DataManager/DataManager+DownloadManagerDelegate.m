@@ -20,6 +20,9 @@
     
     ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
     [itemCoreDataService updateItemWithGUID:self.item.guId setValue:filePath forKey:@"content.localUrl"];
+    
+    [self.savingDelegate wasFinishedBackgroundDownloadingForItem:self.item];
+    self.savingDelegate = nil;
 }
 
 @end

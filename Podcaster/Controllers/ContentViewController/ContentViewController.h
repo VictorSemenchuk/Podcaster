@@ -31,11 +31,14 @@
 @property (nonatomic) UILabel *pubDateAndDurationLabel;
 @property (nonatomic) UILabel *detailsLabel;
 @property (nonatomic) UIButton *downloadButton;
+@property (nonatomic) UIButton *removeButton;
 @property (nonatomic) HeaderView *headerView;
 @property (nonatomic) UIStackView *infoStackView;
 
 - (void)fetchImage;
 - (void)startPlaying;
 - (void)changePersistentState;
+- (void)downloadItem;
+- (void)removeItem;
 
 @end

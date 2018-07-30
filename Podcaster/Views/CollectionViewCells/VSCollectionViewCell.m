@@ -75,7 +75,7 @@
 
 - (UIButton *)downloadButton {
     if (!_downloadButton) {
-        UIImage *image = [UIImage imageNamed:@"DownloadIcon"];
+        UIImage *image = [UIImage imageNamed:@"DownloadedIcon"];
         image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
         _downloadButton = [[UIButton alloc] init];
         [_downloadButton setImage:image forState:UIControlStateNormal];

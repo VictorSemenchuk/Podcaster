@@ -96,10 +96,21 @@
         _downloadButton = [[UIButton alloc] init];
         [_downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
         _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_downloadButton addTarget:self action:@selector(changePersistentState) forControlEvents:UIControlEventTouchUpInside];
+        [_downloadButton addTarget:self action:@selector(downloadItem) forControlEvents:UIControlEventTouchUpInside];
     }
     return _downloadButton;
 }
+
+- (UIButton *)removeButton {
+    if (!_removeButton) {
+        _removeButton = [[UIButton alloc] init];
+        [_removeButton setImage:[UIImage imageNamed:@"RemoveIcon"] forState:UIControlStateNormal];
+        _removeButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [_removeButton addTarget:self action:@selector(removeItem) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _removeButton;
+}
+
 
 #pragma mark - Methods
 
@@ -121,7 +132,8 @@
     if (![self.item.content.localUrl isEqualToString:@""]) {
         NSString *path = [[FileManager sharedFileManager] getPathForUrl:self.item.content.localUrl withSandboxFolderType:kDocuments];
         NSLog(@"%@", path);
-        url = [NSURL URLWithString:path];
+        //url = [NSURL URLWithString:path];
+        url = [NSURL fileURLWithPath:path];
     } else {
          url = [NSURL URLWithString:self.item.content.webUrl];
     }
@@ -143,6 +155,23 @@
             [self.delegate persistentWasChanged];
         }];
     }
+}
+
+- (void)downloadItem {
+    DataManager *dataManager = [[DataManager alloc] init];
+    [dataManager saveItemToPersistent:self.item completionBlock:^{
+        [self.delegate persistentWasChanged];
+        self.downloadButton.hidden = YES;
+        self.removeButton.hidden = NO;
+    }];
+}
+
+- (void)removeItem {
+    [DataManager removeItemFromPersistent:self.item completionBlock:^{
+        [self.delegate persistentWasChanged];
+        self.downloadButton.hidden = NO;
+        self.removeButton.hidden = YES;
+    }];
 }
 
 @end

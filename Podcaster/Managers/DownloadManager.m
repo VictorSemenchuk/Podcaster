@@ -52,6 +52,7 @@
     [nsFileManager removeItemAtPath:location.absoluteString error:nil];
     [self.delegate backgroundTaskDownloadedData:data];
     self.delegate = nil;
+    [self.session invalidateAndCancel];
 }
 
 @end

@@ -29,6 +29,9 @@
         default:
             break;
     }
+    self.downloadButton.hidden = self.item.persistentSourceType == kCoreData ? YES : NO;
+    self.removeButton.hidden = self.item.persistentSourceType == kRemote ? YES : NO;
+    
     [self.scrollView addSubview:self.headerView];
     self.headerView.titleLabel.text = self.item.title;
     self.headerView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -36,11 +39,18 @@
     self.infoStackView = [[UIStackView alloc] init];
     self.infoStackView.axis = UILayoutConstraintAxisVertical;
     self.infoStackView.spacing = 3.0;
-    self.infoStackView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.infoStackView addArrangedSubview:self.authorLabel];
     [self.infoStackView addArrangedSubview:self.pubDateAndDurationLabel];
-    [self.scrollView addSubview:self.infoStackView];
-    [self.scrollView addSubview:self.downloadButton];
+    
+    UIStackView *infoControlStackView = [[UIStackView alloc] init];
+    infoControlStackView.axis = UILayoutConstraintAxisHorizontal;
+    infoControlStackView.translatesAutoresizingMaskIntoConstraints = NO;
+    infoControlStackView.distribution = UIStackViewDistributionFill;
+    [infoControlStackView addArrangedSubview:self.infoStackView];
+    [infoControlStackView addArrangedSubview:self.downloadButton];
+    [infoControlStackView addArrangedSubview:self.removeButton];
+    
+    [self.scrollView addSubview:infoControlStackView];
     [self.scrollView addSubview:self.detailsLabel];
     
     [NSLayoutConstraint activateConstraints:@[[self.scrollView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
@@ -51,15 +61,16 @@
                                               [self.headerView.topAnchor constraintEqualToAnchor:self.scrollView.topAnchor constant:20.0],
                                               [self.headerView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor],
                                               [self.headerView.widthAnchor constraintEqualToAnchor:self.view.widthAnchor],
-                                              [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
-                                              [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
-                                              [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-kLeftRightPadding],
-                                              [self.downloadButton.bottomAnchor constraintEqualToAnchor:self.infoStackView.bottomAnchor],
-                                              [self.infoStackView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:kLeftRightPadding],
-                                              [self.infoStackView.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor constant:-kLeftRightPadding],
-                                              [self.infoStackView.topAnchor constraintEqualToAnchor:self.headerView.bottomAnchor constant:15.0],
+                                              [self.downloadButton.widthAnchor constraintEqualToConstant:27.0],
+                                              [self.downloadButton.heightAnchor constraintEqualToConstant:24.0],
+                                              [self.removeButton.widthAnchor constraintEqualToConstant:24.0],
+                                              [self.removeButton.heightAnchor constraintEqualToConstant:24.0],
+                                              [infoControlStackView.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:kLeftRightPadding],
+                                              [infoControlStackView.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-kLeftRightPadding],
+                                              [infoControlStackView.topAnchor constraintEqualToAnchor:self.headerView.bottomAnchor constant:15.0],
+                                              [infoControlStackView.heightAnchor constraintGreaterThanOrEqualToConstant:30.0],
                                               [self.detailsLabel.leadingAnchor constraintEqualToAnchor:self.scrollView.leadingAnchor constant:kLeftRightPadding],
-                                              [self.detailsLabel.topAnchor constraintEqualToAnchor:self.infoStackView.bottomAnchor constant:15.0],
+                                              [self.detailsLabel.topAnchor constraintEqualToAnchor:infoControlStackView.bottomAnchor constant:15.0],
                                               [self.detailsLabel.trailingAnchor constraintEqualToAnchor:self.scrollView.trailingAnchor constant:-kLeftRightPadding],
                                               [self.detailsLabel.bottomAnchor constraintEqualToAnchor:self.scrollView.bottomAnchor constant:-20.0]]];
     [self.headerView setupViews];

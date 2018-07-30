@@ -191,7 +191,6 @@
         NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
         NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kFullSizeImageDirectory, fileName];
         [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
-        //item.image.localFullUrl = filePath;
         self.item.image.localFullUrl = filePath;
         
         [itemCoreDataService saveNewItem:self.item];

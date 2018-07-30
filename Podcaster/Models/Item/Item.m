@@ -47,6 +47,7 @@
         
         _persistentSourceType = kRemote;
         _hashSum = [self hashFunc];
+        _sourceDictionary = dictionary;
     }
     return self;
 }

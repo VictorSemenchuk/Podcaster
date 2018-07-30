@@ -142,6 +142,9 @@
 
 - (void)comparationRemoteItems:(NSArray *)remoteItems withLocalItems:(NSMutableDictionary *)localItems {
     for (Item *item in remoteItems) {
+        if ([item.guId isEqualToString:@"f764aa71-4ea4-411d-8634-79bd6313dcf9"]) {
+            NSLog(@"");
+        }
         if (localItems[item.guId]) {
             Item *currentItem = [self updateLocalItemIfNeededByItem:item];
             [self.items addObject:currentItem];
@@ -176,7 +179,7 @@
 - (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock {
     if (item.persistentSourceType == kCoreData) return;
     
-    self.item = item;
+    self.item = [[Item alloc] initWithDictionary:item.sourceDictionary andSourceType:item.sourceType];;
     
     DownloadManager *downloadManager = [[DownloadManager alloc] init];
     downloadManager.delegate = self;
@@ -188,9 +191,10 @@
         NSString *fileName = [fileManager getFilenameFromStringURL:item.image.webUrl];
         NSString *filePath = [NSString stringWithFormat:@"/%@/%@", kFullSizeImageDirectory, fileName];
         [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
-        item.image.localFullUrl = filePath;
+        //item.image.localFullUrl = filePath;
+        self.item.image.localFullUrl = filePath;
         
-        [itemCoreDataService saveNewItem:item];
+        [itemCoreDataService saveNewItem:self.item];
         completionBlock();
     }];
 }

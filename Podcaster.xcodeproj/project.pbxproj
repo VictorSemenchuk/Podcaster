@@ -37,18 +37,18 @@
 		DA14981F210B06ED00A4B20D /* DownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA14981E210B06ED00A4B20D /* DownloadManager.m */; };
 		DA149825210B2AFB00A4B20D /* FileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149824210B2AFB00A4B20D /* FileManager.m */; };
 		DA149828210B4DE300A4B20D /* UIImage+Compression.m in Sources */ = {isa = PBXBuildFile; fileRef = DA149827210B4DE300A4B20D /* UIImage+Compression.m */; };
+		DA6ED5F5210EF377008FBCA9 /* FeedViewController+ContentViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED5F1210EF376008FBCA9 /* FeedViewController+ContentViewControllerDelegate.m */; };
+		DA6ED5F6210EF377008FBCA9 /* FeedViewController+DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED5F2210EF376008FBCA9 /* FeedViewController+DataManager.m */; };
+		DA6ED5F7210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED5F4210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.m */; };
+		DA6ED601210EF38D008FBCA9 /* DataManager+Preparing.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED5F9210EF38D008FBCA9 /* DataManager+Preparing.m */; };
+		DA6ED602210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED5FB210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.m */; };
+		DA6ED603210EF38D008FBCA9 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED5FD210EF38D008FBCA9 /* DataManager.m */; };
+		DA6ED604210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED5FF210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.m */; };
+		DA6ED608210EF3A6008FBCA9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED606210EF3A6008FBCA9 /* SettingsViewController.m */; };
 		DA8794132105E3680033F7CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8794122105E3680033F7CD /* Assets.xcassets */; };
 		DA8794162105E3680033F7CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8794142105E3680033F7CD /* LaunchScreen.storyboard */; };
 		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
 		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
-		EF936486210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF936485210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m */; };
-		EFD91BEB210CF0A6006C2AC5 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */; };
-		EFD91BEE210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BED210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m */; };
-		EFD91BF1210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD91BF0210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.m */; };
-		EFF9FD55210C5A3400D745E1 /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD54210C5A3400D745E1 /* DataManager.m */; };
-		EFF9FD5C210C813100D745E1 /* FeedViewController+DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD5B210C813100D745E1 /* FeedViewController+DataManager.m */; };
-		EFF9FD60210C8AF000D745E1 /* DataManager+Preparing.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD5F210C8AF000D745E1 /* DataManager+Preparing.m */; };
-		EFF9FD63210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFF9FD62210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +73,24 @@
 		DA26C5FD21075A8900244984 /* FeedViewController+Constraints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+Constraints.m"; sourceTree = "<group>"; };
 		DA26C5FF21075E8500244984 /* ContentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
 		DA26C60021075E8500244984 /* ContentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
+		DA6ED5ED210EF2A8008FBCA9 /* SandboxFolderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SandboxFolderType.h; sourceTree = "<group>"; };
+		DA6ED5EE210EF2A8008FBCA9 /* PersistentSourceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistentSourceType.h; sourceTree = "<group>"; };
+		DA6ED5EF210EF376008FBCA9 /* FeedViewController+DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+DataManager.h"; sourceTree = "<group>"; };
+		DA6ED5F0210EF376008FBCA9 /* FeedViewController+ContentViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+ContentViewControllerDelegate.h"; sourceTree = "<group>"; };
+		DA6ED5F1210EF376008FBCA9 /* FeedViewController+ContentViewControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+ContentViewControllerDelegate.m"; sourceTree = "<group>"; };
+		DA6ED5F2210EF376008FBCA9 /* FeedViewController+DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+DataManager.m"; sourceTree = "<group>"; };
+		DA6ED5F3210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+SettingsViewControllerDelegate.h"; sourceTree = "<group>"; };
+		DA6ED5F4210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+SettingsViewControllerDelegate.m"; sourceTree = "<group>"; };
+		DA6ED5F9210EF38D008FBCA9 /* DataManager+Preparing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Preparing.m"; sourceTree = "<group>"; };
+		DA6ED5FA210EF38D008FBCA9 /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
+		DA6ED5FB210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataManager+DownloadManagerDelegate.m"; sourceTree = "<group>"; };
+		DA6ED5FC210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataManager+XMLParserServiceDelegate.h"; sourceTree = "<group>"; };
+		DA6ED5FD210EF38D008FBCA9 /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		DA6ED5FE210EF38D008FBCA9 /* DataManager+Preparing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataManager+Preparing.h"; sourceTree = "<group>"; };
+		DA6ED5FF210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DataManager+XMLParserServiceDelegate.m"; sourceTree = "<group>"; };
+		DA6ED600210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DataManager+DownloadManagerDelegate.h"; sourceTree = "<group>"; };
+		DA6ED606210EF3A6008FBCA9 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		DA6ED607210EF3A6008FBCA9 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		DA8794062105E3660033F7CD /* Podcaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Podcaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8794092105E3660033F7CD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DA87940A2105E3660033F7CD /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,28 +133,10 @@
 		DA95A3D92108EA130007F078 /* ItemCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCoreDataService.m; sourceTree = "<group>"; };
 		DAECE5522109E642004B2849 /* ImageContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContentCoreData.h; sourceTree = "<group>"; };
 		DAECE5532109E642004B2849 /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
-		EF936484210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+DownloadManagerDelegate.h"; sourceTree = "<group>"; };
-		EF936485210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+DownloadManagerDelegate.m"; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
 		EFABF1B72107A9CF00659AEB /* MP3CollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MP3CollectionViewCell.m; sourceTree = "<group>"; };
-		EFD91BE9210CF0A6006C2AC5 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
-		EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
-		EFD91BEC210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+SettingsViewControllerDelegate.h"; sourceTree = "<group>"; };
-		EFD91BED210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+SettingsViewControllerDelegate.m"; sourceTree = "<group>"; };
-		EFD91BEF210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+ContentViewControllerDelegate.h"; sourceTree = "<group>"; };
-		EFD91BF0210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+ContentViewControllerDelegate.m"; sourceTree = "<group>"; };
-		EFF9FD52210C541700D745E1 /* SandboxFolderType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SandboxFolderType.h; sourceTree = "<group>"; };
-		EFF9FD53210C5A3400D745E1 /* DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
-		EFF9FD54210C5A3400D745E1 /* DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
-		EFF9FD56210C788200D745E1 /* PersistentSourceType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PersistentSourceType.h; sourceTree = "<group>"; };
-		EFF9FD5A210C813100D745E1 /* FeedViewController+DataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+DataManager.h"; sourceTree = "<group>"; };
-		EFF9FD5B210C813100D745E1 /* FeedViewController+DataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+DataManager.m"; sourceTree = "<group>"; };
-		EFF9FD5E210C8AF000D745E1 /* DataManager+Preparing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+Preparing.h"; sourceTree = "<group>"; };
-		EFF9FD5F210C8AF000D745E1 /* DataManager+Preparing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Preparing.m"; sourceTree = "<group>"; };
-		EFF9FD61210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+XMLParserServiceDelegate.h"; sourceTree = "<group>"; };
-		EFF9FD62210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+XMLParserServiceDelegate.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,12 +172,12 @@
 				DA26C5FD21075A8900244984 /* FeedViewController+Constraints.m */,
 				EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */,
 				EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */,
-				EFF9FD5A210C813100D745E1 /* FeedViewController+DataManager.h */,
-				EFF9FD5B210C813100D745E1 /* FeedViewController+DataManager.m */,
-				EFD91BEC210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.h */,
-				EFD91BED210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m */,
-				EFD91BEF210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.h */,
-				EFD91BF0210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.m */,
+				DA6ED5F0210EF376008FBCA9 /* FeedViewController+ContentViewControllerDelegate.h */,
+				DA6ED5F1210EF376008FBCA9 /* FeedViewController+ContentViewControllerDelegate.m */,
+				DA6ED5EF210EF376008FBCA9 /* FeedViewController+DataManager.h */,
+				DA6ED5F2210EF376008FBCA9 /* FeedViewController+DataManager.m */,
+				DA6ED5F3210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.h */,
+				DA6ED5F4210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.m */,
 			);
 			path = FeedViewController;
 			sourceTree = "<group>";
@@ -191,6 +191,30 @@
 				DA14981B210B039600A4B20D /* ContentViewController+Constraints.m */,
 			);
 			path = ContentViewController;
+			sourceTree = "<group>";
+		};
+		DA6ED5F8210EF38D008FBCA9 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA6ED5FA210EF38D008FBCA9 /* DataManager.h */,
+				DA6ED5FD210EF38D008FBCA9 /* DataManager.m */,
+				DA6ED5FE210EF38D008FBCA9 /* DataManager+Preparing.h */,
+				DA6ED5F9210EF38D008FBCA9 /* DataManager+Preparing.m */,
+				DA6ED5FC210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.h */,
+				DA6ED5FF210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.m */,
+				DA6ED600210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.h */,
+				DA6ED5FB210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.m */,
+			);
+			path = DataManager;
+			sourceTree = "<group>";
+		};
+		DA6ED605210EF3A6008FBCA9 /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DA6ED606210EF3A6008FBCA9 /* SettingsViewController.m */,
+				DA6ED607210EF3A6008FBCA9 /* SettingsViewController.h */,
+			);
+			path = SettingsViewController;
 			sourceTree = "<group>";
 		};
 		DA8793FD2105E3660033F7CD = {
@@ -261,9 +285,9 @@
 		DA87942E2106116C0033F7CD /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				DA6ED5EE210EF2A8008FBCA9 /* PersistentSourceType.h */,
+				DA6ED5ED210EF2A8008FBCA9 /* SandboxFolderType.h */,
 				DA87942F210612220033F7CD /* SourceType.h */,
-				EFF9FD52210C541700D745E1 /* SandboxFolderType.h */,
-				EFF9FD56210C788200D745E1 /* PersistentSourceType.h */,
 				DA95A3CD2108B5EE0007F078 /* DateFormatter.h */,
 				DA95A3CE2108B5EE0007F078 /* DateFormatter.m */,
 			);
@@ -294,7 +318,7 @@
 		DA87943521061D0D0033F7CD /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EFD91BE8210CF073006C2AC5 /* SettingsViewController */,
+				DA6ED605210EF3A6008FBCA9 /* SettingsViewController */,
 				DA95A3C3210876680007F078 /* SplitViewController */,
 				DA26C5F2210755C200244984 /* FeedViewController */,
 				DA26C60221075E8700244984 /* ContentViewController */,
@@ -373,7 +397,7 @@
 				DA14981E210B06ED00A4B20D /* DownloadManager.m */,
 				DA149823210B2AFB00A4B20D /* FileManager.h */,
 				DA149824210B2AFB00A4B20D /* FileManager.m */,
-				EFF9FD5D210C8AD900D745E1 /* DataManager */,
+				DA6ED5F8210EF38D008FBCA9 /* DataManager */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -409,30 +433,6 @@
 			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
-		EFD91BE8210CF073006C2AC5 /* SettingsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				EFD91BE9210CF0A6006C2AC5 /* SettingsViewController.h */,
-				EFD91BEA210CF0A6006C2AC5 /* SettingsViewController.m */,
-			);
-			path = SettingsViewController;
-			sourceTree = "<group>";
-		};
-		EFF9FD5D210C8AD900D745E1 /* DataManager */ = {
-			isa = PBXGroup;
-			children = (
-				EFF9FD53210C5A3400D745E1 /* DataManager.h */,
-				EFF9FD54210C5A3400D745E1 /* DataManager.m */,
-				EFF9FD5E210C8AF000D745E1 /* DataManager+Preparing.h */,
-				EFF9FD5F210C8AF000D745E1 /* DataManager+Preparing.m */,
-				EFF9FD61210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.h */,
-				EFF9FD62210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.m */,
-				EF936484210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.h */,
-				EF936485210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m */,
-			);
-			path = DataManager;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -464,11 +464,6 @@
 				TargetAttributes = {
 					DA8794052105E3660033F7CD = {
 						CreatedOnToolsVersion = 9.4.1;
-						SystemCapabilities = {
-							com.apple.BackgroundModes = {
-								enabled = 1;
-							};
-						};
 					};
 				};
 			};
@@ -507,11 +502,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFF9FD63210C8BAD00D745E1 /* DataManager+XMLParserServiceDelegate.m in Sources */,
-				EFD91BEE210D0F6B006C2AC5 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */,
 				DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */,
 				DA149815210B034600A4B20D /* VideoDetailView.m in Sources */,
-				EFD91BF1210DBAC3006C2AC5 /* FeedViewController+ContentViewControllerDelegate.m in Sources */,
+				DA6ED604210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.m in Sources */,
 				DA1007502109D04700A33EB8 /* CoreDataManager.m in Sources */,
 				DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */,
 				DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */,
@@ -520,24 +513,24 @@
 				DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */,
 				DA1007452109CE7300A33EB8 /* SplitViewController.m in Sources */,
 				DA1007462109CE7300A33EB8 /* FeedViewController.m in Sources */,
-				EFD91BEB210CF0A6006C2AC5 /* SettingsViewController.m in Sources */,
-				EFF9FD60210C8AF000D745E1 /* DataManager+Preparing.m in Sources */,
+				DA6ED601210EF38D008FBCA9 /* DataManager+Preparing.m in Sources */,
 				DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */,
 				DA149814210B034600A4B20D /* HeaderView.m in Sources */,
 				DA1007492109CE7300A33EB8 /* FeedViewController+CollectionView.m in Sources */,
+				DA6ED5F5210EF377008FBCA9 /* FeedViewController+ContentViewControllerDelegate.m in Sources */,
 				DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */,
 				DA10074A2109CE7300A33EB8 /* ContentViewController.m in Sources */,
-				EFF9FD55210C5A3400D745E1 /* DataManager.m in Sources */,
+				DA6ED603210EF38D008FBCA9 /* DataManager.m in Sources */,
 				DA10074B2109CE7300A33EB8 /* AppDelegate.m in Sources */,
 				DA149816210B034600A4B20D /* AudioHeaderView.m in Sources */,
 				DA10074C2109CE7300A33EB8 /* main.m in Sources */,
-				EFF9FD5C210C813100D745E1 /* FeedViewController+DataManager.m in Sources */,
 				DA149819210B035700A4B20D /* EntitiesConstants.m in Sources */,
 				DA1007432109CE5E00A33EB8 /* MP3CollectionViewCell.m in Sources */,
+				DA6ED602210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.m in Sources */,
 				DA1007422109CE5700A33EB8 /* VSCollectionViewCell.m in Sources */,
 				DA1007412109CE5000A33EB8 /* Item.m in Sources */,
+				DA6ED608210EF3A6008FBCA9 /* SettingsViewController.m in Sources */,
 				DA1007402109CE4B00A33EB8 /* ImageContent.m in Sources */,
-				EF936486210E50CB00B8EE40 /* DataManager+DownloadManagerDelegate.m in Sources */,
 				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
 				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
 				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,
@@ -546,6 +539,8 @@
 				DA1007392109CE1500A33EB8 /* Constants.m in Sources */,
 				DA149825210B2AFB00A4B20D /* FileManager.m in Sources */,
 				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,
+				DA6ED5F6210EF377008FBCA9 /* FeedViewController+DataManager.m in Sources */,
+				DA6ED5F7210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */,
 				DA14981F210B06ED00A4B20D /* DownloadManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -679,7 +674,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5M3HNT6J9D;
 				INFOPLIST_FILE = Podcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -696,7 +690,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5M3HNT6J9D;
 				INFOPLIST_FILE = Podcaster/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

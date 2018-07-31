@@ -8,15 +8,56 @@
 
 #import "ContentViewController+Constraints.h"
 #import "ContentViewController.h"
-#import "DateFormatter.h"
 
 @implementation ContentViewController (Constraints)
 
 - (void)setupViews {
-    self.authorLabel.text = self.item.author;
-    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [DateFormatter getStringFromDate:self.item.pubDate byFormat:@"dd MMM yyyy"]];
-    self.detailsLabel.text = self.item.details;
+    //scrollView
+    self.scrollView = [[UIScrollView alloc] init];
+    self.scrollView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.scrollView.alwaysBounceVertical = YES;
     
+    //contentView
+    self.contentView = [[UIView alloc] init];
+    self.contentView.backgroundColor = UIColor.redColor;
+    self.contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //authorLabel
+    self.authorLabel = [[UILabel alloc] init];
+    self.authorLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightSemibold];
+    self.authorLabel.textColor = [UIColor darkGrayColorVS];
+    self.authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //pubDateAndDurationLabel
+    self.pubDateAndDurationLabel = [[UILabel alloc] init];
+    self.pubDateAndDurationLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
+    self.pubDateAndDurationLabel.textColor = [UIColor lightGrayColorVS];
+    self.pubDateAndDurationLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //detailsLabel
+    self.detailsLabel = [[UILabel alloc] init];
+    self.detailsLabel.font = [UIFont systemFontOfSize:kFontSizeHeavy weight:UIFontWeightRegular];
+    self.detailsLabel.textColor = [UIColor darkTextColor];
+    self.detailsLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.detailsLabel.numberOfLines = 0;
+    
+    //downloadButton
+    self.downloadButton = [[UIButton alloc] init];
+    [self.downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
+    self.downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.downloadButton addTarget:self action:@selector(downloadItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    //removeButton
+    self.removeButton = [[UIButton alloc] init];
+    [self.removeButton setImage:[UIImage imageNamed:@"RemoveIcon"] forState:UIControlStateNormal];
+    self.removeButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.removeButton addTarget:self action:@selector(removeItem) forControlEvents:UIControlEventTouchUpInside];
+    
+    
+    [self setupConstraints];
+}
+
+- (void)setupConstraints {
     [self.view addSubview:self.scrollView];
     [self.scrollView addSubview:self.contentView];
     
@@ -33,7 +74,6 @@
     self.removeButton.hidden = self.item.persistentSourceType == kRemote ? YES : NO;
     
     [self.scrollView addSubview:self.headerView];
-    self.headerView.titleLabel.text = self.item.title;
     self.headerView.translatesAutoresizingMaskIntoConstraints = NO;
 
     self.infoStackView = [[UIStackView alloc] init];

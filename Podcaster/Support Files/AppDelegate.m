@@ -12,7 +12,7 @@
 
 @interface AppDelegate ()
 
-@property (nonatomic, copy) void(^backgroundTransferCompletionHandler)();
+@property (nonatomic, copy) void(^backgroundTransferCompletionHandler)(void);
 
 - (void)setDefaultValuesForUserDefaultsIfNeeded;
 

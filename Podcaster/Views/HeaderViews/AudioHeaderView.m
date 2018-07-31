@@ -10,9 +10,15 @@
 
 @implementation AudioHeaderView
 
+#pragma mark - Methods
+
 - (void)setupViews {
+    [super setupViews];
     self.titleLabel.font = [UIFont systemFontOfSize:kFontSizeHugeSemiheavy weight:UIFontWeightBold];
     self.imageView.image = [UIImage imageNamed:kMP3ItemImagePlaceholder];
+}
+
+- (void)setupContraints {
     [self addSubview:self.imageView];
     [self addSubview:self.titleLabel];
     [self addSubview:self.playButton];
@@ -29,7 +35,6 @@
                                                [self.playButton.heightAnchor constraintEqualToAnchor:self.playButton.widthAnchor],
                                                [self.playButton.bottomAnchor constraintEqualToAnchor:self.imageView.bottomAnchor constant:-5.0],
                                                [self.playButton.trailingAnchor constraintEqualToAnchor:self.imageView.trailingAnchor constant:-5.0]]];
-    [self.titleLabel sizeToFit];
 }
 
 @end

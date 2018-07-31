@@ -11,5 +11,6 @@
 @interface FeedViewController (Constraints)
 
 - (void)setupViews;
+- (void)setupConstraints;
 
 @end

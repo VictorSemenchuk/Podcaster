@@ -7,10 +7,37 @@
 //
 
 #import "FeedViewController+Constraints.h"
+#import "FeedViewController+CollectionView.h"
 
 @implementation FeedViewController (Constraints)
 
 - (void)setupViews {
+    //rightBarButtonItem
+    UIBarButtonItem *rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"SettingIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(presentSettingsViewController)];
+    rightBarButtonItem.tintColor = UIColor.themeColor;
+    self.navigationItem.rightBarButtonItem = rightBarButtonItem;
+    
+    //collectionView
+    UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+    self.collectionView.translatesAutoresizingMaskIntoConstraints = NO;
+    self.collectionView.backgroundColor = [UIColor collectionViewBGColorVS];
+    self.collectionView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0);
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.collectionView registerClass:MP3CollectionViewCell.class forCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier];
+    [self.collectionView registerClass:TEDCollectionViewCell.class forCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier];
+    
+    //activityIndicator
+    self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityIndicator.hidesWhenStopped = YES;
+    self.activityIndicator.color = UIColor.themeColor;
+    self.activityIndicator.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self setupConstraints];
+}
+
+- (void)setupConstraints {
     self.navigationItem.title = @"Feed";
     
     [self.view addSubview:self.collectionView];

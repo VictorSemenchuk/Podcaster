@@ -14,6 +14,7 @@
 #import "ItemCoreDataService.h"
 #import "DataManager.h"
 #import <AVKit/AVKit.h>
+#import "DateFormatter.h"
 
 @interface ContentViewController () <DataManagerSavingDelegate>
 
@@ -30,7 +31,7 @@
     self.navigationController.navigationBar.tintColor = UIColor.themeColor;
     if (self.item) {
         [self setupViews];
-        [self fetchImage];
+        [self setValues];
         [self.headerView.playButton addTarget:self action:@selector(startPlaying) forControlEvents:UIControlEventTouchUpInside];
     }
 }
@@ -44,78 +45,6 @@
     }
 }
 
-#pragma mark - Lazy init properties
-
-- (UIScrollView *)scrollView {
-    if (!_scrollView) {
-        _scrollView = [[UIScrollView alloc] init];
-        _scrollView.translatesAutoresizingMaskIntoConstraints = NO;
-        _scrollView.alwaysBounceVertical = YES;
-    }
-    return _scrollView;
-}
-
-- (UIView *)contentView {
-    if (!_contentView) {
-        _contentView = [[UIView alloc] init];
-        _contentView.backgroundColor = UIColor.redColor;
-        _contentView.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _contentView;
-}
-
-- (UILabel *)authorLabel {
-    if (!_authorLabel) {
-        _authorLabel = [[UILabel alloc] init];
-        _authorLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightSemibold];
-        _authorLabel.textColor = [UIColor darkGrayColorVS];
-        _authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _authorLabel;
-}
-
-- (UILabel *)pubDateAndDurationLabel {
-    if (!_pubDateAndDurationLabel) {
-        _pubDateAndDurationLabel = [[UILabel alloc] init];
-        _pubDateAndDurationLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
-        _pubDateAndDurationLabel.textColor = [UIColor lightGrayColorVS];
-        _pubDateAndDurationLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _pubDateAndDurationLabel;
-}
-
-- (UILabel *)detailsLabel {
-    if (!_detailsLabel) {
-        _detailsLabel = [[UILabel alloc] init];
-        _detailsLabel.font = [UIFont systemFontOfSize:kFontSizeHeavy weight:UIFontWeightRegular];
-        _detailsLabel.textColor = [UIColor darkTextColor];
-        _detailsLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        _detailsLabel.numberOfLines = 0;
-    }
-    return _detailsLabel;
-}
-
-- (UIButton *)downloadButton {
-    if (!_downloadButton) {
-        _downloadButton = [[UIButton alloc] init];
-        [_downloadButton setImage:[UIImage imageNamed:@"DownloadIcon"] forState:UIControlStateNormal];
-        _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_downloadButton addTarget:self action:@selector(downloadItem) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _downloadButton;
-}
-
-- (UIButton *)removeButton {
-    if (!_removeButton) {
-        _removeButton = [[UIButton alloc] init];
-        [_removeButton setImage:[UIImage imageNamed:@"RemoveIcon"] forState:UIControlStateNormal];
-        _removeButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_removeButton addTarget:self action:@selector(removeItem) forControlEvents:UIControlEventTouchUpInside];
-    }
-    return _removeButton;
-}
-
-
 #pragma mark - Methods
 
 - (void)fetchImage {
@@ -127,6 +56,14 @@
         FileManager *fileManager = [FileManager sharedFileManager];
         self.headerView.imageView.image = [fileManager getImageFromPath:self.item.image.localFullUrl withSandboxFolderType:kDocuments];
     }
+}
+
+- (void)setValues {
+    self.authorLabel.text = self.item.author;
+    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [DateFormatter getStringFromDate:self.item.pubDate byFormat:@"dd MMM yyyy"]];
+    self.detailsLabel.text = self.item.details;
+    self.headerView.titleLabel.text = self.item.title;
+    [self fetchImage];
 }
 
 #pragma mark - Target methods

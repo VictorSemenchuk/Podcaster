@@ -11,5 +11,6 @@
 @interface ContentViewController (Constraints)
 
 - (void)setupViews;
+- (void)setupConstraints;
 
 @end

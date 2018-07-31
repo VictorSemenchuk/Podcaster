@@ -10,42 +10,31 @@
 
 @implementation HeaderView
 
-#pragma mark - Lazy init properties
-
-- (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHugeHeavy weight:UIFontWeightBold];
-        _titleLabel.textColor = [UIColor darkGrayColorVS];
-        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        _titleLabel.numberOfLines = 0;
-        
-    }
-    return _titleLabel;
-}
-
-- (UIImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc] init];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
-        _imageView.layer.cornerRadius = 3.0;
-        _imageView.clipsToBounds = YES;
-        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _imageView;
-}
-
-- (UIButton *)playButton {
-    if (!_playButton) {
-        _playButton = [[UIButton alloc] init];
-        _playButton.translatesAutoresizingMaskIntoConstraints = NO;
-        [_playButton setImage:[UIImage imageNamed:@"play-button"] forState:UIControlStateNormal];
-    }
-    return _playButton;
-}
-
 #pragma mark - Methods
 
-- (void)setupViews {}
+- (void)setupViews {
+    //titleLabel
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.font = [UIFont systemFontOfSize:kFontSizeHugeHeavy weight:UIFontWeightBold];
+    self.titleLabel.textColor = [UIColor darkGrayColorVS];
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.numberOfLines = 0;
+    
+    //imageView
+    self.imageView = [[UIImageView alloc] init];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageView.layer.cornerRadius = 3.0;
+    self.imageView.clipsToBounds = YES;
+    self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //playButton
+    self.playButton = [[UIButton alloc] init];
+    self.playButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.playButton setImage:[UIImage imageNamed:@"play-button"] forState:UIControlStateNormal];
+    
+    [self setupContraints];
+}
+
+- (void)setupContraints {}
 
 @end

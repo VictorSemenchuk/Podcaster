@@ -10,6 +10,7 @@
 #import "Constants.h"
 #import "UIColor+CustomColors.h"
 #import "FileManager.h"
+#import "VSCollectionViewCell+Constraints.h"
 
 @implementation MP3CollectionViewCell
 

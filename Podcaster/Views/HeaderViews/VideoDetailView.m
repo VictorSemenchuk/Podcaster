@@ -13,7 +13,11 @@
 #pragma mark - Methods
 
 - (void)setupViews {
+    [super setupViews];
     self.imageView.image = [UIImage imageNamed:kTEDItemImagePlaceholderHuge];
+}
+
+- (void)setupContraints {
     [self addSubview:self.imageView];
     [self addSubview:self.titleLabel];
     [self addSubview:self.playButton];

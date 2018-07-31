@@ -8,6 +8,7 @@
 
 #import "TEDCollectionViewCell.h"
 #import "FileManager.h"
+#import "VSCollectionViewCell+Constraints.h"
 
 @implementation TEDCollectionViewCell
 

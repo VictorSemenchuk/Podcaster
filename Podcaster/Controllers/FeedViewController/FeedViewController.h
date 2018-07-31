@@ -13,13 +13,17 @@
 #import "Item.h"
 #import "DataManager.h"
 #import "SettingsViewController.h"
+#import "UIColor+CustomColors.h"
+#import "MP3CollectionViewCell.h"
+#import "TEDCollectionViewCell.h"
 
 @interface FeedViewController : UIViewController
 
 @property (nonatomic) NSArray *items;
 @property (nonatomic) DataManager *dataManager;
-
 @property (nonatomic) UICollectionView *collectionView;
 @property (nonatomic) UIActivityIndicatorView *activityIndicator;
+
+- (void)presentSettingsViewController;
 
 @end

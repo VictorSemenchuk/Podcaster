@@ -1,105 +1,62 @@
 //
-//  VSCollectionViewCell.m
+//  VSCollectionViewCell+Constraints.m
 //  Podcaster
 //
-//  Created by Viktar Semianchuk on 7/25/18.
+//  Created by Victor Macintosh on 31/07/2018.
 //  Copyright © 2018 Viktar Semianchuk. All rights reserved.
 //
 
-#import "VSCollectionViewCell.h"
-#import "DataManager.h"
-#import "DateFormatter.h"
-#import "UIColor+CustomColors.h"
+#import "VSCollectionViewCell+Constraints.h"
 
-@implementation VSCollectionViewCell
-
-- (instancetype)initWithFrame:(CGRect)frame {
-    self = [super initWithFrame:frame];
-    if (self) {
-        [self setupViews];
-    }
-    return self;
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder {
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        [self setupViews];
-    }
-    return self;
-}
-
-#pragma mark - Lazy init properties
-
-- (UILabel *)titleLabel {
-    if (!_titleLabel) {
-        _titleLabel = [[UILabel alloc] init];
-        _titleLabel.font = [UIFont systemFontOfSize:kFontSizeHuge weight:UIFontWeightBold];
-        _titleLabel.textColor = [UIColor darkGrayColorVS];
-        _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        _titleLabel.numberOfLines = 0;
-    }
-    return _titleLabel;
-}
-
-- (UILabel *)authorLabel {
-    if (!_authorLabel) {
-        _authorLabel = [[UILabel alloc] init];
-        _authorLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightSemibold];
-        _authorLabel.textColor = [UIColor darkGrayColorVS];
-        _authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _authorLabel;
-}
-
-- (UILabel *)pubDateAndDurationLabel {
-    if (!_pubDateAndDurationLabel) {
-        _pubDateAndDurationLabel = [[UILabel alloc] init];
-        _pubDateAndDurationLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
-        _pubDateAndDurationLabel.textColor = [UIColor lightGrayColorVS];
-        _pubDateAndDurationLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _pubDateAndDurationLabel;
-}
-
-- (UIImageView *)imageView {
-    if (!_imageView) {
-        _imageView = [[UIImageView alloc] init];
-        _imageView.contentMode = UIViewContentModeScaleAspectFit;
-        _imageView.layer.cornerRadius = 3.0;
-        _imageView.clipsToBounds = YES;
-        _imageView.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _imageView;
-}
-
-- (UIButton *)downloadButton {
-    if (!_downloadButton) {
-        UIImage *image = [UIImage imageNamed:@"DownloadedIcon"];
-        image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        _downloadButton = [[UIButton alloc] init];
-        [_downloadButton setImage:image forState:UIControlStateNormal];
-        _downloadButton.tintColor = [UIColor themeColor];
-        _downloadButton.hidden = YES;
-        _downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _downloadButton;
-}
-
-- (UIView *)separatorView {
-    if (!_separatorView) {
-        _separatorView = [[UIView alloc] init];
-        _separatorView.backgroundColor = UIColor.separatorColor;
-        _separatorView.translatesAutoresizingMaskIntoConstraints = NO;
-    }
-    return _separatorView;
-}
-
-#pragma mark - Methods
+@implementation VSCollectionViewCell (Constraints)
 
 - (void)setupViews {
     self.backgroundColor = UIColor.whiteColor;
     
+    //titleLabel
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.font = [UIFont systemFontOfSize:kFontSizeHuge weight:UIFontWeightBold];
+    self.titleLabel.textColor = [UIColor darkGrayColorVS];
+    self.titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    self.titleLabel.numberOfLines = 0;
+    
+    //authorLabel
+    self.authorLabel = [[UILabel alloc] init];
+    self.authorLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightSemibold];
+    self.authorLabel.textColor = [UIColor darkGrayColorVS];
+    self.authorLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //pubDateAndDurationLabel
+    self.pubDateAndDurationLabel = [[UILabel alloc] init];
+    self.pubDateAndDurationLabel.font = [UIFont systemFontOfSize:kFontSizeRegular weight:UIFontWeightRegular];
+    self.pubDateAndDurationLabel.textColor = [UIColor lightGrayColorVS];
+    self.pubDateAndDurationLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //imageView
+    self.imageView = [[UIImageView alloc] init];
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    self.imageView.layer.cornerRadius = 3.0;
+    self.imageView.clipsToBounds = YES;
+    self.imageView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //downloadButton
+    UIImage *image = [UIImage imageNamed:@"DownloadedIcon"];
+    image = [image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.downloadButton = [[UIButton alloc] init];
+    [self.downloadButton setImage:image forState:UIControlStateNormal];
+    self.downloadButton.tintColor = [UIColor themeColor];
+    self.downloadButton.hidden = YES;
+    self.downloadButton.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //separatorView
+    self.separatorView = [[UIView alloc] init];
+    self.separatorView.backgroundColor = UIColor.separatorColor;
+    self.separatorView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [self setupConstraints];
+}
+
+- (void)setupConstraints {
     UIView *headerView = [[UIView alloc] init];
     headerView.translatesAutoresizingMaskIntoConstraints = NO;
     [headerView addSubview:self.titleLabel];
@@ -147,17 +104,6 @@
                                                [self.separatorView.heightAnchor constraintEqualToConstant:1.0],
                                                [self.separatorView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant: -1.0]
                                                ]];
-}
-
-- (void)setValueForItem:(Item *)item {
-    self.titleLabel.text = item.title;
-    self.authorLabel.text = item.author;
-    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [DateFormatter getStringFromDate:item.pubDate byFormat:@"dd MMM yyyy"]];
-    self.downloadButton.hidden = item.persistentSourceType == kCoreData ? NO : YES;
-    
-    [DataManager getPreviewImageForItem:item completionBlock:^(UIImage *image) {
-        self.imageView.image = image;
-    }];
 }
 
 @end

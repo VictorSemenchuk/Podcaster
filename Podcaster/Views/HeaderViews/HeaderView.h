@@ -17,5 +17,6 @@
 @property (nonatomic) UIButton *playButton;
 
 - (void)setupViews;
+- (void)setupContraints;
 
 @end

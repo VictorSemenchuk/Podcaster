@@ -12,9 +12,9 @@
 #import "DownloadManager.h"
 #import "FileManager.h"
 #import "ItemCoreDataService.h"
-#import "DataManager.h"
+#import "NSString+Format.h"
 #import <AVKit/AVKit.h>
-#import "DateFormatter.h"
+#import "DataManager.h"
 
 @interface ContentViewController () <DataManagerSavingDelegate>
 
@@ -60,7 +60,7 @@
 
 - (void)setValues {
     self.authorLabel.text = self.item.author;
-    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [DateFormatter getStringFromDate:self.item.pubDate byFormat:@"dd MMM yyyy"]];
+     self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", self.item.duration, [NSString stringWithFormat:@"dd MMM yyyy" fromDate:self.item.pubDate]];
     self.detailsLabel.text = self.item.details;
     self.headerView.titleLabel.text = self.item.title;
     [self fetchImage];

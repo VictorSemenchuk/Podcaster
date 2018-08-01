@@ -47,10 +47,12 @@
 		DA6ED608210EF3A6008FBCA9 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA6ED606210EF3A6008FBCA9 /* SettingsViewController.m */; };
 		DA8794132105E3680033F7CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA8794122105E3680033F7CD /* Assets.xcassets */; };
 		DA8794162105E3680033F7CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8794142105E3680033F7CD /* LaunchScreen.storyboard */; };
+		DAD329802111998B00C85B98 /* NSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3297F2111998B00C85B98 /* NSDate+Format.m */; };
 		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
 		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
 		EFD83A43211089FB004C6545 /* SettingsViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A42211089FB004C6545 /* SettingsViewController+Constraints.m */; };
 		EFD83A4721108F05004C6545 /* VSCollectionViewCell+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A4621108F05004C6545 /* VSCollectionViewCell+Constraints.m */; };
+		EFD83A4A2110952E004C6545 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A492110952E004C6545 /* NSString+Format.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +135,8 @@
 		DA95A3D52108E8DC0007F078 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		DA95A3D82108EA130007F078 /* ItemCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCoreDataService.h; sourceTree = "<group>"; };
 		DA95A3D92108EA130007F078 /* ItemCoreDataService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ItemCoreDataService.m; sourceTree = "<group>"; };
+		DAD3297E2111998B00C85B98 /* NSDate+Format.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+Format.h"; sourceTree = "<group>"; };
+		DAD3297F2111998B00C85B98 /* NSDate+Format.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Format.m"; sourceTree = "<group>"; };
 		DAECE5522109E642004B2849 /* ImageContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContentCoreData.h; sourceTree = "<group>"; };
 		DAECE5532109E642004B2849 /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
@@ -143,6 +147,8 @@
 		EFD83A42211089FB004C6545 /* SettingsViewController+Constraints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "SettingsViewController+Constraints.m"; sourceTree = "<group>"; };
 		EFD83A4521108F05004C6545 /* VSCollectionViewCell+Constraints.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VSCollectionViewCell+Constraints.h"; sourceTree = "<group>"; };
 		EFD83A4621108F05004C6545 /* VSCollectionViewCell+Constraints.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "VSCollectionViewCell+Constraints.m"; sourceTree = "<group>"; };
+		EFD83A482110952E004C6545 /* NSString+Format.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Format.h"; sourceTree = "<group>"; };
+		EFD83A492110952E004C6545 /* NSString+Format.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Format.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +389,10 @@
 				DA95A3C1210866B80007F078 /* UIColor+CustomColors.m */,
 				DA149826210B4DE300A4B20D /* UIImage+Compression.h */,
 				DA149827210B4DE300A4B20D /* UIImage+Compression.m */,
+				EFD83A482110952E004C6545 /* NSString+Format.h */,
+				EFD83A492110952E004C6545 /* NSString+Format.m */,
+				DAD3297E2111998B00C85B98 /* NSDate+Format.h */,
+				DAD3297F2111998B00C85B98 /* NSDate+Format.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -521,6 +531,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFD83A4721108F05004C6545 /* VSCollectionViewCell+Constraints.m in Sources */,
+				EFD83A4A2110952E004C6545 /* NSString+Format.m in Sources */,
 				DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */,
 				DA149815210B034600A4B20D /* VideoDetailView.m in Sources */,
 				DA6ED604210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.m in Sources */,
@@ -528,6 +539,7 @@
 				DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */,
 				DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */,
 				DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */,
+				DAD329802111998B00C85B98 /* NSDate+Format.m in Sources */,
 				DA1007442109CE7300A33EB8 /* TEDCollectionViewCell.m in Sources */,
 				DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */,
 				DA1007452109CE7300A33EB8 /* SplitViewController.m in Sources */,

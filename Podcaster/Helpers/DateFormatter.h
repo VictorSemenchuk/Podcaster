@@ -12,7 +12,6 @@
 
 @property (nonatomic) NSDateFormatter *dateFormatter;
 
-+ (instancetype)sharedDateFormatter;
 + (NSDate *)getDateFromString:(NSString *)string byFormat:(NSString *)format;
 + (NSString *)getStringFromDate:(NSDate *)date byFormat:(NSString *)format;
 

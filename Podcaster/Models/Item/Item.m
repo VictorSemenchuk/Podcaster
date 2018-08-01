@@ -8,7 +8,7 @@
 
 #import "Item.h"
 #import "Constants.h"
-#import "DateFormatter.h"
+#import "NSDate+Format.h"
 #import "ItemCoreData.h"
 #import "FileManager.h"
 #import "Constants.h"
@@ -37,7 +37,7 @@
         _author = dictionary[kItemEntityXMLFieldAuthor];
         _details = dictionary[kItemEntityXMLFieldDetails];
         _duration = dictionary[kItemEntityXMLFieldDuration];
-        _pubDate = [DateFormatter getDateFromString:dictionary[kItemEntityXMLFieldPubDate] byFormat:@"E, dd MMM yyyy HH:mm:ss Z"];
+        _pubDate = [NSDate dateWithFormat:@"E, dd MMM yyyy HH:mm:ss Z" fromString:dictionary[kItemEntityXMLFieldPubDate]];
         
         NSString *imageWebLink = dictionary[kItemEntityXMLFieldImage][@"href"];
         _image = [[ImageContent alloc] initWithWebUrl:imageWebLink localPreviewUrl:[[FileManager sharedFileManager] localFilePathForWebURL:imageWebLink atDirectory:kPreviewImageDirestory withSandboxFolderType:kCaches] andLocalFullUrl:@""];

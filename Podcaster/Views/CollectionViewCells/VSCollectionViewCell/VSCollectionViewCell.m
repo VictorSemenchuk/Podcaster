@@ -8,7 +8,7 @@
 
 #import "VSCollectionViewCell.h"
 #import "DataManager.h"
-#import "DateFormatter.h"
+#import "NSString+Format.h"
 #import "UIColor+CustomColors.h"
 #import "VSCollectionViewCell+Constraints.h"
 
@@ -35,7 +35,7 @@
 - (void)setValueForItem:(Item *)item {
     self.titleLabel.text = item.title;
     self.authorLabel.text = item.author;
-    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [DateFormatter getStringFromDate:item.pubDate byFormat:@"dd MMM yyyy"]];
+    self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [NSString stringWithFormat:@"dd MMM yyyy" fromDate:item.pubDate]];
     self.downloadButton.hidden = item.persistentSourceType == kCoreData ? NO : YES;
     
     [DataManager getPreviewImageForItem:item completionBlock:^(UIImage *image) {

@@ -9,6 +9,10 @@
 #import "DataManager.h"
 #import "DataManager+Preparing.h"
 #import "DataManager+DownloadManagerDelegate.h"
+#import "ItemCoreDataService+Fetching.h"
+#import "ItemCoreDataService+Updating.h"
+#import "ItemCoreDataService+Saving.h"
+#import "ItemCoreDataService+Removing.h"
 
 @interface DataManager ()
 

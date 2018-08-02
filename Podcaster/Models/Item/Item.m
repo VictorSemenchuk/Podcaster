@@ -12,8 +12,11 @@
 #import "ItemCoreData.h"
 #import "FileManager.h"
 #import "Constants.h"
+#import "DataManager.h"
 
 @implementation Item
+
+#pragma mark - Inits
 
 - (instancetype)initWithGUID:(NSString *)guid title:(NSString *)title author:(NSString *)author details:(NSString *)details duration:(NSString *)duration pubData:(NSDate *)pubDate {
     self = [super init];
@@ -71,12 +74,20 @@
     return self;
 }
 
+#pragma mark - Methods
+
 - (NSUInteger)hashFunc {
     return [self.guId hash] ^ [self.title hash] ^ [self.author hash] ^ [self.details hash] ^ [self.duration hash] ^ [self.pubDate hash];
 }
 
 - (NSString *)description {
     return [NSString stringWithFormat:@"GUID: %@,\n title: %@,\n author: %@,\n details: %@,\n duration: %@,\n pubDate: %@,\n sourceType: %d,\n", self.guId, self.title, self.author, self.details, self.duration, self.pubDate, self.sourceType];
+}
+
+- (void)loadPreviewImageWithCompletionBlock:(void (^)(UIImage *))completionBlock {
+    [DataManager getPreviewImageForItem:self completionBlock:^(UIImage *image) {
+        completionBlock(image);
+    }];
 }
 
 @end

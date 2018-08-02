@@ -7,6 +7,7 @@
 //
 
 #import "XMLParser.h"
+#import "DownloadManager.h"
 
 @interface XMLParser () <NSXMLParserDelegate>
 
@@ -40,31 +41,19 @@
 
 - (void)startParsing:(void (^)(NSArray *))completionBlock {
     [self resetResults];
-    NSURL *url = [NSURL URLWithString:self.stringUrl];
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
-    NSURLSessionDownloadTask *task = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        if (error == nil) {
-            NSData *data = [NSData dataWithContentsOfURL:location];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                self.parser = [[NSXMLParser alloc] initWithData:data];
-                self.parser.delegate = self;
-                dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-                dispatch_async(queue, ^{
-                    BOOL flag = [self.parser parse];
-                    if (flag) {
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            completionBlock([self.items copy]);
-                        });
-                    }
+    [DownloadManager downloadXMLFileFormURL:self.stringUrl withCompletionBlock:^(NSData *data) {
+        self.parser = [[NSXMLParser alloc] initWithData:data];
+        self.parser.delegate = self;
+        dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+        dispatch_async(queue, ^{
+            BOOL flag = [self.parser parse];
+            if (flag) {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completionBlock([self.items copy]);
                 });
-            });
-        } else {
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }
-        [session invalidateAndCancel];
+            }
+        });
     }];
-    [task resume];
 }
 
 - (void)resetResults {

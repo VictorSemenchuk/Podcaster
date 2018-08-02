@@ -7,12 +7,13 @@
 //
 
 #import "NSString+Format.h"
-#import "DateFormatter.h"
 
 @implementation NSString (Format)
 
 + (NSString *)stringWithFormat:(NSString *)stringFormat fromDate:(NSDate *)date {
-    return [DateFormatter getStringFromDate:date byFormat:stringFormat];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:stringFormat];
+    return [dateFormatter stringFromDate:date];
 }
 
 @end

@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3C1210866B80007F078 /* UIColor+CustomColors.m */; };
 		DA1007392109CE1500A33EB8 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = DA87943821061D630033F7CD /* Constants.m */; };
-		DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = DA95A3CE2108B5EE0007F078 /* DateFormatter.m */; };
 		DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794322106180E0033F7CD /* XMLParserService.m */; };
 		DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794492106316A0033F7CD /* MediaContent.m */; };
 		DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DA8794282105F43A0033F7CD /* XMLParser.m */; };
@@ -50,6 +49,10 @@
 		DAD329802111998B00C85B98 /* NSDate+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = DAD3297F2111998B00C85B98 /* NSDate+Format.m */; };
 		DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = DAECE5532109E642004B2849 /* ImageContentCoreData.m */; };
 		DAECE5552109ECE3004B2849 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA1007302109CB9100A33EB8 /* Model.xcdatamodeld */; };
+		DAFFF7332112FCCC00E6FE5B /* ItemCoreDataService+Fetching.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7322112FCCC00E6FE5B /* ItemCoreDataService+Fetching.m */; };
+		DAFFF7362113038C00E6FE5B /* ItemCoreDataService+Updating.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7352113038C00E6FE5B /* ItemCoreDataService+Updating.m */; };
+		DAFFF7392113042E00E6FE5B /* ItemCoreDataService+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7382113042E00E6FE5B /* ItemCoreDataService+Saving.m */; };
+		DAFFF73C2113051E00E6FE5B /* ItemCoreDataService+Removing.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF73B2113051E00E6FE5B /* ItemCoreDataService+Removing.m */; };
 		EFD83A43211089FB004C6545 /* SettingsViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A42211089FB004C6545 /* SettingsViewController+Constraints.m */; };
 		EFD83A4721108F05004C6545 /* VSCollectionViewCell+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A4621108F05004C6545 /* VSCollectionViewCell+Constraints.m */; };
 		EFD83A4A2110952E004C6545 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A492110952E004C6545 /* NSString+Format.m */; };
@@ -129,8 +132,6 @@
 		DA95A3C8210882F40007F078 /* TEDCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TEDCollectionViewCell.m; sourceTree = "<group>"; };
 		DA95A3CA210883410007F078 /* VSCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VSCollectionViewCell.h; sourceTree = "<group>"; };
 		DA95A3CB210883410007F078 /* VSCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VSCollectionViewCell.m; sourceTree = "<group>"; };
-		DA95A3CD2108B5EE0007F078 /* DateFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateFormatter.h; sourceTree = "<group>"; };
-		DA95A3CE2108B5EE0007F078 /* DateFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateFormatter.m; sourceTree = "<group>"; };
 		DA95A3D42108E8DC0007F078 /* CoreDataManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CoreDataManager.h; sourceTree = "<group>"; };
 		DA95A3D52108E8DC0007F078 /* CoreDataManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataManager.m; sourceTree = "<group>"; };
 		DA95A3D82108EA130007F078 /* ItemCoreDataService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemCoreDataService.h; sourceTree = "<group>"; };
@@ -139,6 +140,14 @@
 		DAD3297F2111998B00C85B98 /* NSDate+Format.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Format.m"; sourceTree = "<group>"; };
 		DAECE5522109E642004B2849 /* ImageContentCoreData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageContentCoreData.h; sourceTree = "<group>"; };
 		DAECE5532109E642004B2849 /* ImageContentCoreData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageContentCoreData.m; sourceTree = "<group>"; };
+		DAFFF7312112FCCC00E6FE5B /* ItemCoreDataService+Fetching.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItemCoreDataService+Fetching.h"; sourceTree = "<group>"; };
+		DAFFF7322112FCCC00E6FE5B /* ItemCoreDataService+Fetching.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ItemCoreDataService+Fetching.m"; sourceTree = "<group>"; };
+		DAFFF7342113038C00E6FE5B /* ItemCoreDataService+Updating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItemCoreDataService+Updating.h"; sourceTree = "<group>"; };
+		DAFFF7352113038C00E6FE5B /* ItemCoreDataService+Updating.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ItemCoreDataService+Updating.m"; sourceTree = "<group>"; };
+		DAFFF7372113042E00E6FE5B /* ItemCoreDataService+Saving.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItemCoreDataService+Saving.h"; sourceTree = "<group>"; };
+		DAFFF7382113042E00E6FE5B /* ItemCoreDataService+Saving.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ItemCoreDataService+Saving.m"; sourceTree = "<group>"; };
+		DAFFF73A2113051E00E6FE5B /* ItemCoreDataService+Removing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItemCoreDataService+Removing.h"; sourceTree = "<group>"; };
+		DAFFF73B2113051E00E6FE5B /* ItemCoreDataService+Removing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ItemCoreDataService+Removing.m"; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -302,8 +311,6 @@
 				DA6ED5EE210EF2A8008FBCA9 /* PersistentSourceType.h */,
 				DA6ED5ED210EF2A8008FBCA9 /* SandboxFolderType.h */,
 				DA87942F210612220033F7CD /* SourceType.h */,
-				DA95A3CD2108B5EE0007F078 /* DateFormatter.h */,
-				DA95A3CE2108B5EE0007F078 /* DateFormatter.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -425,6 +432,14 @@
 			children = (
 				DA95A3D82108EA130007F078 /* ItemCoreDataService.h */,
 				DA95A3D92108EA130007F078 /* ItemCoreDataService.m */,
+				DAFFF7372113042E00E6FE5B /* ItemCoreDataService+Saving.h */,
+				DAFFF7382113042E00E6FE5B /* ItemCoreDataService+Saving.m */,
+				DAFFF7312112FCCC00E6FE5B /* ItemCoreDataService+Fetching.h */,
+				DAFFF7322112FCCC00E6FE5B /* ItemCoreDataService+Fetching.m */,
+				DAFFF7342113038C00E6FE5B /* ItemCoreDataService+Updating.h */,
+				DAFFF7352113038C00E6FE5B /* ItemCoreDataService+Updating.m */,
+				DAFFF73A2113051E00E6FE5B /* ItemCoreDataService+Removing.h */,
+				DAFFF73B2113051E00E6FE5B /* ItemCoreDataService+Removing.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -539,6 +554,7 @@
 				DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */,
 				DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */,
 				DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */,
+				DAFFF7392113042E00E6FE5B /* ItemCoreDataService+Saving.m in Sources */,
 				DAD329802111998B00C85B98 /* NSDate+Format.m in Sources */,
 				DA1007442109CE7300A33EB8 /* TEDCollectionViewCell.m in Sources */,
 				DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */,
@@ -546,12 +562,14 @@
 				DA1007462109CE7300A33EB8 /* FeedViewController.m in Sources */,
 				EFD83A43211089FB004C6545 /* SettingsViewController+Constraints.m in Sources */,
 				DA6ED601210EF38D008FBCA9 /* DataManager+Preparing.m in Sources */,
+				DAFFF73C2113051E00E6FE5B /* ItemCoreDataService+Removing.m in Sources */,
 				DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */,
 				DA149814210B034600A4B20D /* HeaderView.m in Sources */,
 				DA1007492109CE7300A33EB8 /* FeedViewController+CollectionView.m in Sources */,
 				DA6ED5F5210EF377008FBCA9 /* FeedViewController+ContentViewControllerDelegate.m in Sources */,
 				DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */,
 				DA10074A2109CE7300A33EB8 /* ContentViewController.m in Sources */,
+				DAFFF7362113038C00E6FE5B /* ItemCoreDataService+Updating.m in Sources */,
 				DA6ED603210EF38D008FBCA9 /* DataManager.m in Sources */,
 				DA10074B2109CE7300A33EB8 /* AppDelegate.m in Sources */,
 				DA149816210B034600A4B20D /* AudioHeaderView.m in Sources */,
@@ -566,10 +584,10 @@
 				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
 				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
 				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,
-				DA10073A2109CE1900A33EB8 /* DateFormatter.m in Sources */,
 				DA149828210B4DE300A4B20D /* UIImage+Compression.m in Sources */,
 				DA1007392109CE1500A33EB8 /* Constants.m in Sources */,
 				DA149825210B2AFB00A4B20D /* FileManager.m in Sources */,
+				DAFFF7332112FCCC00E6FE5B /* ItemCoreDataService+Fetching.m in Sources */,
 				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,
 				DA6ED5F6210EF377008FBCA9 /* FeedViewController+DataManager.m in Sources */,
 				DA6ED5F7210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */,

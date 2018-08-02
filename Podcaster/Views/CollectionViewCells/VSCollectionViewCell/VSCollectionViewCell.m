@@ -37,10 +37,8 @@
     self.authorLabel.text = item.author;
     self.pubDateAndDurationLabel.text = [NSString stringWithFormat:@"%@  ᛫  %@", item.duration, [NSString stringWithFormat:@"dd MMM yyyy" fromDate:item.pubDate]];
     self.downloadButton.hidden = item.persistentSourceType == kCoreData ? NO : YES;
-    
-    [DataManager getPreviewImageForItem:item completionBlock:^(UIImage *image) {
-        self.imageView.image = image;
-    }];
 }
+
+
 
 @end

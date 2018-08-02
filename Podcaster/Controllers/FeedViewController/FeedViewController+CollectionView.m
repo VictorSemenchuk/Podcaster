@@ -24,19 +24,21 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     Item *item = self.items[indexPath.row];
+    VSCollectionViewCell *cell;
     switch (item.sourceType) {
         case kMP3: {
-            MP3CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier forIndexPath:indexPath];
-            [cell setValueForItem:item];
-            return cell;
+            cell = (MP3CollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kMP3CollectionViewCellIdentifier forIndexPath:indexPath];
             break;
         }
         case kTED: {
-            TEDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier forIndexPath:indexPath];
-            [cell setValueForItem:item];
-            return cell;
+            cell = (TEDCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:kTEDCollectionViewCellIdentifier forIndexPath:indexPath];
         }
     }
+    [cell setValueForItem:item];
+    [item loadPreviewImageWithCompletionBlock:^(UIImage *image) {
+        cell.imageView.image = image;
+    }];
+    return cell;
 }
 
 #pragma mark - UICollectionViewDelegate/FlowLayout

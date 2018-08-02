@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "SourceType.h"
 #import "ImageContent.h"
 #import "MediaContent.h"
@@ -27,6 +28,8 @@
 @property (nonatomic) ImageContent *image;
 @property (nonatomic) MediaContent *content;
 
+@property (nonatomic) UIImage *itemImage;
+
 @property (assign, nonatomic) PersistentSourceType persistentSourceType;
 @property (nonatomic) NSDictionary *sourceDictionary;
 
@@ -34,5 +37,6 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType;
 - (instancetype)initWithMO:(ItemCoreData *)itemMO;
 - (NSUInteger)hashFunc;
+- (void)loadPreviewImageWithCompletionBlock:(void(^)(UIImage *image))completionBlock;
 
 @end

@@ -21,5 +21,6 @@
 
 + (void)downloadFileForURL:(NSString *)stringUrl withCompletionBlock:(void(^)(NSData *data))completionBlock;
 - (void)downloadFileInBackgroundForURL:(NSString *)stringUrl forItem:(Item *)item;
++ (void)downloadXMLFileFormURL:(NSString *)stringUrl withCompletionBlock:(void(^)(NSData *data))completionBlock;
 
 @end

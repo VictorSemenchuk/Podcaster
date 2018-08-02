@@ -12,16 +12,17 @@
 
 @protocol SettingsViewControllerDelegate <NSObject>
 
-- (void)dismiss;
 - (void)settingsWereChanged;
-- (void)switchedOfflineMode:(UISwitch *)sender;
-- (void)switchedTEDSource:(UISwitch *)sender;
-- (void)switchedMP3Source:(UISwitch *)sender;
 
 @end
 
 @interface SettingsViewController : UIViewController
 
 @property (weak, nonatomic) id<SettingsViewControllerDelegate> delegate;
+
+- (void)dismiss;
+- (void)switchedOfflineMode:(UISwitch *)sender;
+- (void)switchedTEDSource:(UISwitch *)sender;
+- (void)switchedMP3Source:(UISwitch *)sender;
 
 @end

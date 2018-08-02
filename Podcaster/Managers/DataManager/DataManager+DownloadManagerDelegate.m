@@ -7,6 +7,7 @@
 //
 
 #import "DataManager+DownloadManagerDelegate.h"
+#import "ItemCoreDataService+Updating.h"
 
 @implementation DataManager (DownloadManagerDelegate)
 

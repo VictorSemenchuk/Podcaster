@@ -30,6 +30,7 @@
         });
     });
 }
+
 - (void)downloadFileInBackgroundForURL:(NSString *)stringUrl forItem:(Item *)item {
     self.item = item;
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"com.epam.podcasterApp"];
@@ -41,6 +42,24 @@
 - (void)startDownloadingFromUrl:(NSString *)stringUrl {
     NSURLSessionDownloadTask *downloadTask = [self.session downloadTaskWithURL:[NSURL URLWithString:stringUrl]];
     [downloadTask resume];
+}
+
++ (void)downloadXMLFileFormURL:(NSString *)stringUrl withCompletionBlock:(void (^)(NSData *))completionBlock {
+    NSURL *url = [NSURL URLWithString:stringUrl];
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration];
+    NSURLSessionDownloadTask *task = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (error == nil) {
+            NSData *data = [NSData dataWithContentsOfURL:location];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completionBlock(data);
+            });
+        } else {
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }
+        [session invalidateAndCancel];
+    }];
+    [task resume];
 }
 
 #pragma mark - NSURLSessionDelegate

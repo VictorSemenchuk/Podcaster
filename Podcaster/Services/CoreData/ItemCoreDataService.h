@@ -10,6 +10,7 @@
 #import "CoreDataManager.h"
 #import "EntitiesConstants.h"
 #import "Item.h"
+#import "CoreDataManager+Operations.h"
 
 @interface ItemCoreDataService : NSObject
 

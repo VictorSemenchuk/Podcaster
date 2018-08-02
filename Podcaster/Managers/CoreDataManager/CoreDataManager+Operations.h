@@ -1,15 +1,14 @@
 //
-//  CoreDataManager.h
+//  CoreDataManager+Operations.h
 //  Podcaster
 //
-//  Created by Viktar Semianchuk on 7/25/18.
+//  Created by Viktar Semianchuk on 8/2/18.
 //  Copyright © 2018 Viktar Semianchuk. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
-#import <CoreData/CoreData.h>
+#import "CoreDataManager.h"
 
-@interface CoreDataManager : NSObject
+@interface CoreDataManager (Operations)
 
 - (void)addNewInstanceForEntityWithName:(NSString *)entityName withAssigningBlock:(void (^)(NSManagedObject *currentEntity, NSManagedObjectContext *context))assigningBlock;
 - (NSArray *)fetchEntitiesWithName:(NSString *)entityName byPredicate:(NSPredicate *)predicate;

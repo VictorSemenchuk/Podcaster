@@ -12,6 +12,7 @@
 #import "Constants.h"
 #import "DownloadManager.h"
 #import "FileManager.h"
+#import "FileManager+Creating.h"
 #import "EntitiesConstants.h"
 #import "XMLParserService.h"
 #import "ItemCoreDataService.h"
@@ -42,12 +43,6 @@
 @property (weak, nonatomic) id<DataManagerDelegate> delegate;
 @property (nonatomic) id<DataManagerSavingDelegate> savingDelegate;
 
-- (void)fetchData:(id)sender;
-- (void)refetchData;
 - (void)processItems;
-
-+ (void)getPreviewImageForItem:(Item *)item completionBlock:(void(^)(UIImage *image))completionBlock;
-- (void)saveItemToPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock;
-+ (void)removeItemFromPersistent:(Item *)item completionBlock:(void(^)(void))completionBlock;
 
 @end

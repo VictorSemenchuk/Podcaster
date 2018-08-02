@@ -8,13 +8,15 @@
 
 #import "ContentViewController.h"
 #import "UIColor+CustomColors.h"
+#import "UIImage+Getting.h"
 #import "ContentViewController+Constraints.h"
 #import "DownloadManager.h"
 #import "FileManager.h"
 #import "ItemCoreDataService.h"
 #import "NSString+Format.h"
 #import <AVKit/AVKit.h>
-#import "DataManager.h"
+#import "DataManager+Removing.h"
+#import "DataManager+Saving.h"
 
 @interface ContentViewController () <DataManagerSavingDelegate>
 
@@ -53,8 +55,7 @@
             self.headerView.imageView.image = [UIImage imageWithData:data];
         }];
     } else {
-        FileManager *fileManager = [FileManager sharedFileManager];
-        self.headerView.imageView.image = [fileManager getImageFromPath:self.item.image.localFullUrl withSandboxFolderType:kDocuments];
+        self.headerView.imageView.image = [UIImage getImageFromPath:self.item.image.localFullUrl withSandboxFolderType:kDocuments];
     }
 }
 

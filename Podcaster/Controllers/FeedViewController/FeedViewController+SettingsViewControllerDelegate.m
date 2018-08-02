@@ -7,6 +7,7 @@
 //
 
 #import "FeedViewController+SettingsViewControllerDelegate.h"
+#import "DataManager+Fetching.h"
 
 @implementation FeedViewController (SettingsViewControllerDelegate)
 

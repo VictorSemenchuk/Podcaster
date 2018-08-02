@@ -12,7 +12,7 @@
 #import "ItemCoreData.h"
 #import "FileManager.h"
 #import "Constants.h"
-#import "DataManager.h"
+#import "DataManager+Fetching.h"
 
 @implementation Item
 

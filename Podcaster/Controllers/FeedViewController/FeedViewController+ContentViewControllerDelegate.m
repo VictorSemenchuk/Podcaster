@@ -7,6 +7,7 @@
 //
 
 #import "FeedViewController+ContentViewControllerDelegate.h"
+#import "DataManager+Fetching.h"
 
 @implementation FeedViewController (ContentViewControllerDelegate)
 

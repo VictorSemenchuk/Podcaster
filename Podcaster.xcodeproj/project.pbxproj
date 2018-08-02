@@ -53,6 +53,14 @@
 		DAFFF7362113038C00E6FE5B /* ItemCoreDataService+Updating.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7352113038C00E6FE5B /* ItemCoreDataService+Updating.m */; };
 		DAFFF7392113042E00E6FE5B /* ItemCoreDataService+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7382113042E00E6FE5B /* ItemCoreDataService+Saving.m */; };
 		DAFFF73C2113051E00E6FE5B /* ItemCoreDataService+Removing.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF73B2113051E00E6FE5B /* ItemCoreDataService+Removing.m */; };
+		DAFFF74021131EA100E6FE5B /* CoreDataManager+Operations.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF73F21131EA100E6FE5B /* CoreDataManager+Operations.m */; };
+		DAFFF74321131F5200E6FE5B /* DownloadManager+NSURLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF74221131F5200E6FE5B /* DownloadManager+NSURLSessionDelegate.m */; };
+		DAFFF7482113202300E6FE5B /* FileManager+Creating.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7472113202300E6FE5B /* FileManager+Creating.m */; };
+		DAFFF74B2113215D00E6FE5B /* FileManager+Removing.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF74A2113215D00E6FE5B /* FileManager+Removing.m */; };
+		DAFFF74E211321BB00E6FE5B /* DataManager+Removing.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF74D211321BB00E6FE5B /* DataManager+Removing.m */; };
+		DAFFF7512113226400E6FE5B /* UIImage+Getting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7502113226400E6FE5B /* UIImage+Getting.m */; };
+		DAFFF7542113249900E6FE5B /* DataManager+Fetching.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7532113249900E6FE5B /* DataManager+Fetching.m */; };
+		DAFFF757211325C900E6FE5B /* DataManager+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF756211325C900E6FE5B /* DataManager+Saving.m */; };
 		EFD83A43211089FB004C6545 /* SettingsViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A42211089FB004C6545 /* SettingsViewController+Constraints.m */; };
 		EFD83A4721108F05004C6545 /* VSCollectionViewCell+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A4621108F05004C6545 /* VSCollectionViewCell+Constraints.m */; };
 		EFD83A4A2110952E004C6545 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A492110952E004C6545 /* NSString+Format.m */; };
@@ -148,6 +156,22 @@
 		DAFFF7382113042E00E6FE5B /* ItemCoreDataService+Saving.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ItemCoreDataService+Saving.m"; sourceTree = "<group>"; };
 		DAFFF73A2113051E00E6FE5B /* ItemCoreDataService+Removing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ItemCoreDataService+Removing.h"; sourceTree = "<group>"; };
 		DAFFF73B2113051E00E6FE5B /* ItemCoreDataService+Removing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ItemCoreDataService+Removing.m"; sourceTree = "<group>"; };
+		DAFFF73E21131EA100E6FE5B /* CoreDataManager+Operations.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CoreDataManager+Operations.h"; sourceTree = "<group>"; };
+		DAFFF73F21131EA100E6FE5B /* CoreDataManager+Operations.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CoreDataManager+Operations.m"; sourceTree = "<group>"; };
+		DAFFF74121131F5200E6FE5B /* DownloadManager+NSURLSessionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DownloadManager+NSURLSessionDelegate.h"; sourceTree = "<group>"; };
+		DAFFF74221131F5200E6FE5B /* DownloadManager+NSURLSessionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DownloadManager+NSURLSessionDelegate.m"; sourceTree = "<group>"; };
+		DAFFF7462113202300E6FE5B /* FileManager+Creating.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileManager+Creating.h"; sourceTree = "<group>"; };
+		DAFFF7472113202300E6FE5B /* FileManager+Creating.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FileManager+Creating.m"; sourceTree = "<group>"; };
+		DAFFF7492113215D00E6FE5B /* FileManager+Removing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FileManager+Removing.h"; sourceTree = "<group>"; };
+		DAFFF74A2113215D00E6FE5B /* FileManager+Removing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FileManager+Removing.m"; sourceTree = "<group>"; };
+		DAFFF74C211321BB00E6FE5B /* DataManager+Removing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+Removing.h"; sourceTree = "<group>"; };
+		DAFFF74D211321BB00E6FE5B /* DataManager+Removing.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Removing.m"; sourceTree = "<group>"; };
+		DAFFF74F2113226400E6FE5B /* UIImage+Getting.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Getting.h"; sourceTree = "<group>"; };
+		DAFFF7502113226400E6FE5B /* UIImage+Getting.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Getting.m"; sourceTree = "<group>"; };
+		DAFFF7522113249900E6FE5B /* DataManager+Fetching.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+Fetching.h"; sourceTree = "<group>"; };
+		DAFFF7532113249900E6FE5B /* DataManager+Fetching.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Fetching.m"; sourceTree = "<group>"; };
+		DAFFF755211325C900E6FE5B /* DataManager+Saving.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+Saving.h"; sourceTree = "<group>"; };
+		DAFFF756211325C900E6FE5B /* DataManager+Saving.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Saving.m"; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -219,8 +243,14 @@
 			children = (
 				DA6ED5FA210EF38D008FBCA9 /* DataManager.h */,
 				DA6ED5FD210EF38D008FBCA9 /* DataManager.m */,
+				DAFFF755211325C900E6FE5B /* DataManager+Saving.h */,
+				DAFFF756211325C900E6FE5B /* DataManager+Saving.m */,
+				DAFFF7522113249900E6FE5B /* DataManager+Fetching.h */,
+				DAFFF7532113249900E6FE5B /* DataManager+Fetching.m */,
 				DA6ED5FE210EF38D008FBCA9 /* DataManager+Preparing.h */,
 				DA6ED5F9210EF38D008FBCA9 /* DataManager+Preparing.m */,
+				DAFFF74C211321BB00E6FE5B /* DataManager+Removing.h */,
+				DAFFF74D211321BB00E6FE5B /* DataManager+Removing.m */,
 				DA6ED5FC210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.h */,
 				DA6ED5FF210EF38D008FBCA9 /* DataManager+XMLParserServiceDelegate.m */,
 				DA6ED600210EF38D008FBCA9 /* DataManager+DownloadManagerDelegate.h */,
@@ -400,6 +430,8 @@
 				EFD83A492110952E004C6545 /* NSString+Format.m */,
 				DAD3297E2111998B00C85B98 /* NSDate+Format.h */,
 				DAD3297F2111998B00C85B98 /* NSDate+Format.m */,
+				DAFFF74F2113226400E6FE5B /* UIImage+Getting.h */,
+				DAFFF7502113226400E6FE5B /* UIImage+Getting.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -416,12 +448,9 @@
 		DA95A3D32108E8B80007F078 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				DA95A3D42108E8DC0007F078 /* CoreDataManager.h */,
-				DA95A3D52108E8DC0007F078 /* CoreDataManager.m */,
-				DA14981D210B06ED00A4B20D /* DownloadManager.h */,
-				DA14981E210B06ED00A4B20D /* DownloadManager.m */,
-				DA149823210B2AFB00A4B20D /* FileManager.h */,
-				DA149824210B2AFB00A4B20D /* FileManager.m */,
+				DAFFF73D21131E3700E6FE5B /* CoreDataManager */,
+				DAFFF74421131F5900E6FE5B /* DownloadManager */,
+				DAFFF74521131FF600E6FE5B /* FileManager */,
 				DA6ED5F8210EF38D008FBCA9 /* DataManager */,
 			);
 			path = Managers;
@@ -442,6 +471,41 @@
 				DAFFF73B2113051E00E6FE5B /* ItemCoreDataService+Removing.m */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DAFFF73D21131E3700E6FE5B /* CoreDataManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA95A3D42108E8DC0007F078 /* CoreDataManager.h */,
+				DA95A3D52108E8DC0007F078 /* CoreDataManager.m */,
+				DAFFF73E21131EA100E6FE5B /* CoreDataManager+Operations.h */,
+				DAFFF73F21131EA100E6FE5B /* CoreDataManager+Operations.m */,
+			);
+			path = CoreDataManager;
+			sourceTree = "<group>";
+		};
+		DAFFF74421131F5900E6FE5B /* DownloadManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA14981D210B06ED00A4B20D /* DownloadManager.h */,
+				DA14981E210B06ED00A4B20D /* DownloadManager.m */,
+				DAFFF74121131F5200E6FE5B /* DownloadManager+NSURLSessionDelegate.h */,
+				DAFFF74221131F5200E6FE5B /* DownloadManager+NSURLSessionDelegate.m */,
+			);
+			path = DownloadManager;
+			sourceTree = "<group>";
+		};
+		DAFFF74521131FF600E6FE5B /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				DA149823210B2AFB00A4B20D /* FileManager.h */,
+				DA149824210B2AFB00A4B20D /* FileManager.m */,
+				DAFFF7462113202300E6FE5B /* FileManager+Creating.h */,
+				DAFFF7472113202300E6FE5B /* FileManager+Creating.m */,
+				DAFFF7492113215D00E6FE5B /* FileManager+Removing.h */,
+				DAFFF74A2113215D00E6FE5B /* FileManager+Removing.m */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 		EFABF1B42107A97600659AEB /* Views */ = {
@@ -554,17 +618,21 @@
 				DA10074D2109CF5700A33EB8 /* ItemCoreDataService.m in Sources */,
 				DA10074E2109CF5700A33EB8 /* MediaContentCoreData.m in Sources */,
 				DA10074F2109CF5700A33EB8 /* ItemCoreData.m in Sources */,
+				DAFFF7512113226400E6FE5B /* UIImage+Getting.m in Sources */,
 				DAFFF7392113042E00E6FE5B /* ItemCoreDataService+Saving.m in Sources */,
 				DAD329802111998B00C85B98 /* NSDate+Format.m in Sources */,
 				DA1007442109CE7300A33EB8 /* TEDCollectionViewCell.m in Sources */,
 				DA14981C210B039600A4B20D /* ContentViewController+Constraints.m in Sources */,
 				DA1007452109CE7300A33EB8 /* SplitViewController.m in Sources */,
+				DAFFF7542113249900E6FE5B /* DataManager+Fetching.m in Sources */,
+				DAFFF7482113202300E6FE5B /* FileManager+Creating.m in Sources */,
 				DA1007462109CE7300A33EB8 /* FeedViewController.m in Sources */,
 				EFD83A43211089FB004C6545 /* SettingsViewController+Constraints.m in Sources */,
 				DA6ED601210EF38D008FBCA9 /* DataManager+Preparing.m in Sources */,
 				DAFFF73C2113051E00E6FE5B /* ItemCoreDataService+Removing.m in Sources */,
 				DA1007482109CE7300A33EB8 /* FeedViewController+Constraints.m in Sources */,
 				DA149814210B034600A4B20D /* HeaderView.m in Sources */,
+				DAFFF74021131EA100E6FE5B /* CoreDataManager+Operations.m in Sources */,
 				DA1007492109CE7300A33EB8 /* FeedViewController+CollectionView.m in Sources */,
 				DA6ED5F5210EF377008FBCA9 /* FeedViewController+ContentViewControllerDelegate.m in Sources */,
 				DAECE5542109E642004B2849 /* ImageContentCoreData.m in Sources */,
@@ -572,6 +640,8 @@
 				DAFFF7362113038C00E6FE5B /* ItemCoreDataService+Updating.m in Sources */,
 				DA6ED603210EF38D008FBCA9 /* DataManager.m in Sources */,
 				DA10074B2109CE7300A33EB8 /* AppDelegate.m in Sources */,
+				DAFFF74B2113215D00E6FE5B /* FileManager+Removing.m in Sources */,
+				DAFFF757211325C900E6FE5B /* DataManager+Saving.m in Sources */,
 				DA149816210B034600A4B20D /* AudioHeaderView.m in Sources */,
 				DA10074C2109CE7300A33EB8 /* main.m in Sources */,
 				DA149819210B035700A4B20D /* EntitiesConstants.m in Sources */,
@@ -581,6 +651,7 @@
 				DA1007412109CE5000A33EB8 /* Item.m in Sources */,
 				DA6ED608210EF3A6008FBCA9 /* SettingsViewController.m in Sources */,
 				DA1007402109CE4B00A33EB8 /* ImageContent.m in Sources */,
+				DAFFF74321131F5200E6FE5B /* DownloadManager+NSURLSessionDelegate.m in Sources */,
 				DA10073E2109CE3300A33EB8 /* XMLParser.m in Sources */,
 				DA10073D2109CE2A00A33EB8 /* MediaContent.m in Sources */,
 				DA10073C2109CE2400A33EB8 /* XMLParserService.m in Sources */,
@@ -589,6 +660,7 @@
 				DA149825210B2AFB00A4B20D /* FileManager.m in Sources */,
 				DAFFF7332112FCCC00E6FE5B /* ItemCoreDataService+Fetching.m in Sources */,
 				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,
+				DAFFF74E211321BB00E6FE5B /* DataManager+Removing.m in Sources */,
 				DA6ED5F6210EF377008FBCA9 /* FeedViewController+DataManager.m in Sources */,
 				DA6ED5F7210EF377008FBCA9 /* FeedViewController+SettingsViewControllerDelegate.m in Sources */,
 				DA14981F210B06ED00A4B20D /* DownloadManager.m in Sources */,

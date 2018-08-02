@@ -30,7 +30,6 @@
         _sourceType = sourceType;
         _tags = tags;
         _rssUrl = rssUrl;
-        _parser = [[XMLParser alloc] initWithTags:tags rssUrl:rssUrl];
     }
     return self;
 }
@@ -38,6 +37,7 @@
 #pragma mark - Methods
 
 - (void)startParsing:(void (^)(NSArray *))completionBlock {
+    _parser = [[XMLParser alloc] initWithTags:self.tags rssUrl:self.rssUrl];
     [self.parser startParsing:^(NSArray *data) {
         NSMutableArray *items = [[NSMutableArray alloc] init];
         for (NSDictionary *item in data) {

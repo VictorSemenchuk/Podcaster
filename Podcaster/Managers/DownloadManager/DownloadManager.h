@@ -15,8 +15,9 @@
 
 @end
 
-@interface DownloadManager : NSObject
+@interface DownloadManager : NSObject <NSURLSessionDelegate>
 
+@property (nonatomic) NSURLSession *session;
 @property (strong, nonatomic) id<DownloadManagerDelegate> delegate;
 
 + (void)downloadFileForURL:(NSString *)stringUrl withCompletionBlock:(void(^)(NSData *data))completionBlock;

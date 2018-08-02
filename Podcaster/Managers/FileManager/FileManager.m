@@ -7,12 +7,11 @@
 //
 
 #import "FileManager.h"
-#import "UIImage+Compression.h"
 #import "Constants.h"
+#import "FileManager+Creating.h"
 
 @interface FileManager ()
 
-@property (nonatomic) NSFileManager *fileManager;
 @property (nonatomic) NSString *cachesDirectory;
 @property (nonatomic) NSString *documentsDirectory;
 
@@ -47,43 +46,7 @@
     return self;
 }
 
-#pragma mark - Creating
-
-- (void)createDirectoryWithPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
-    NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
-    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
-    [self.fileManager createDirectoryAtPath:destinationPath withIntermediateDirectories:YES attributes:nil error:nil];
-}
-
-- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
-    NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
-    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
-    NSLog(@"File destination path: %@", destinationPath);
-    [self.fileManager createFileAtPath:destinationPath contents:data attributes:nil];
-}
-
-- (void)createFileWithData:(NSData *)data atPath:(NSString *)stringPath withCompressionFactor:(float)compressionFactor withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
-    NSData *newImageData = [UIImage imageWithImage:[UIImage imageWithData:data] compressedWithFactor:compressionFactor];
-    [self createFileWithData:newImageData atPath:stringPath withSandboxFolderType:sandboxFolderType];
-}
-
-#pragma mark - Removing
-
-- (void)removeFileFromPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
-     NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
-    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
-    [self.fileManager removeItemAtPath:destinationPath error:nil];
-}
-
-#pragma mark - Getting
-
-- (UIImage *)getImageFromPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
-    NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];
-    NSString *destinationPath = [rootDirectory stringByAppendingString:stringPath];
-    return [UIImage imageWithContentsOfFile:destinationPath];
-}
-
-#pragma mark - Other
+#pragma mark - Methods
 
 - (BOOL)fileIsExistForPath:(NSString *)stringPath withSandboxFolderType:(SandboxFolderType)sandboxFolderType {
     NSString *rootDirectory = [self rootDirectoryForSandboxFolderType:sandboxFolderType];

@@ -9,9 +9,8 @@
 #import "DownloadManager.h"
 #import "DataManager.h"
 
-@interface DownloadManager () <NSURLSessionDelegate>
+@interface DownloadManager ()
 
-@property (nonatomic) NSURLSession *session;
 @property (nonatomic) Item *item;
 
 - (void)startDownloadingFromUrl:(NSString *)stringUrl;
@@ -60,18 +59,6 @@
         [session invalidateAndCancel];
     }];
     [task resume];
-}
-
-#pragma mark - NSURLSessionDelegate
-
--(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
-    NSLog(@"BG LOCATION: %@", location.absoluteString);
-    NSFileManager *nsFileManager = [NSFileManager defaultManager];
-    NSData *data = [NSData dataWithContentsOfFile:location.relativePath];
-    [nsFileManager removeItemAtPath:location.absoluteString error:nil];
-    [self.delegate backgroundTaskDownloadedData:data];
-    self.delegate = nil;
-    [self.session invalidateAndCancel];
 }
 
 @end

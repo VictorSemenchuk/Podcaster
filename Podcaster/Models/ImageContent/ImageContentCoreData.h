@@ -7,11 +7,15 @@
 //
 
 #import <CoreData/CoreData.h>
+#import "ImageContent.h"
+#import "EntitiesConstants.h"
 
 @interface ImageContentCoreData : NSManagedObject
 
 @property (nonatomic) NSString *localPreviewUrl;
 @property (nonatomic) NSString *localFullUrl;
 @property (nonatomic) NSString *webUrl;
+
+- (instancetype)initWithImage:(ImageContent *)image andContext:(NSManagedObjectContext *)context;
 
 @end

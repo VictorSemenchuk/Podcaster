@@ -63,7 +63,7 @@ static NSString * const kModelName = @"Model";
 #pragma mark - Operations
 
 - (void)addNewInstanceForEntityWithName:(NSString *)entityName withAssigningBlock:(void (^)(NSManagedObject *currentEntity, NSManagedObjectContext *context))assigningBlock {
-    NSManagedObject *currentEntity = [NSEntityDescription insertNewObjectForEntityForName:entityName inManagedObjectContext:self.managedObjectContext];
+    NSManagedObject *currentEntity;
     assigningBlock(currentEntity, self.managedObjectContext);
     NSError *error = nil;
     if (![self.managedObjectContext save:&error]) {

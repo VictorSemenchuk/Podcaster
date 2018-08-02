@@ -13,4 +13,11 @@
 @dynamic localUrl;
 @dynamic webUrl;
 
+- (instancetype)initWithContent:(MediaContent *)content andContext:(NSManagedObjectContext *)context {
+    MediaContentCoreData *contentMO = [NSEntityDescription insertNewObjectForEntityForName:kContentEntityTitle inManagedObjectContext:context];
+    [contentMO setValue:content.webUrl forKey:kContentWebLinkAttributeName];
+    [contentMO setValue:content.localUrl forKey:kContentLocalLinkAttributeName];
+    return contentMO;
+}
+
 @end

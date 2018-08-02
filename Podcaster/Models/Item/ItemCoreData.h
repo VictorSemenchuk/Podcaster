@@ -11,6 +11,7 @@
 #import "SourceType.h"
 #import "ImageContentCoreData.h"
 #import "MediaContentCoreData.h"
+#import "Item.h"
 
 @interface ItemCoreData : NSManagedObject
 
@@ -25,5 +26,7 @@
 
 @property (nonatomic) ImageContentCoreData *image;
 @property (nonatomic) MediaContentCoreData *content;
+
+- (instancetype)initWithItem:(Item *)item andContext:(NSManagedObjectContext *)context;
 
 @end

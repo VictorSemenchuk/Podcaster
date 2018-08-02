@@ -18,19 +18,6 @@
 
 #pragma mark - Inits
 
-- (instancetype)initWithGUID:(NSString *)guid title:(NSString *)title author:(NSString *)author details:(NSString *)details duration:(NSString *)duration pubData:(NSDate *)pubDate {
-    self = [super init];
-    if (self) {
-        _guid = guid;
-        _title = title;
-        _author = author;
-        _details = details;
-        _duration = duration;
-        pubDate = pubDate;
-    }
-    return self;
-}
-
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType {
     self = [super init];
     if (self) {

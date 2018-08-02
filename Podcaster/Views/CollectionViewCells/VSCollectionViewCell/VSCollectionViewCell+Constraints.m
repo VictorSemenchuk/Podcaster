@@ -77,33 +77,57 @@
                                                [self.titleLabel.bottomAnchor constraintEqualToAnchor:headerView.bottomAnchor],
                                                ]];
     
-    UIStackView *infoStackView = [[UIStackView alloc] init];
-    infoStackView.axis = UILayoutConstraintAxisVertical;
-    infoStackView.spacing = 3.0;
-    [infoStackView addArrangedSubview:self.authorLabel];
-    [infoStackView addArrangedSubview:self.pubDateAndDurationLabel];
+//    UIStackView *infoStackView = [[UIStackView alloc] init];
+//    infoStackView.axis = UILayoutConstraintAxisVertical;
+//    infoStackView.spacing = 3.0;
+//    [infoStackView addArrangedSubview:self.authorLabel];
+//    [infoStackView addArrangedSubview:self.pubDateAndDurationLabel];
+//
+//    UIStackView *infoControlStackView = [[UIStackView alloc] init];
+//    infoControlStackView.axis = UILayoutConstraintAxisHorizontal;
+//    infoControlStackView.translatesAutoresizingMaskIntoConstraints = NO;
+//    infoControlStackView.distribution = UIStackViewDistributionFill;
+//    [infoControlStackView addArrangedSubview:infoStackView];
+//    [infoControlStackView addArrangedSubview:self.downloadButton];
+//
+//    [self addSubview:infoControlStackView];
+//    [NSLayoutConstraint activateConstraints: @[[infoControlStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
+//                                               [infoControlStackView.topAnchor constraintEqualToAnchor:headerView.bottomAnchor constant:10.0],
+//                                               [infoControlStackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
+//                                               [infoControlStackView.heightAnchor constraintGreaterThanOrEqualToConstant:30.0],
+//                                               [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
+//                                               [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
+//                                               [self.authorLabel.heightAnchor constraintGreaterThanOrEqualToConstant:kFontSizeRegular],
+//                                               [self.pubDateAndDurationLabel.heightAnchor constraintGreaterThanOrEqualToConstant:kFontSizeRegular],
+//                                               [self.separatorView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
+//                                               [self.separatorView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
+//                                               [self.separatorView.heightAnchor constraintEqualToConstant:1.0],
+//                                               [self.separatorView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant: -1.0]
+//                                               ]];
     
-    UIStackView *infoControlStackView = [[UIStackView alloc] init];
-    infoControlStackView.axis = UILayoutConstraintAxisHorizontal;
-    infoControlStackView.translatesAutoresizingMaskIntoConstraints = NO;
-    infoControlStackView.distribution = UIStackViewDistributionFill;
-    [infoControlStackView addArrangedSubview:infoStackView];
-    [infoControlStackView addArrangedSubview:self.downloadButton];
-    
-    [self addSubview:infoControlStackView];
-    [NSLayoutConstraint activateConstraints: @[[infoControlStackView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
-                                               [infoControlStackView.topAnchor constraintEqualToAnchor:headerView.bottomAnchor constant:10.0],
-                                               [infoControlStackView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
-                                               [infoControlStackView.heightAnchor constraintGreaterThanOrEqualToConstant:30.0],
-                                               [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
-                                               [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
-                                               [self.authorLabel.heightAnchor constraintGreaterThanOrEqualToConstant:kFontSizeRegular],
-                                               [self.pubDateAndDurationLabel.heightAnchor constraintGreaterThanOrEqualToConstant:kFontSizeRegular],
-                                               [self.separatorView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
-                                               [self.separatorView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
-                                               [self.separatorView.heightAnchor constraintEqualToConstant:1.0],
-                                               [self.separatorView.bottomAnchor constraintEqualToAnchor:self.bottomAnchor constant: -1.0]
-                                               ]];
+    UIView *infoView = [[UIView alloc] init];
+    infoView.translatesAutoresizingMaskIntoConstraints = NO;
+    [infoView addSubview:self.authorLabel];
+    [infoView addSubview:self.pubDateAndDurationLabel];
+    [self addSubview:infoView];
+    [self addSubview:self.downloadButton];
+    [NSLayoutConstraint activateConstraints:@[[infoView.leadingAnchor constraintEqualToAnchor:self.leadingAnchor constant:kLeftRightPadding],
+                                              [infoView.topAnchor constraintEqualToAnchor:headerView.bottomAnchor constant:10.0],
+                                              [infoView.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
+                                              [infoView.heightAnchor constraintEqualToConstant:30.0],
+                                              [self.authorLabel.leadingAnchor constraintEqualToAnchor:infoView.leadingAnchor],
+                                              [self.authorLabel.topAnchor constraintEqualToAnchor:infoView.topAnchor],
+                                              [self.authorLabel.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor],
+                                              [self.authorLabel.heightAnchor constraintEqualToConstant:kFontSizeRegular],
+                                              [self.pubDateAndDurationLabel.leadingAnchor constraintEqualToAnchor:infoView.leadingAnchor],
+                                              [self.pubDateAndDurationLabel.bottomAnchor constraintEqualToAnchor:infoView.bottomAnchor],
+                                              [self.pubDateAndDurationLabel.trailingAnchor constraintEqualToAnchor:self.downloadButton.leadingAnchor],
+                                              [self.pubDateAndDurationLabel.heightAnchor constraintEqualToConstant:kFontSizeRegular],
+                                              [self.downloadButton.widthAnchor constraintEqualToConstant:25.0],
+                                              [self.downloadButton.heightAnchor constraintEqualToConstant:18.0],
+                                              [self.downloadButton.trailingAnchor constraintEqualToAnchor:self.trailingAnchor constant:-kLeftRightPadding],
+                                              [self.downloadButton.centerYAnchor constraintEqualToAnchor:infoView.centerYAnchor]
+                                              ]];
 }
 
 @end

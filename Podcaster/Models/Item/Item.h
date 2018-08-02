@@ -33,7 +33,6 @@
 @property (assign, nonatomic) PersistentSourceType persistentSourceType;
 @property (nonatomic) NSDictionary *sourceDictionary;
 
-- (instancetype)initWithGUID:(NSString *)guid title:(NSString *)title author:(NSString *)author details:(NSString *)details duration:(NSString *)duration pubData:(NSDate *)pubDate;
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary andSourceType:(SourceType)sourceType;
 - (instancetype)initWithMO:(ItemCoreData *)itemMO;
 - (NSUInteger)hashFunc;

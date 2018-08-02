@@ -14,7 +14,7 @@
 
 - (void)removeItem:(Item *)item {
     CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kItemGUIDAttributeName, item.guId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kItemGUIDAttributeName, item.guid];
     [coreDataManager removeEntityWithName:kItemEntityTitle byPredicate:predicate];
 }
 

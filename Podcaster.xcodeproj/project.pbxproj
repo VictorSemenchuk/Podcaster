@@ -172,6 +172,7 @@
 		DAFFF7532113249900E6FE5B /* DataManager+Fetching.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Fetching.m"; sourceTree = "<group>"; };
 		DAFFF755211325C900E6FE5B /* DataManager+Saving.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+Saving.h"; sourceTree = "<group>"; };
 		DAFFF756211325C900E6FE5B /* DataManager+Saving.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Saving.m"; sourceTree = "<group>"; };
+		DAFFF7582113373F00E6FE5B /* ItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ItemProtocol.h; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -327,6 +328,7 @@
 		DA87942A2106059E0033F7CD /* Item */ = {
 			isa = PBXGroup;
 			children = (
+				DAFFF7582113373F00E6FE5B /* ItemProtocol.h */,
 				DA87942B210605AF0033F7CD /* Item.h */,
 				DA87942C210605AF0033F7CD /* Item.m */,
 				DA8E20122109C704004FA6F9 /* ItemCoreData.h */,

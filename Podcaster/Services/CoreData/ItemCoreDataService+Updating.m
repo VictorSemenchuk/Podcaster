@@ -15,9 +15,9 @@
 
 - (void)updateItemByNewItem:(Item *)item {
     CoreDataManager *coreDataManager = [[CoreDataManager alloc] init];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kItemGUIDAttributeName, item.guId];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K == %@", kItemGUIDAttributeName, item.guid];
     [coreDataManager updateEntityWithName:kItemEntityTitle byPredicate:predicate withUpdatingBlock:^(NSManagedObject *object) {
-        [object setValue:item.guId forKey:kItemGUIDAttributeName];
+        [object setValue:item.guid forKey:kItemGUIDAttributeName];
         [object setValue:item.title forKey:kItemTitleAttributeName];
         [object setValue:item.author forKey:kItemAuthorAttributeName];
         [object setValue:item.details forKey:kItemDetailsAttributeName];
@@ -29,7 +29,7 @@
 
 - (Item *)updateAndGetItemByNewItem:(Item *)item {
     [self updateItemByNewItem:item];
-    Item *newItem = [self fetchItemByKey:kItemGUIDAttributeName withValue:item.guId];
+    Item *newItem = [self fetchItemByKey:kItemGUIDAttributeName withValue:item.guid];
     return newItem;
 }
 

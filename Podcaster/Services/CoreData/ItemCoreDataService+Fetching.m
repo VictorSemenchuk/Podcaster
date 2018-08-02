@@ -32,7 +32,7 @@
     if (results) {
         for (ItemCoreData *itemMO in results) {
             Item *item = [[Item alloc] initWithMO:itemMO];
-            items[item.guId] = item;
+            items[item.guid] = item;
         }
     }
     completionBlock(items);

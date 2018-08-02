@@ -21,7 +21,7 @@
 - (instancetype)initWithGUID:(NSString *)guid title:(NSString *)title author:(NSString *)author details:(NSString *)details duration:(NSString *)duration pubData:(NSDate *)pubDate {
     self = [super init];
     if (self) {
-        _guId = guid;
+        _guid = guid;
         _title = title;
         _author = author;
         _details = details;
@@ -35,7 +35,7 @@
     self = [super init];
     if (self) {
         _sourceType = sourceType;
-        _guId = dictionary[kItemEntityXMLFieldGUID][@"value"];
+        _guid = dictionary[kItemEntityXMLFieldGUID][@"value"];
         _title = dictionary[kItemEntityXMLFieldTitle];
         _author = dictionary[kItemEntityXMLFieldAuthor];
         _details = dictionary[kItemEntityXMLFieldDetails];
@@ -58,7 +58,7 @@
 - (instancetype)initWithMO:(ItemCoreData *)itemMO {
     self = [super init];
     if (self) {
-        _guId = itemMO.guid;
+        _guid = itemMO.guid;
         _title = itemMO.title;
         _author = itemMO.author;
         _details = itemMO.details;
@@ -77,11 +77,11 @@
 #pragma mark - Methods
 
 - (NSUInteger)hashFunc {
-    return [self.guId hash] ^ [self.title hash] ^ [self.author hash] ^ [self.details hash] ^ [self.duration hash] ^ [self.pubDate hash];
+    return [self.guid hash] ^ [self.title hash] ^ [self.author hash] ^ [self.details hash] ^ [self.duration hash] ^ [self.pubDate hash];
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"GUID: %@,\n title: %@,\n author: %@,\n details: %@,\n duration: %@,\n pubDate: %@,\n sourceType: %d,\n", self.guId, self.title, self.author, self.details, self.duration, self.pubDate, self.sourceType];
+    return [NSString stringWithFormat:@"GUID: %@,\n title: %@,\n author: %@,\n details: %@,\n duration: %@,\n pubDate: %@,\n sourceType: %d,\n", self.guid, self.title, self.author, self.details, self.duration, self.pubDate, self.sourceType];
 }
 
 - (void)loadPreviewImageWithCompletionBlock:(void (^)(UIImage *))completionBlock {

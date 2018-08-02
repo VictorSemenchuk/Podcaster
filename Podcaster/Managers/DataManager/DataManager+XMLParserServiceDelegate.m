@@ -23,8 +23,8 @@
             break;
     }
     for (Item *item in loadedItems) {
-        if (self.entitiesCoreDataItems[item.guId]) {
-            [self.items addObject:self.entitiesCoreDataItems[item.guId]];
+        if (self.entitiesCoreDataItems[item.guid]) {
+            [self.items addObject:self.entitiesCoreDataItems[item.guid]];
         } else {
             [self.items addObject:item];
         }

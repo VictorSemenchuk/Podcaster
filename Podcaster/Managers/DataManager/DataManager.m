@@ -64,13 +64,13 @@
 
 - (void)comparationRemoteItems:(NSArray *)remoteItems withLocalItems:(NSMutableDictionary *)localItems {
     for (Item *item in remoteItems) {
-        if ([item.guId isEqualToString:@"f764aa71-4ea4-411d-8634-79bd6313dcf9"]) {
+        if ([item.guid isEqualToString:@"f764aa71-4ea4-411d-8634-79bd6313dcf9"]) {
             NSLog(@"");
         }
-        if (localItems[item.guId]) {
+        if (localItems[item.guid]) {
             Item *currentItem = [self updateLocalItemIfNeededByItem:item];
             [self.items addObject:currentItem];
-            [self.entitiesCoreDataItems removeObjectForKey:currentItem.guId];
+            [self.entitiesCoreDataItems removeObjectForKey:currentItem.guid];
         } else {
             [self.items addObject:item];
         }
@@ -86,7 +86,7 @@
 
 - (Item *)updateLocalItemIfNeededByItem:(Item *)remoteItem {
     Item *returnItem;
-    Item *localItem = self.entitiesCoreDataItems[remoteItem.guId];
+    Item *localItem = self.entitiesCoreDataItems[remoteItem.guid];
     if (localItem.hashSum != remoteItem.hashSum) {
         ItemCoreDataService *coreDataService = [[ItemCoreDataService alloc] init];
         returnItem = [coreDataService updateAndGetItemByNewItem:remoteItem];

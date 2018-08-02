@@ -20,7 +20,7 @@
     [fileManager createFileWithData:data atPath:filePath withSandboxFolderType:kDocuments];
     
     ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
-    [itemCoreDataService updateItemWithGUID:self.item.guId setValue:filePath forKey:@"content.localUrl"];
+    [itemCoreDataService updateItemWithGUID:self.item.guid setValue:filePath forKey:@"content.localUrl"];
     
     [self.savingDelegate wasFinishedBackgroundDownloadingForItem:self.item];
     self.savingDelegate = nil;

@@ -18,5 +18,4 @@
     [self.fileManager removeItemAtPath:destinationPath error:nil];
 }
 
-
 @end

@@ -16,7 +16,7 @@
 @class ItemCoreData;
 @interface Item : NSObject
 
-@property (nonatomic) NSString *guId;
+@property (nonatomic) NSString *guid;
 @property (nonatomic) NSString *title;
 @property (nonatomic) NSString *author;
 @property (nonatomic) NSString *details;

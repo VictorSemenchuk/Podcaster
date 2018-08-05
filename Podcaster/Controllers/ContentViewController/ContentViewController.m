@@ -17,8 +17,9 @@
 #import <AVKit/AVKit.h>
 #import "DataManager+Removing.h"
 #import "DataManager+Saving.h"
+#import "ContentViewController+DataManagerSavingDelegate.h"
 
-@interface ContentViewController () <DataManagerSavingDelegate>
+@interface ContentViewController ()
 
 @end
 
@@ -31,8 +32,8 @@
     self.view.backgroundColor = UIColor.whiteColor;
     self.navigationController.navigationBar.prefersLargeTitles = NO;
     self.navigationController.navigationBar.tintColor = UIColor.themeColor;
+    [self setupViews];
     if (self.item) {
-        [self setupViews];
         [self setValues];
         [self.headerView.playButton addTarget:self action:@selector(startPlaying) forControlEvents:UIControlEventTouchUpInside];
     }
@@ -91,7 +92,6 @@
     [dataManager saveItemToPersistent:self.item completionBlock:^{
         [self.delegate persistentWasChanged];
         self.downloadButton.hidden = YES;
-        self.removeButton.hidden = NO;
     }];
 }
 
@@ -101,13 +101,6 @@
         self.downloadButton.hidden = NO;
         self.removeButton.hidden = YES;
     }];
-}
-
-#pragma mark - DataManagerSavingDelegate
-
-- (void)wasFinishedBackgroundDownloadingForItem:(Item *)item {
-    self.item.content.localUrl = item.content.localUrl;
-    [self.delegate persistentWasChanged];
 }
 
 @end

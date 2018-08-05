@@ -61,6 +61,7 @@
 		DAFFF7512113226400E6FE5B /* UIImage+Getting.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7502113226400E6FE5B /* UIImage+Getting.m */; };
 		DAFFF7542113249900E6FE5B /* DataManager+Fetching.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF7532113249900E6FE5B /* DataManager+Fetching.m */; };
 		DAFFF757211325C900E6FE5B /* DataManager+Saving.m in Sources */ = {isa = PBXBuildFile; fileRef = DAFFF756211325C900E6FE5B /* DataManager+Saving.m */; };
+		EF71F24B211731E700E5F44C /* ContentViewController+DataManagerSavingDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EF71F24A211731E700E5F44C /* ContentViewController+DataManagerSavingDelegate.m */; };
 		EFD83A43211089FB004C6545 /* SettingsViewController+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A42211089FB004C6545 /* SettingsViewController+Constraints.m */; };
 		EFD83A4721108F05004C6545 /* VSCollectionViewCell+Constraints.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A4621108F05004C6545 /* VSCollectionViewCell+Constraints.m */; };
 		EFD83A4A2110952E004C6545 /* NSString+Format.m in Sources */ = {isa = PBXBuildFile; fileRef = EFD83A492110952E004C6545 /* NSString+Format.m */; };
@@ -172,6 +173,8 @@
 		DAFFF7532113249900E6FE5B /* DataManager+Fetching.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Fetching.m"; sourceTree = "<group>"; };
 		DAFFF755211325C900E6FE5B /* DataManager+Saving.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DataManager+Saving.h"; sourceTree = "<group>"; };
 		DAFFF756211325C900E6FE5B /* DataManager+Saving.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "DataManager+Saving.m"; sourceTree = "<group>"; };
+		EF71F249211731E700E5F44C /* ContentViewController+DataManagerSavingDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ContentViewController+DataManagerSavingDelegate.h"; sourceTree = "<group>"; };
+		EF71F24A211731E700E5F44C /* ContentViewController+DataManagerSavingDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "ContentViewController+DataManagerSavingDelegate.m"; sourceTree = "<group>"; };
 		EFABF1B12107A8F100659AEB /* FeedViewController+CollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FeedViewController+CollectionView.h"; sourceTree = "<group>"; };
 		EFABF1B22107A8F100659AEB /* FeedViewController+CollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "FeedViewController+CollectionView.m"; sourceTree = "<group>"; };
 		EFABF1B62107A9CF00659AEB /* MP3CollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MP3CollectionViewCell.h; sourceTree = "<group>"; };
@@ -234,6 +237,8 @@
 				DA26C60021075E8500244984 /* ContentViewController.m */,
 				DA14981A210B039600A4B20D /* ContentViewController+Constraints.h */,
 				DA14981B210B039600A4B20D /* ContentViewController+Constraints.m */,
+				EF71F249211731E700E5F44C /* ContentViewController+DataManagerSavingDelegate.h */,
+				EF71F24A211731E700E5F44C /* ContentViewController+DataManagerSavingDelegate.m */,
 			);
 			path = ContentViewController;
 			sourceTree = "<group>";
@@ -658,6 +663,7 @@
 				DA149828210B4DE300A4B20D /* UIImage+Compression.m in Sources */,
 				DA1007392109CE1500A33EB8 /* Constants.m in Sources */,
 				DA149825210B2AFB00A4B20D /* FileManager.m in Sources */,
+				EF71F24B211731E700E5F44C /* ContentViewController+DataManagerSavingDelegate.m in Sources */,
 				DAFFF7332112FCCC00E6FE5B /* ItemCoreDataService+Fetching.m in Sources */,
 				DA1007382109CE1100A33EB8 /* UIColor+CustomColors.m in Sources */,
 				DAFFF74E211321BB00E6FE5B /* DataManager+Removing.m in Sources */,

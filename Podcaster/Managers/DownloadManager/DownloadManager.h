@@ -12,6 +12,7 @@
 @protocol DownloadManagerDelegate <NSObject>
 
 - (void)backgroundTaskDownloadedData:(NSData *)data;
+- (void)updatedProgessFor:(float)progress;
 
 @end
 

@@ -12,7 +12,7 @@
 
 #pragma mark - NSURLSessionDelegate
 
--(void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didFinishDownloadingToURL:(NSURL *)location {
     NSLog(@"BG LOCATION: %@", location.absoluteString);
     NSFileManager *nsFileManager = [NSFileManager defaultManager];
     NSData *data = [NSData dataWithContentsOfFile:location.relativePath];
@@ -20,6 +20,12 @@
     [self.delegate backgroundTaskDownloadedData:data];
     self.delegate = nil;
     [self.session invalidateAndCancel];
+}
+
+- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask didWriteData:(int64_t)bytesWritten totalBytesWritten:(int64_t)totalBytesWritten totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
+    double value =(double)totalBytesWritten/(double)totalBytesExpectedToWrite;
+    NSLog(@"Downloading progress: %f", value);
+    [self.delegate updatedProgessFor:value];
 }
 
 @end

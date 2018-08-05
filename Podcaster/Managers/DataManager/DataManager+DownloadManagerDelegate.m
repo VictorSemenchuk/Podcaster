@@ -22,8 +22,16 @@
     ItemCoreDataService *itemCoreDataService = [[ItemCoreDataService alloc] init];
     [itemCoreDataService updateItemWithGUID:self.item.guid setValue:filePath forKey:@"content.localUrl"];
     
-    [self.savingDelegate wasFinishedBackgroundDownloadingForItem:self.item];
-    self.savingDelegate = nil;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.savingDelegate wasFinishedBackgroundDownloadingForItem:self.item];
+        self.savingDelegate = nil;
+    });
+}
+
+- (void)updatedProgessFor:(float)progress {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.savingDelegate updatedProgressFor:progress];
+    });
 }
 
 @end

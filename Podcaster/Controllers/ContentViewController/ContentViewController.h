@@ -26,14 +26,16 @@
 @property (nonatomic) Item *item;
 
 @property (nonatomic) UIScrollView *scrollView;
-@property (nonatomic) UIView *contentView;
 @property (nonatomic) UILabel *authorLabel;
 @property (nonatomic) UILabel *pubDateAndDurationLabel;
 @property (nonatomic) UILabel *detailsLabel;
 @property (nonatomic) UIButton *downloadButton;
 @property (nonatomic) UIButton *removeButton;
+@property (nonatomic) UIActivityIndicatorView *activityView;
 @property (nonatomic) HeaderView *headerView;
 @property (nonatomic) UIStackView *infoStackView;
+@property (nonatomic) UIProgressView *progressView;
+@property (nonatomic) UILabel *emptyContent;
 
 - (void)fetchImage;
 - (void)startPlaying;

@@ -27,7 +27,8 @@
 }
 
 + (UIColor *)themeColor {
-    return [UIColor colorWithRed:79.0/255.0 green:230.0/255.0 blue:232.0/255.0 alpha:255.0/255.0];
+    //return [UIColor colorWithRed:79.0/255.0 green:230.0/255.0 blue:232.0/255.0 alpha:255.0/255.0];
+    return [UIColor colorWithRed:80.0/255.0 green:182.0/255.0 blue:210.0/255.0 alpha:255.0/255.0];
 }
 
 @end

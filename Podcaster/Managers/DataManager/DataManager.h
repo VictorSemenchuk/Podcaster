@@ -26,6 +26,7 @@
 @protocol DataManagerSavingDelegate <NSObject>
 
 - (void)wasFinishedBackgroundDownloadingForItem:(Item *)item;
+- (void)updatedProgressFor:(float)progess;
 
 @end
 
